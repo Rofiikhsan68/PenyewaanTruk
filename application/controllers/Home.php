@@ -9,8 +9,4 @@
         public function index(){
             $this->load->view('home');
         }
-
-        public function login(){
-            $this->load->('contoh nih bim,ntar apus yee');
-        }
     }
