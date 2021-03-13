@@ -9,4 +9,8 @@
         public function index(){
             $this->load->view('home');
         }
+
+        public function login(){
+            
+        }
     }
