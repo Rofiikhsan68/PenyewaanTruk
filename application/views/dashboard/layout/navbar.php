@@ -1,6 +1,11 @@
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
+<?php if($this->session->flashdata('pesan')) { ?>
+<p style="display: none;" id="pesan"><?= $this->session->flashdata('pesan')?></p>
+<p style="display: none;" id="type"><?= $this->session->flashdata('type')?></p>
+<p  style="display: none;" id="title"><?= $this->session->flashdata('title')?></p>
+<?php }?>
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
