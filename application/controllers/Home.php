@@ -11,6 +11,6 @@
         }
 
         public function login(){
-            
+            $this->load->('contoh nih bim,ntar apus yee');
         }
     }
