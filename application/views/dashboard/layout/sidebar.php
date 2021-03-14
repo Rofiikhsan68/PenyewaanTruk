@@ -51,6 +51,15 @@
               </li>
              
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?= base_url()?>dashboard/data_product" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Table Produk</p>
+                </a>
+              </li>
+             
+            </ul>
           </li>
          
         </ul>
