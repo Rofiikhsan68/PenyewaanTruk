@@ -9,7 +9,8 @@
         public function index(){
             $data = array(
                 "active_home"   => "active",
-
+                "title" => "Home"
+                
             );
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
@@ -24,7 +25,6 @@
             );
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
-            
             $this->load->view('home/layout/footer');
         }
     }
