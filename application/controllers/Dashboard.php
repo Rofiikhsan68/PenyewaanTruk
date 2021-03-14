@@ -26,4 +26,16 @@ Class Dashboard extends CI_Controller{
         $this->load->view('dashboard/merk/data_merk');
         $this->load->view('dashboard/layout/footer');
     }
+    public function data_type(){
+        $data = array(
+            "active_type" => "active",
+            "title" => "Data Type"
+        );
+
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/type/data_type');
+        $this->load->view('dashboard/layout/footer');
+    }
 }
