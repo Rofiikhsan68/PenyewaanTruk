@@ -18,13 +18,13 @@ class Merk extends CI_Controller
             );
             $this->ModelMerk->addData($data);
             $this->session->set_flashdata('type', 'success');
-            $this->session->set_flashdata('pesan', 'Data Added Successfully');
-            $this->session->set_flashdata('title', 'Was Successful!');
+            $this->session->set_flashdata('pesan', 'Data Berhasil Ditambahkan');
+            $this->session->set_flashdata('title', 'Berhasil!');
             redirect(base_url('dashboard/data_merk'));
         } else {
             $this->session->set_flashdata('type', 'warning');
-            $this->session->set_flashdata('pesan', 'data failed to add ');
-            $this->session->set_flashdata('title', 'Failed!');
+            $this->session->set_flashdata('pesan', 'Data Gagal Ditambahkan');
+            $this->session->set_flashdata('title', 'Gagal!');
             redirect(base_url('dashboard/data_merk'));
         }
     }
@@ -41,13 +41,13 @@ class Merk extends CI_Controller
             );
             $this->ModelMerk->updateData($data,$id_merk);
             $this->session->set_flashdata('type', 'success');
-            $this->session->set_flashdata('pesan', 'data has been changed successfully');
-            $this->session->set_flashdata('title', 'Was Successful!');
+            $this->session->set_flashdata('pesan', 'Data Berhasil Diubah');
+            $this->session->set_flashdata('title', 'Berhasil!');
             redirect(base_url('dashboard/data_merk'));
         } else {
             $this->session->set_flashdata('type', 'warning');
-            $this->session->set_flashdata('pesan', 'data failed to add ');
-            $this->session->set_flashdata('title', 'Failed!');
+            $this->session->set_flashdata('pesan', 'Data Gagal Diubah');
+            $this->session->set_flashdata('title', 'Gagal!');
             redirect(base_url('dashboard/data_merk'));
         }
     }
@@ -56,8 +56,8 @@ class Merk extends CI_Controller
 
         $this->ModelMerk->deleteData($id_merk);
         $this->session->set_flashdata('type','success');
-        $this->session->set_flashdata('pesan',' data deleted successfully');
-        $this->session->set_flashdata('title','Was Successful!');
+        $this->session->set_flashdata('pesan',' Data Berhasil Dihapus');
+        $this->session->set_flashdata('title','Berhasil!');
         redirect(base_url('dashboard/data_merk'));
     }
 }

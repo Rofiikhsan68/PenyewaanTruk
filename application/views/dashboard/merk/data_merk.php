@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Merk</h3>
-                            <button onClick="add_merk('<?= base_url() ?>merk/add_merk')" data-toggle="modal" data-target="#modaltambah" style="float: right;position:relative;bottom:2px;" class="btn btn-primary">Add Data</button>
+                            <button onClick="add_merk('<?= base_url() ?>merk/add_merk')" data-toggle="modal" data-target="#modaltambah" style="float: right;position:relative;bottom:2px;" class="btn btn-primary">Tambah Data</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,7 +47,7 @@
                                             <center>Name Merk</center>
                                         </th>
                                         <th>
-                                            <center>Score</center>
+                                            <center>Nilai</center>
                                         </th>
                                         <th>
                                             <center>Action</center>
@@ -91,7 +91,7 @@
                                             <center>Name Merk</center>
                                         </th>
                                         <th>
-                                            <center>Score</center>
+                                            <center>Nilai</center>
                                         </th>
                                         <th>
                                             <center>Action</center>
@@ -128,12 +128,12 @@
                 <form action="" id="form" method="post">
                     <div class="form-group">
                         <input type="hidden" name="id_merk" id="id_merk" class="form-control">
-                        <label for="">Merk Name</label>
-                        <input type="text" placeholder="Input Merk Name" id="merk_name" name="merk_name" class="form-control">
+                        <label for="">Nama Merk</label>
+                        <input type="text" placeholder="Masukkan Nama Merk" id="merk_name" name="merk_name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Score</label>
-                        <input type="text" placeholder="Input Score" id="score" name="score" class="form-control">
+                        <label for="">Nilai</label>
+                        <input type="text" placeholder="Masukkan Nilai" id="score" name="score" class="form-control">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -149,18 +149,18 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal_title">Form Delete Data</h5>
+        <h5 class="modal-title" id="modal_title">Form Hapus Data</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       
-Are you sure you want to delete the data?
+      Anda yakin ingin menghapus data?
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <a  id="buttondelete" class="btn btn-primary">Delete Data</a>
+        <a  id="buttondelete" class="btn btn-primary">Hapus Data</a>
       </div>
     </div>
   </div>
