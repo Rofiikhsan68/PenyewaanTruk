@@ -6,6 +6,7 @@
             parent::__construct();
             $this->load->model('ModelMerk');
             $this->load->model('ModelProduct');
+            $this->load->model('ModelUsers');
         }
 
         public function index(){
@@ -50,10 +51,16 @@
         }
 
         public function profile(){
-            // $id  = $this->uri->segment(3);
+            $id_user = $this->session->userdata('id_user');
+
+            if($id_user == null){
+                redirect(base_url('home'));
+            }
+
             $data = array(
                 "active_allproduct"     => "active",
                 "title"                 => "Profile",
+                "data_detail"           => $this->ModelUsers->getDataDetail($id_user)
             );
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');

@@ -9,6 +9,10 @@
 
         public function index(){
 
+            if($this->session->userdata('username')!= null){
+                redirect(base_url('home'));
+            }
+
             $data = array(
                 'active_login' => 'active',
                 'title' => 'Login/Register'
@@ -27,9 +31,10 @@
 
             if($username != null && $password != null){
                 $data = $this->ModelUsers->getDataByUsername($username);
+                
                 if($data != null){
                     $db_password = $data['password'];
-                if(md5($password)== $db_password){
+                if(md5($password) == $db_password){
                     $db_role = $data['role'];
                     if($db_role > 0){
 

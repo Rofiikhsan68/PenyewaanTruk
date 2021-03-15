@@ -18,4 +18,10 @@
             $sql = "SELECT * FROM tbl_user WHERE username = ? OR email = ?";
             return $this->db->query($sql,array($username,$username))-> row_array();
         }
+        public function getDataDetail($id_user){
+            $sql = "SELECT * FROM tbl_user,tbl_detailuser WHERE 
+            tbl_detailuser.id_user = tbl_user.id_user AND
+            tbl_user.id_user = ? ";
+            return $this->db->query($sql,$id_user)->row_array();
+        }
     }
