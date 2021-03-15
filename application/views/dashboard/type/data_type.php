@@ -33,7 +33,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Data Type</h3>
-                            <button onClick="" data-toggle="modal" data-target="#modaltambah" style="float: right;position:relative;bottom:2px;" class="btn btn-primary">Tambah Data</button>
+                            <button onClick="add_type('<?= base_url() ?>type/add_type')" data-toggle="modal" data-target="#modaltambah" style="float: right;position:relative;bottom:2px;" class="btn btn-primary">Tambah Data</button>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -55,30 +55,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php $i = 1; foreach($data_type as $row) { ?> 
                                         <tr>
                                             <td>
-                                                <center></center>
+                                                <center><?= $i++ ; ?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['type_name'] ?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['score'] ?></center>
                                             </td>
                                             <td>
-                                                <!-- <center>
+                                                <center>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Edit Data">
-                                                        <button onClick="update_merk('<?= base_url() ?>merk/update_merk','<?= $row['id_merk'] ?>','<?= $row['merk_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
+                                                        <button onClick="update_type('<?= base_url() ?>type/update_type','<?= $row['id_type'] ?>','<?= $row['type_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
                                                             <i class="fa fa-edit"></i></button>
-                                                    </span>
+                                                    </span> 
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="delete_merk('<?= base_url() ?>merk/delete_merk/<?= $row['id_merk'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
+                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
-                                                </center> -->
+                                                </center>
                                             </td>
                                         </tr>
-                                        
+                                        <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -125,9 +126,9 @@
             <div class="modal-body">
                 <form action="" id="form" method="post">
                     <div class="form-group">
-                        <input type="hidden" name="id_merk" id="id_merk" class="form-control">
-                        <label for="">Nama Merk</label>
-                        <input type="text" placeholder="Masukkan Nama Merk" id="merk_name" name="merk_name" class="form-control">
+                        <input type="hidden" name="id_type" id="id_type" class="form-control">
+                        <label for="">Nama Type</label>
+                        <input type="text" placeholder="Masukkan Nama Type" id="type_name" name="type_name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="">Nilai</label>

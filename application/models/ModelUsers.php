@@ -14,4 +14,8 @@
             $sql = "SELECT * FROM tbl_user ORDER BY id_user DESC";
             return $this->db->query($sql)->row_array();
         }
+        public function getDataByUsername($username){
+            $sql = "SELECT * FROM tbl_user WHERE username = ? OR email = ?";
+            return $this->db->query($sql,array($username,$username))-> row_array();
+        }
     }
