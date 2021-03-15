@@ -23,25 +23,31 @@
 					<div class="login_box_img">
 						<img class="img-fluid" src="<?= base_url() ?>assets/home/img/login.jpg" alt="">
 						<div class="hover">
-							<h4>Belum Punya Akun ?</h4>
-							<p>Silahkan Daftar untuk melakukan Penyewaan !</p>
-							<a class="primary-btn" href="<?= base_url() ?>register">Create an Account</a>
+							<h4>Sudah Punya Akun ?</h4>
+							<p>Silahkan Login untuk melakukan penyewaan !</p>
+							<a class="primary-btn" href="">Log in</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
-						<h3>Log in to enter</h3>
-						<form class="row login_form" action="" method="post" id="contactForm" novalidate="novalidate">
+						<h3>Form Register</h3>
+						<form class="row login_form" action="<?= base_url() ?>register/prosesRegister" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="username" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 							</div>
 							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+							</div>
+							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Konfirmasi Password" onfocus="this.placeholder = 'Konfirmasi Password'" onblur="this.placeholder = 'Konfirmasi Password'">
 							</div>
 							
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">Log In</button>
+								<button type="submit" value="submit" class="primary-btn">Daftar</button>
 								<!-- <a href="#">Forgot Password?</a> -->
 							</div>
 						</form>
