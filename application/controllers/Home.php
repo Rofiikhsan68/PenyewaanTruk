@@ -26,8 +26,10 @@
             $data = array(
                 "active_allproduct"     => "active",
                 "data_merk"         => $this->ModelMerk->getDataMerk(),
+                "data_product"      => $this->ModelProduct->getDataProduct(),
                 "title"             => "Semua Produk"
             );
+            
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
             $this->load->view('home/product/v_all_product');
