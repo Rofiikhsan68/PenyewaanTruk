@@ -29,41 +29,33 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
           </li>
-       
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+        <li class="nav-item">
+            <a href="<?= base_url()?>dashboard/data_product" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Table
-                <i class="fas fa-angle-left right"></i>
+                Data Produk
               </p>
             </a>
-            <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/data_product" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Table Produk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/data_merk" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Table Merk</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="<?= base_url()?>dashboard/data_type" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Table Type</p>
-                </a>
-              </li>
           </li>
-         
-        </ul>
+          <li class="nav-item">
+            <a href="<?= base_url()?>dashboard/data_merk" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Data Merk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url()?>dashboard/data_type" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Data Type
+              </p>
+            </a>
+          </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
