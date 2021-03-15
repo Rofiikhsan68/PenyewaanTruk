@@ -21,7 +21,7 @@
                 <ul class="main-categories">
                     <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/">All<span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php foreach ($data_merk as $merk) { ?>
-                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/"><?= $row['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
+                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/"><?= $merk['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php } ?>
 
             </div>
@@ -47,14 +47,15 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
+                    <?php foreach($data_product as $product) { ?>
                     <div class="col-lg-4 col-md-6">
                         <div class="single-product">
                             <!-- <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $row['foto'] ?>" alt=""> -->
-                            <img style="height: 255px; width:255px;" class="img-fluid" src="http://localhost/penyewaan/assets/home/foto_produk/jeanis_light_blue.png" alt="">
+                            <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/fuso.png" alt="">
                             <div class="product-details">
-                                <h6>Dummy</h6>
+                                <h6><?= $product['product_name']?></h6>
                                 <div class="price">
-                                    <h6>Rp <?= number_format(0, 0, ".", ".") ?></h6>
+                                    <h6>Rp <?= number_format(100000, 0, ".", ".") ?></h6>
                                     <!-- <h6 class="l-through">$210.00</h6> -->
                                 </div>
                                 <div class="prd-bottom">
@@ -72,6 +73,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
             </section>
             <!-- End Best Seller -->

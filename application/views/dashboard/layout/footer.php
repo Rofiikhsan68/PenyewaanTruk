@@ -81,6 +81,7 @@
 </script>
 <script src="<?= base_url()?>assets/admin/merk.js"></script>
 <script src="<?= base_url()?>assets/admin/type.js"></script>
+<script src="<?= base_url()?>assets/admin/product.js"></script>
 <script src="<?= base_url()?>assets/alert.js"></script>
 
 <script>

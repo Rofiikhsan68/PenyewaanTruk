@@ -22,7 +22,7 @@ class Register extends CI_Controller
         $this->load->view('home/layout/footer');
     }
 
-    public function prosesRegister()
+    public function processRegister()
     {
         $username = $this->input->post('username');
         $email = $this->input->post('email');
