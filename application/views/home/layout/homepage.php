@@ -8,13 +8,13 @@
 					<div class="row single-slide align-items-center d-flex mt-5">
 						<div class="col-lg-7">
 							<div class="banner-img">
-								<img  class="img-fluid mt-5" src="<?= base_url() ?>assets/home/img/product/hoodie.png" alt="">
+								<img  class="img-fluid mt-5" src="<?= base_url() ?>assets/home/img/logo.png" alt="">
 							</div>
 						</div>
 						<div class="col-lg-5 col-md-6">
 							<div class="banner-content">
-								<h1>The Cheaper<br>Alternative</h1>
-								<p style="font-size: 17px;">WeTrif merupakan bisnis yang bergerak dibidang fashion, kami mengedepankan barang - barang original dan berkualitas</p>
+								<h1>Estu<br>Transindo</h1>
+								<p style="font-size: 17px;">Estu Transindo merupakan bisnis yang bergerak dibidang penyewaan truk, kami mengedepankan penyewaan truk bagus dan berkualitas</p>
 								<!-- <div class="add-bag d-flex align-items-center">
 	                                <a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
 	                                <span class="add-text text-uppercase">Add to Bag</span>
@@ -88,10 +88,10 @@
 						<div class="col-lg-8 col-md-8">
 							<div class="single-deal">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" style="height:192px" src="<?= base_url() ?>assets/home/img/banner/hoodie_banner.png" alt="">
+								<img class="img-fluid w-100" style="height:192px" src="<?= base_url() ?>assets/home/foto_produk/fuso.png" alt="">
 								<a href="<?= base_url() ?>home/all_product/2/">
 									<div class="deal-details">
-										<h6 class="deal-title">Hoodie</h6>
+										<h6 class="deal-title">Fuso</h6>
 									</div>
 								</a>
 							</div>
@@ -99,10 +99,10 @@
 						<div class="col-lg-4 col-md-4">
 							<div class="single-deal">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" style="height:192px" src="<?= base_url() ?>assets/home/img/banner/sweater.jpg" alt="">
+								<img class="img-fluid w-100" style="height:192px" src="<?= base_url() ?>assets/home/foto_produk/pickup.png" alt="">
 								<a href="<?= base_url() ?>home/all_product/3/">
 									<div class="deal-details">
-										<h6 class="deal-title">Sweater</h6>
+										<h6 class="deal-title">Pick Up</h6>
 									</div>
 								</a>
 							</div>
@@ -110,10 +110,10 @@
 						<div class="col-lg-4 col-md-4">
 							<div class="single-deal">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="<?= base_url() ?>assets/home/img/category/c3.jpg" alt="">
+								<img class="img-fluid w-100" src="<?= base_url() ?>assets/home/foto_produk/trailer.jpg" alt="">
 								<a href="<?= base_url() ?>home/all_product/4/">
 									<div class="deal-details">
-										<h6 class="deal-title">Shoes</h6>
+										<h6 class="deal-title">Trailer</h6>
 									</div>
 								</a>
 							</div>
@@ -121,10 +121,10 @@
 						<div class="col-lg-8 col-md-8">
 							<div class="single-deal">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="<?= base_url() ?>assets/home/img/banner/tshirt-banner.jpg" alt="">
+								<img class="img-fluid w-100" src="<?= base_url() ?>assets/home/foto_produk/ccd.png" alt="">
 								<a href="<?= base_url() ?>home/all_product/1/">
 									<div class="deal-details">
-										<h6 class="deal-title">T-Shirt</h6>
+										<h6 class="deal-title">Colt Diesel</h6>
 									</div>
 								</a>
 							</div>
@@ -134,10 +134,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="single-deal">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" style="width:350px;height:413px;" src="<?= base_url() ?>assets/home/img/banner/celana2.jpg" alt="">
+						<img class="img-fluid w-100" style="width:350px;height:413px;" src="<?= base_url() ?>assets/home/foto_produk/trintin.png" alt="">
 						<a href="<?= base_url() ?>home/all_product/5/">
 							<div class="deal-details">
-								<h6 class="deal-title">Pants</h6>
+								<h6 class="deal-title">Trintin</h6>
 							</div>
 						</a>
 					</div>
@@ -155,7 +155,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 text-center">
 					<div class="section-title">
-						<h1>Latest Products</h1>
+						<h1>Produk Terbaru</h1>
 						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 	                            dolore
 	                            magna aliqua.</p> -->
@@ -164,14 +164,14 @@
 			</div>
 			<div class="row">
 				<!-- single product -->
-				
+				<?php foreach($latest_product as $row) { ?>
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
-							<img  style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/jeanis_light_blue.png" alt="">
+							<img  style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/fuso.png" alt="">
 							<div class="product-details">
-								<h6>asd</h6>
+								<h6><?= $row['product_name']?></h6>
 								<div class="price">
-									<h6>Rp 1000000</h6>
+									<h6>RP. <?= number_format(100000, 0, ",", ".") ?></h6>
 									<!-- <h6 class="l-through">$210.00</h6> -->
 								</div>
 								<div class="prd-bottom">
@@ -189,7 +189,7 @@
 							</div>
 						</div>
 					</div>
-			
+			<?php } ?>
 			</div>
 		</div>
 	</section>
