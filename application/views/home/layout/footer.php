@@ -95,48 +95,48 @@
 <script src="<?= base_url() ?>assets/home/js/alert.js"></script>
 <script src="<?= base_url() ?>assets/home/js/cart.js"></script>
 <script src="<?= base_url() ?>assets/home/js/toastr.js"></script>
+<script src="<?= base_url() ?>assets/alert.js"></script>
+
 <script>
-	var text = document.getElementById("text");
-	if (text != null) {
-		var icon = document.getElementById("icon").innerHTML;
-		var title = document.getElementById("title").innerHTML;
+	pesan = document.getElementById('pesan');
+	if (pesan != null) {
 		swal({
-			title: title,
-			text: text.innerHTML,
-			icon: icon,
+			title: document.getElementById('title').innerHTML,
+			text: pesan.innerHTML,
+			icon: document.getElementById('type').innerHTML,
 		});
 	}
 </script>
 <script>
-   var text_toastr = document.getElementById('text_toastr');
-   if (text_toastr != null) {
-	 var type_toastr = document.getElementById('type_toastr').innerHTML;
-	 console.log(type_toastr);
-     toastr.options = {
-       "closeButton": false,
-       "debug": false,
-       "newestOnTop": false,
-       "progressBar": false,
-       "positionClass": "toast-top-right",
-       "preventDuplicates": false,
-       "onclick": null,
-       "showDuration": "300",
-       "hideDuration": "1000",
-       "timeOut": "5000",
-       "extendedTimeOut": "1000",
-       "showEasing": "swing",
-       "hideEasing": "linear",
-       "showMethod": "fadeIn",
-       "hideMethod": "fadeOut"
-     };
-	 if(type_toastr == "success"){
+	var text_toastr = document.getElementById('text_toastr');
+	if (text_toastr != null) {
+		var type_toastr = document.getElementById('type_toastr').innerHTML;
+		console.log(type_toastr);
+		toastr.options = {
+			"closeButton": false,
+			"debug": false,
+			"newestOnTop": false,
+			"progressBar": false,
+			"positionClass": "toast-top-right",
+			"preventDuplicates": false,
+			"onclick": null,
+			"showDuration": "300",
+			"hideDuration": "1000",
+			"timeOut": "5000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+			"hideMethod": "fadeOut"
+		};
+		if (type_toastr == "success") {
 
-		 toastr.success(text_toastr.innerHTML);
-	 }else{
-		toastr.error(text_toastr.innerHTML);
-	 }
-   }
- </script>
+			toastr.success(text_toastr.innerHTML);
+		} else {
+			toastr.error(text_toastr.innerHTML);
+		}
+	}
+</script>
 </body>
 
 </html>
