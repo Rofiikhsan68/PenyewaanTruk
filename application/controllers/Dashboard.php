@@ -6,6 +6,7 @@ Class Dashboard extends CI_Controller{
         parent::__construct();
         $this->load->model('ModelMerk');
         $this->load->model('ModelType');
+        $this->load->model('ModelProduct');
 
     }
     public function index(){
@@ -32,8 +33,11 @@ Class Dashboard extends CI_Controller{
     public function data_product(){
         $data = array(
             "active_product" => "active",
-        
+            "data_type"     => $this->ModelType->getDataType(),
+            "data_merk"     => $this->ModelMerk->getDataMerk(),
+            "data_product"  => $this->ModelProduct->getDataProduct()
         );
+        
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
         $this->load->view('dashboard/layout/sidebar');
