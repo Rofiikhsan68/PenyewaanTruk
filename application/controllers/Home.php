@@ -44,4 +44,16 @@
             $this->load->view('home/product/detail_product');
             $this->load->view('home/layout/footer');
         }
+
+        public function profile(){
+            // $id  = $this->uri->segment(3);
+            $data = array(
+                "active_allproduct"     => "active",
+                "title"                 => "Profile",
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/profile/v_profile');
+            $this->load->view('home/layout/footer');
+        }
     }
