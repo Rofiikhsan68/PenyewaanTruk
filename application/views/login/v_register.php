@@ -32,7 +32,7 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>Form Register</h3>
-						<form class="row login_form" action="<?= base_url() ?>register/prosesRegister" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="<?= base_url() ?>register/processRegister" method="post" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="username" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
 							</div>

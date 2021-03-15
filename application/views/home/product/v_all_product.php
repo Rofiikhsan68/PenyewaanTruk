@@ -21,7 +21,7 @@
                 <ul class="main-categories">
                     <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/">All<span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php foreach ($data_merk as $merk) { ?>
-                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/"><?= $row['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
+                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/"><?= $merk['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php } ?>
 
             </div>
