@@ -44,7 +44,7 @@
                         <?php if($this->session->userdata('username')){ ?>
                         <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/transaction">Transaction</a></li>
                         <?php } ?>
-                        <li class="nav-item mr-item"><a class="nav-link" href="contact.html">About Us</a></li>
+                        <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/profile">Profile</a></li>
                         <?php if($this->session->userdata('username') == null){ ?>
                         <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>login/">Login</a></li>
                         <?php }else{ ?>
