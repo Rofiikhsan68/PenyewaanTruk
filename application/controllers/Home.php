@@ -7,6 +7,24 @@
         }
 
         public function index(){
-            $this->load->view('home');
+            $data = array(
+                "active_home"   => "active",
+                "title" => "Home"
+                
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/layout/homepage');
+            $this->load->view('home/layout/footer');
+            
+        }
+        public function product(){
+            $data = array(
+            "active_allproduct"     => "active",
+
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/layout/footer');
         }
     }
