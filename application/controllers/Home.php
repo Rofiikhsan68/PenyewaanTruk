@@ -11,9 +11,11 @@
         public function index(){
             $data = array(
                 "active_home"   => "active",
-                "title" => "Home"
+                "title" => "Home",
+                "latest_product"    => $this->ModelProduct->getDataProductLatest(),
                 
             );
+          
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
             $this->load->view('home/layout/homepage');
