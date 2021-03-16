@@ -19,7 +19,7 @@ function update_product(base_url,product,merk,type,description,capacity,radius,p
     document.getElementById("description").value = description;
     document.getElementById("capacity").value = capacity;
     document.getElementById("radius").value = radius;
-    document.getElementById("photo").innerHTML = "photo";
+    document.getElementById("photo").innerHTML = photo;
     document.getElementById("id_product").value = id;
     document.getElementById("form").action = base_url
 }

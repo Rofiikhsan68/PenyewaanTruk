@@ -13,7 +13,11 @@ Class Dashboard extends CI_Controller{
     public function index(){
         $data = [
             'title' => "Dashboard",
-            'active_home'   => "active"
+            'active_home'   => "active",
+            "data_type"     => $this->ModelType->getDataType(),
+            "data_merk"     => $this->ModelMerk->getDataMerk(),
+            "data_product"  => $this->ModelProduct->getDataProduct(),
+            "data_customer" => $this->ModelUsers->getAllDataUsers(0)
         ];
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
