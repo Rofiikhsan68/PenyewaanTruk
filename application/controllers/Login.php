@@ -34,39 +34,40 @@
                 
                 if($data != null){
                     $db_password = $data['password'];
-                if(md5($password) == $db_password){
-                    $db_role = $data['role'];
-                    if($db_role > 0){
-
-                        $this->session->set_userdata("username",$data['username']);
-                        $this->session->set_userdata("email",$data['email']);
-                        $this->session->set_userdata("id_user",$data['id_user']);
-                        $this->session->set_userdata("admin",true);
-                        redirect(base_url('dashboard'));
+                    if(password_verify($password,$db_password)){
+                        $db_role = $data['role'];
+                        if($db_role > 0){
+    
+                            $this->session->set_userdata("username",$data['username']);
+                            $this->session->set_userdata("email",$data['email']);
+                            $this->session->set_userdata("id_user",$data['id_user']);
+                            $this->session->set_userdata("admin",true);
+                            redirect(base_url('dashboard'));
+                        }else{
+                            $this->session->set_userdata("username",$data['username']);
+                            $this->session->set_userdata("email",$data['email']);
+                            $this->session->set_userdata("id_user",$data['id_user']);
+                            $this->session->set_userdata("admin",false);
+                            redirect(base_url('home'));
+                        }
                     }else{
-                        $this->session->set_userdata("username",$data['username']);
-                        $this->session->set_userdata("email",$data['email']);
-                        $this->session->set_userdata("id_user",$data['id_user']);
-                        $this->session->set_userdata("admin",false);
-                        redirect(base_url('home'));
+                        $this->session->set_flashdata("pesan","Password Salah");
+                        $this->session->set_flashdata("title","Login Gagal!!");
+                        $this->session->set_flashdata("type","warning");
+                        redirect(base_url('logi'));
                     }
+               
                 }else{
-                    $this->session->set_flashdata("pesan","Password Salah");
-                    $this->session->set_flashdata("title","Login Gagal!!");
-                    $this->session->set_flashdata("type","warning");
-                    redirect(base_url('home'));
-                }
-                }else{
-                    $this->session->set_flashdata("pesan","Username atau Email Salah");
+                    $this->session->set_flashdata("pesan","Username atau Email tidak ditemukan");
                     $this->session->set_flashdata("title","Login Gagal !!");
                     $this->session->set_flashdata("type","warning");
-                    redirect(base_url('home'));
+                    redirect(base_url('login'));
                 }
             }else{
                     $this->session->set_flashdata("pesan","Username dan Password Tidak Boleh Kosong");
                     $this->session->set_flashdata("title","Login Gagal !!");
                     $this->session->set_flashdata("type","warning");
-                    redirect(base_url('home'));
+                    redirect(base_url('login'));
             }
         }
         public function logout_process(){
