@@ -11,7 +11,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active"><?= $title ?></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,7 +30,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Produk</span>
-                <span class="info-box-number">10</span>
+                <span class="info-box-number"><?= count($data_product) ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
@@ -48,7 +48,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Pelanggan (terdaftar)</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number"><?= count($data_customer) ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
@@ -66,7 +66,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Tipe Truk</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number"><?= count($data_type) ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
@@ -84,7 +84,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Merk</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number"><?= count($data_merk) ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
