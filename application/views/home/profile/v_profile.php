@@ -41,31 +41,33 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <div class="row container mt-3">
                                 <div class="col-sm-6 mt-3">
+                                <?php if($this->session->userdata('username')) { ?>
                                     <div class="form-group row">
                                         <span class="col-sm-4 ">Username</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $this->session->userdata('username') ?> </span>
                                     </div>
+                                     <?php } ?>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Email</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['email'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Nama Lengkap</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['full_name'] ?> </span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3">
                                 <div class="form-group row">
                                         <span class="col-sm-4 ">NIK</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['nik'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Alamat</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['address'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">No Telepon</span>
-                                        <span class="col-sm-8 font-weight-bold">: </span>
+                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['phone'] ?> </span>
                                     </div>
                                 </div>
                             </div>
