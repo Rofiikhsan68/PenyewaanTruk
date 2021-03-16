@@ -25,7 +25,11 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item has-treeview menu">
+        <?php if(isset($active_home)){ ?>
           <a href="<?= base_url() ?>dashboard" class="nav-link active">
+          <?php }else{ ?>
+          <a href="<?= base_url() ?>dashboard" class="nav-link">
+          <?php } ?>
             <i class="nav-icon fas fa-home"></i>
             <p>
               Dashboard
@@ -33,7 +37,11 @@
           </a>
         </li>
         <li class="nav-item">
+        <?php if(isset($active_product)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_product" class="nav-link active">
+          <?php }else{ ?>
           <a href="<?= base_url() ?>dashboard/data_product" class="nav-link">
+          <?php } ?>
             <i class="nav-icon fas fa-table"></i>
             <p>
               Data Produk
@@ -82,7 +90,11 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="<?= base_url() ?>dashboard/data_product" class="nav-link">
+        <?php if(isset($active_customers)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link active">
+          <?php }else{ ?>
+          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link">
+          <?php } ?>
             <i class="nav-icon fas fa-users"></i>
             <p>
               Data Pelanggan
@@ -91,7 +103,11 @@
         </li>
         <li class="nav-header">lain-lain</li>
         <li class="nav-item">
+        <?php if(isset($active_merk)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_merk" class="nav-link active">
+          <?php }else{ ?>
           <a href="<?= base_url() ?>dashboard/data_merk" class="nav-link">
+          <?php } ?>
             <i class="nav-icon fas fa-table"></i>
             <p>
               Data Merk
@@ -99,7 +115,11 @@
           </a>
         </li>
         <li class="nav-item">
+        <?php if(isset($active_type)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_type" class="nav-link active">
+          <?php }else{ ?>
           <a href="<?= base_url() ?>dashboard/data_type" class="nav-link">
+          <?php } ?>
             <i class="nav-icon fas fa-table"></i>
             <p>
               Data Type

@@ -7,10 +7,15 @@ Class Dashboard extends CI_Controller{
         $this->load->model('ModelMerk');
         $this->load->model('ModelType');
         $this->load->model('ModelProduct');
+        $this->load->model('ModelUsers');
 
     }
     public function index(){
-        $this->load->view('dashboard/layout/header');
+        $data = [
+            'title' => "Dashboard",
+            'active_home'   => "active"
+        ];
+        $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
         $this->load->view('dashboard/layout/sidebar');
         $this->load->view('dashboard/layout/content');
@@ -19,7 +24,8 @@ Class Dashboard extends CI_Controller{
     public function data_merk(){
         $data =  array(
             "active_merk" => "active",
-            "data_merk"   => $this->ModelMerk->getDataMerk()
+            "data_merk"   => $this->ModelMerk->getDataMerk(),
+            'title' => "Data Merk"
         );
         
         $this->load->view('dashboard/layout/header',$data);
@@ -35,7 +41,8 @@ Class Dashboard extends CI_Controller{
             "active_product" => "active",
             "data_type"     => $this->ModelType->getDataType(),
             "data_merk"     => $this->ModelMerk->getDataMerk(),
-            "data_product"  => $this->ModelProduct->getDataProduct()
+            "data_product"  => $this->ModelProduct->getDataProduct(),
+            'title' => "Data Produk"
         );
         
         $this->load->view('dashboard/layout/header',$data);
@@ -48,13 +55,27 @@ Class Dashboard extends CI_Controller{
         $data = array(
             "active_type" => "active",
             "title" => "Data Type",
-            "data_type" => $this->ModelType->getDataType()
+            "data_type" => $this->ModelType->getDataType(),
+            'title' => "Data Tipe Truk"
         );
 
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
         $this->load->view('dashboard/layout/sidebar');
         $this->load->view('dashboard/type/data_type');
+        $this->load->view('dashboard/layout/footer');
+    }
+
+    public function data_customers(){
+        $data = array(
+            "active_customers" => "active",
+            "title" => "Data Pelanggan",
+            "data_users"    => $this->ModelUsers->getAllDataUsers(0)
+        );
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/users/v_users');
         $this->load->view('dashboard/layout/footer');
     }
 }
