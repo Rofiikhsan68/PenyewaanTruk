@@ -48,7 +48,7 @@ class Register extends CI_Controller
                 $insertUsers = [
                     'username'  => $username,
                     'email'     => $email,
-                    'password'  => md5($password)
+                    'password'  => password_hash($password,PASSWORD_DEFAULT)
                 ];
                 $this->ModelUsers->insertUsers($insertUsers,'tbl_user');
                 $getDataDetail = $this->ModelUsers->getDetailLast();
