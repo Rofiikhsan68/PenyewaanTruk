@@ -54,7 +54,7 @@
                         $this->session->set_flashdata("pesan","Password Salah");
                         $this->session->set_flashdata("title","Login Gagal!!");
                         $this->session->set_flashdata("type","warning");
-                        redirect(base_url('logi'));
+                        redirect(base_url('login'));
                     }
                
                 }else{
