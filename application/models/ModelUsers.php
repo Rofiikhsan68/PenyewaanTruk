@@ -24,4 +24,11 @@
             tbl_user.id_user = ? ";
             return $this->db->query($sql,$id_user)->row_array();
         }
+
+        public function getAllDataUsers($role){
+            $sql = "SELECT * FROM tbl_user 
+                        JOIN tbl_detailuser ON tbl_user.id_user = tbl_detailuser.id_user 
+                        WHERE role = ?";
+            return $this->db->query($sql,$role)->result_array();
+        }
     }
