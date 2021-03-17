@@ -167,7 +167,7 @@
 				<?php foreach($latest_product as $row) { ?>
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
-							<img  style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/fuso.png" alt="">
+							<img  style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
 							<div class="product-details">
 								<h6><?= $row['product_name']?></h6>
 								<div class="price">
