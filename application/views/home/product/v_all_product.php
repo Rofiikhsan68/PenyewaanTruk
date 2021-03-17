@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="prd-bottom">
 
-                                    <a href="<?= base_url() ?>cart/add_cart/<?= $row['id_product']?>" class="social-info">
+                                    <a href="<?= base_url() ?>cart/add_cart/<?= $product['id_product']?>" class="social-info">
                                         <span class="ti-bag"></span>
                                         <p class="hover-text">add to bag</p>
                                     </a>
