@@ -18,8 +18,18 @@
         <div class="col-xl-3 col-lg-4 col-md-5 mb-5">
             <div class="sidebar-categories">
                 <div class="head">Foto Profile</div>
-                <img src="" alt="">
-
+                <center>
+                    <form action="<?= base_url() ?>profile/changePicture" method="post" enctype="multipart/form-data">
+                    <?php if($data_detail['photo'] == null){ ?>
+                    <img class="mt-3 " style="width: 100px;height:100px;" src="<?= base_url() ?>assets/home/user.png" alt="">
+                    <?php }else{ ?>
+                    <img class="mt-3 " style="width: 100px;height:100px;" src="<?= base_url() ?>assets/home/foto_profile/<?= $data_detail['photo'] ?>" alt="">
+                    <?php } ?>
+                    <input type="file" name="photo" id="actual-btn" hidden /><br>
+                    <label class="btn_upload" for="actual-btn">Choose file</label> <span id="file-chosen">No file chosen</span><br>
+                    <button type="submit" class="btn btn-outline-primary btn-sm mt-3">Ubah Foto</button>
+                    </form>
+                </center>
             </div>
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7 mb-5">
@@ -41,39 +51,39 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <div class="row container mt-3">
                                 <div class="col-sm-6 mt-3">
-                                <?php if($this->session->userdata('username')) { ?>
-                                    <div class="form-group row">
-                                        <span class="col-sm-4 ">Username</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $this->session->userdata('username') ?> </span>
-                                    </div>
-                                     <?php } ?>
+                                    <?php if ($this->session->userdata('username')) { ?>
+                                        <div class="form-group row">
+                                            <span class="col-sm-4 ">Username</span>
+                                            <span class="col-sm-8 font-weight-bold"> : <?= $this->session->userdata('username') ?> </span>
+                                        </div>
+                                    <?php } ?>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Email</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['email'] ?> </span>
+                                        <span class="col-sm-8 font-weight-bold"> : <?= $data_detail['email'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Nama Lengkap</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['full_name'] ?> </span>
+                                        <span class="col-sm-8 font-weight-bold"> : <?= $data_detail['full_name'] ?> </span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                <div class="form-group row">
+                                    <div class="form-group row">
                                         <span class="col-sm-4 ">NIK</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['nik'] ?> </span>
+                                        <span class="col-sm-8 font-weight-bold"> : <?= $data_detail['nik'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Alamat</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['address'] ?> </span>
+                                        <span class="col-sm-8 font-weight-bold"> : <?= $data_detail['address'] ?> </span>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">No Telepon</span>
-                                        <span class="col-sm-8 font-weight-bold">:<?= $data_detail['phone'] ?> </span>
+                                        <span class="col-sm-8 font-weight-bold"> : <?= $data_detail['phone'] ?> </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="row container mt-3">
+                            <div class="row container mt-3">
                                 <div class="col-sm-6 mt-3">
                                     <div class="form-group row">
                                         <label class="col-sm-4">Username</label>
@@ -101,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6 mt-3">
-                                <div class="form-group row">
+                                    <div class="form-group row">
                                         <span class="col-sm-4 ">NIK</span>
                                         <div class="col-sm-8">
                                             <input type="text" name="nik" class="form-control">
@@ -127,19 +137,19 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Password Lama</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="old_password"  class="form-control">
+                                        <input type="password" name="old_password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Password Baru</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="new_password"  class="form-control">
+                                        <input type="password" name="new_password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Konfirmasi Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="confirm_password"  class="form-control">
+                                        <input type="password" name="confirm_password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -156,3 +166,12 @@
         </div>
     </div>
 </div>
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function() {
+        fileChosen.textContent = this.files[0].name
+    })
+</script>

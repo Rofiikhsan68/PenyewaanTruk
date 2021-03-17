@@ -25,7 +25,7 @@
 						<div class="hover">
 							<h4>Sudah Punya Akun ?</h4>
 							<p>Silahkan Login untuk melakukan penyewaan !</p>
-							<a class="primary-btn" href="">Log in</a>
+							<a class="primary-btn" href="<?= base_url() ?>login/">Log in</a>
 						</div>
 					</div>
 				</div>

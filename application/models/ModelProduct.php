@@ -29,4 +29,13 @@
         public function deleteData($id_product){
             return $this->db->delete('tbl_product', array('id_product' => $id_product));
         }
+
+        public function getDataBySearch($productSearch){
+            $sql = "SELECT * FROM tbl_product 
+                        JOIN tbl_merk ON tbl_product.id_merk = tbl_merk.id_merk
+                        JOIN tbl_type ON tbl_product.id_type = tbl_type.id_type
+                        WHERE
+                            product_name LIKE '%$productSearch%'";
+            return $this->db->query($sql,$productSearch)->result_array();
+        }
     }
