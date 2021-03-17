@@ -58,7 +58,7 @@
                                          <button onclick="var result = document.getElementById('sst<?= $i_plus++ ?>'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;" class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
                                          <button onclick="var result = document.getElementById('sst<?= $i_min++ ?>'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                      </div>
-                                 </td>
+                                </td>
                                  <td style="width: 100px;">
                                      <h5>Rp <?= number_format($row['price'] * $row['qty'],0,".",".") ?></h5>
                                  </td>
