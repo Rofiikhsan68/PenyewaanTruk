@@ -51,6 +51,7 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                             <div class="row container mt-3">
                                 <div class="col-sm-6 mt-3">
+                                
                                     <?php if ($this->session->userdata('username')) { ?>
                                         <div class="form-group row">
                                             <span class="col-sm-4 ">Username</span>
@@ -82,25 +83,27 @@
                                 </div>
                             </div>
                         </div>
+                       
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="row container mt-3">
                                 <div class="col-sm-6 mt-3">
+                                <form action="<?= base_url()?>profile/update_profile" method="post">
                                     <div class="form-group row">
                                         <label class="col-sm-4">Username</label>
                                         <div class="col-sm-8">
-                                            <input type="text" name="username" readonly class="form-control">
+                                            <input type="text" name="username" value="<?= $data_detail['username']?>" readonly class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Email</span>
                                         <div class="col-sm-8">
-                                            <input type="text" name="email" class="form-control">
+                                            <input type="text" name="email" value="<?= $data_detail['email']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Nama Lengkap</span>
                                         <div class="col-sm-8">
-                                            <input type="text" name="full_name" class="form-control">
+                                            <input type="text" name="full_name" value="<?= $data_detail['full_name']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -114,24 +117,25 @@
                                     <div class="form-group row">
                                         <span class="col-sm-4 ">NIK</span>
                                         <div class="col-sm-8">
-                                            <input type="text" name="nik" class="form-control">
+                                            <input type="text" name="nik" value="<?= $data_detail['nik']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">Alamat</span>
                                         <div class="col-sm-8">
-                                            <input type="text" name="alamat" class="form-control">
+                                            <input type="text" name="alamat" value="<?= $data_detail['address']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <span class="col-sm-4">No Telepon</span>
                                         <div class="col-sm-8">
-                                            <input type="text" name="phone" class="form-control">
+                                            <input type="text" name="phone" value="<?= $data_detail['phone']?>" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                             <div class="container mt-3">
                                 <div class="form-group row">
