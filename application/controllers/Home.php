@@ -86,4 +86,8 @@
             $this->load->view('home/product/v_cart');
             $this->load->view('home/layout/footer');
         }
+
+        public function checkout(){
+            
+        }
     }
