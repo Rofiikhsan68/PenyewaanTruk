@@ -7,6 +7,7 @@
             $this->load->model('ModelMerk');
             $this->load->model('ModelProduct');
             $this->load->model('ModelUsers');
+            $this->load->model('ModelCart');
         }
 
         public function index(){
@@ -65,6 +66,24 @@
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
             $this->load->view('home/profile/v_profile');
+            $this->load->view('home/layout/footer');
+        }
+
+        public function cart(){
+            $id_user = $this->session->userdata('id_user');
+
+            if($id_user == null){
+                redirect(base_url('home'));
+            }
+
+            $data = array(
+                "active_cart"           => "active",
+                "title"                 => "Daftar Keranjang",
+                "data_cart"             => $this->ModelCart->getDataCart($id_user)
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/v_cart');
             $this->load->view('home/layout/footer');
         }
     }

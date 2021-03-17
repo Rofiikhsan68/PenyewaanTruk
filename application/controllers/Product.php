@@ -71,27 +71,26 @@ class Product extends CI_Controller
                 $data_file = array('upload_data' => $this->upload->data());
                 $nama_file = $data_file['upload_data']['file_name'];
 
-                $data = array(
-                    'product_name'  => $product_name,
-                    'id_merk'       => $merk_name,
-                    'id_type'       => $type_name,
-                    'description'   => $description,
-                    'capacity'      => $capacity,
-                    'radius'        => $radius,
-                    'photo'         => $nama_file
-
-                );
-                $this->ModelProduct->updateProduct($data,$id_product);
-                $this->session->set_flashdata('type', 'success');
-                $this->session->set_flashdata('pesan', 'Data Berhasil Diubah');
-                $this->session->set_flashdata('title', 'Berhasil!');
-                redirect(base_url('dashboard/data_product'));
+                
             } else {
-                $this->session->set_flashdata('type', 'warning');
-                $this->session->set_flashdata('pesan', 'Foto Tidak Tersimpan');
-                $this->session->set_flashdata('title', 'Gagal!');
-                redirect(base_url('dashboard/data_product'));
+                $dataFile = $this->ModelProduct->getDetailProduct($id_product);
+                $nama_file = $dataFile['photo'];
             }
+            $data = array(
+                'product_name'  => $product_name,
+                'id_merk'       => $merk_name,
+                'id_type'       => $type_name,
+                'description'   => $description,
+                'capacity'      => $capacity,
+                'radius'        => $radius,
+                'photo'         => $nama_file
+
+            );
+            $this->ModelProduct->updateProduct($data,$id_product);
+            $this->session->set_flashdata('type', 'success');
+            $this->session->set_flashdata('pesan', 'Data Berhasil Diubah');
+            $this->session->set_flashdata('title', 'Berhasil!');
+            redirect(base_url('dashboard/data_product'));
         } else {
             $this->session->set_flashdata('type', 'warning');
             $this->session->set_flashdata('pesan', 'Data Gagal Diubah');
@@ -107,5 +106,33 @@ class Product extends CI_Controller
         $this->session->set_flashdata('pesan',' Data Berhasil Dihapus');
         $this->session->set_flashdata('title','Berhasil!');
         redirect(base_url('dashboard/data_product'));
+    }
+
+    public function search_product(){
+        $uriFirst = $this->input->post('uri_first');
+        $uriSecond = $this->input->post('uri_second');
+        $productSearch = $this->input->post('search');
+        if($productSearch != null){
+            $data_product = $this->ModelProduct->getDataBySearch($productSearch);
+            $data = [
+                'data_product'  => $data_product,
+                'title'         => "Pencarian Produk",
+                'search'        => $productSearch
+            ];
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/v_search');
+            $this->load->view('home/layout/footer');
+        }else{
+            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+            $this->session->set_flashdata('title', 'Gagal!');;
+            if($uriFirst == null){
+
+                redirect(base_url());
+            }else{
+                redirect(base_url($uriFirst.'/'.$uriSecond));
+            }
+        }
     }
 }

@@ -31,4 +31,14 @@
                         WHERE role = ?";
             return $this->db->query($sql,$role)->result_array();
         }
+
+        public function updateDataUsers($updateProfile,$table,$id){
+            return $this->db->update($table,$updateProfile,array('id_user' => $id));
+        }
+        public function updateDetailProfileByIdUser($data,$id_user){
+            return $this->db->update('tbl_detailuser',$data,array('id_user' => $id_user));
+        }
+        public function updateEmailByIdUsers($data_email,$id_user){
+            return $this->db->update('tbl_user',$data_email,array('id_user' => $id_user));
+        }
     }
