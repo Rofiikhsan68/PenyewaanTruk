@@ -20,7 +20,11 @@
                 <div class="head">Foto Profile</div>
                 <center>
                     <form action="<?= base_url() ?>profile/changePicture" method="post" enctype="multipart/form-data">
+                    <?php if($data_detail['photo'] == null){ ?>
                     <img class="mt-3 " style="width: 100px;height:100px;" src="<?= base_url() ?>assets/home/user.png" alt="">
+                    <?php }else{ ?>
+                    <img class="mt-3 " style="width: 100px;height:100px;" src="<?= base_url() ?>assets/home/foto_profile/<?= $data_detail['photo'] ?>" alt="">
+                    <?php } ?>
                     <input type="file" name="photo" id="actual-btn" hidden /><br>
                     <label class="btn_upload" for="actual-btn">Choose file</label> <span id="file-chosen">No file chosen</span><br>
                     <button type="submit" class="btn btn-outline-primary btn-sm mt-3">Ubah Foto</button>
