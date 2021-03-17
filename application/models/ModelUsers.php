@@ -31,4 +31,8 @@
                         WHERE role = ?";
             return $this->db->query($sql,$role)->result_array();
         }
+
+        public function updateDataUsers($updateProfile,$table,$id){
+            return $this->db->update($table,$updateProfile,array('id_user' => $id));
+        }
     }
