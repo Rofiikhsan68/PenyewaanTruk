@@ -107,4 +107,32 @@ class Product extends CI_Controller
         $this->session->set_flashdata('title','Berhasil!');
         redirect(base_url('dashboard/data_product'));
     }
+
+    public function search_product(){
+        $uriFirst = $this->input->post('uri_first');
+        $uriSecond = $this->input->post('uri_second');
+        $productSearch = $this->input->post('search');
+        if($productSearch != null){
+            $data_product = $this->ModelProduct->getDataBySearch($productSearch);
+            $data = [
+                'data_product'  => $data_product,
+                'title'         => "Pencarian Produk",
+                'search'        => $productSearch
+            ];
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/v_search');
+            $this->load->view('home/layout/footer');
+        }else{
+            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+            $this->session->set_flashdata('title', 'Gagal!');;
+            if($uriFirst == null){
+
+                redirect(base_url());
+            }else{
+                redirect(base_url($uriFirst.'/'.$uriSecond));
+            }
+        }
+    }
 }
