@@ -69,4 +69,13 @@
             $this->session->set_flashdata('title', 'Berhasil!');
             redirect(base_url('home/cart'));
         }
+
+        public function deleteCart(){
+            $id_cart = $this->uri->segment(3);
+            $this->session->set_flashdata("type","success");
+            $this->session->set_flashdata("pesan","Produk berhasil di hapus");
+            $this->session->set_flashdata("title","Berhasil!");
+            $this->ModelCart->DeleteDataCart($id_cart);
+            redirect(base_url('home/cart'));
+        }
     }
