@@ -181,7 +181,7 @@
 										<p class="hover-text">add to bag</p>
 									</a>
 									
-									<a href="<?= base_url() ?>home/detail_product" class="social-info">
+									<a href="<?= base_url() ?>home/detail_product/<?= $row['id_product']?>" class="social-info">
 										<span class="lnr lnr-move"></span>
 										<p class="hover-text">view details</p>
 									</a>

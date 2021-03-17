@@ -19,4 +19,7 @@
         public function insertDataCartByIdUsers($data){
             return $this->db->insert('tbl_cart', $data);
         }
+        public function DeleteDataCart($id_cart){
+            return $this->db->delete('tbl_cart',array('id_cart' => $id_cart));
+        }
     }

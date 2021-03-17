@@ -96,6 +96,7 @@
 <script src="<?= base_url() ?>assets/home/js/cart.js"></script>
 <script src="<?= base_url() ?>assets/home/js/toastr.js"></script>
 <script src="<?= base_url() ?>assets/alert.js"></script>
+<script src="<?= base_url() ?>assets/home/cart.js"></script>
 
 <script>
 	pesan = document.getElementById('pesan');

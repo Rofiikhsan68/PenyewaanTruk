@@ -64,7 +64,7 @@
                                  </td>
                                  <td>
                                      <center>
-                                     <button type="button" onClick="deleteCart('<?= base_url() ?>','<?= $row['id_cart'] ?>')" data-toggle="modal" data-target="#modal_delete" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
+                                     <button type="button" onClick="deleteCart('<?= base_url() ?>cart/deleteCart/<?= $row['id_cart'] ?>')" data-toggle="modal" data-target="#modal_delete" class="btn btn-outline-danger"><i class="fa fa-trash"></i></button>
                                      </center>
                                  </td>
                              </tr>
@@ -150,7 +150,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Hapus Produk</h5>
+        <h5 class="modal-title" id="modal_title">Hapus Produk</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -160,7 +160,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a id="btn_delete_cart" ><button type="button" class="btn btn-info">Hapus Produk</button></a>
+        <a id="button" ><button type="button" class="btn btn-info">Hapus Produk</button></a>
       </div>
     </div>
   </div>
