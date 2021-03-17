@@ -18,12 +18,15 @@
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <div class="row ml-auto mr-4">
                             <div class="col search-boxxx" style="float:right;">
-                                <form method="post" action="<?= base_url() ?>home/search_product/">
+                                <form method="post" action="<?= base_url() ?>product/search_product/">
                                     <?php if ($this->session->userdata('username')) { ?>
-                                        <input class="search-input" name="input_search" style="width: 300px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" name="search" style="width: 300px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } else { ?>
-                                        <input class="search-input" style="width: 430px;" placeholder="Cari Produk Disini..." type="text" name="input_search">
+                                        <input class="search-input" style="width: 430px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } ?>
+                                    <input type="hidden" name="uri_first" value="<?= $this->uri->segment(1); ?>">
+                                    <input type="hidden" name="uri_second" value="<?= $this->uri->segment(2); ?>">
+                                    
                                     <button type="submit" class="lnr lnr-magnifier"></button>
                                 </form>
                             </div>
