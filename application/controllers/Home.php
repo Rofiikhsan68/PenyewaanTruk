@@ -99,4 +99,14 @@
            $this->load->view('home/checkout/checkout');
            $this->load->view('home/layout/footer');
         }
+        public function confirmation(){
+            $data = array(
+                "active_confirmation"       => "active",
+                "title"                 => "Konfirmasi",
+               ); 
+               $this->load->view('home/layout/header',$data);
+               $this->load->view('home/layout/navbar');
+               $this->load->view('home/confirmation/confirmation');
+               $this->load->view('home/layout/footer');
+        }
     }
