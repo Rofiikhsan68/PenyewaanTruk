@@ -54,7 +54,7 @@
                                 <span class="placeholder"  data-placeholder="Nama Barang"></span>
                             </div>
                             <div class="col-md-4 form-group"> 
-                                <label for="">Berat Barang</label>
+                                <label for="">Berat Barang (kg)</label>
                                 <span style="color: red;">*</span>
                                 <input type="number" required class="form-control" id="first" name="weight[]">
                                 <span class="placeholder"  data-placeholder="Berat Barang"></span>
@@ -221,7 +221,7 @@
         var placeholderWeight = document.createElement('span');
          
         var labelWeight = document.createElement('label');
-        labelWeight.innerHTML = "Berat Barang";
+        labelWeight.innerHTML = "Berat Barang (kg)";
         var spanWeight = document.createElement('span');
         spanWeight.innerHTML = " *";
         spanWeight.setAttribute('style','color:red');
