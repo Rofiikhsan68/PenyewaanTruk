@@ -89,11 +89,14 @@
         }
 
         public function checkout(){
+            $id_user = $this->session->userdata('id_user');
            $data = array(
             "active_checkout"       => "active",
             "title"                 => "Checkout",
-            "data_checkout"         => $this->ModelCheckout->getDataCheckout()
+            "data_checkout"         => $this->ModelCheckout->getDataCheckout($id_user),
+            "data_customer"         => $this->ModelCheckout->getDataCustomer($id_user)
            ); 
+          
            $this->load->view('home/layout/header',$data);
            $this->load->view('home/layout/navbar');
            $this->load->view('home/checkout/checkout');

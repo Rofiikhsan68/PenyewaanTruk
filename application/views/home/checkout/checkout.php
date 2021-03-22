@@ -22,26 +22,27 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h3>Detail Penyewa</h3>
+
                     <form action="<?= base_url('checkout/processCheckout') ?>" method="post">
                         <div class="form-group row">
                             <div class="col-md-6 form-group">
                                 <label for="">No KTP</label> <span style="color: red;">*</span>
-                                <input type="text" class="form-control" required id="first" name="number_identity">
+                                <input type="text" class="form-control" value="<?= $data_customer['nik']?>" required id="first" name="number_identity">
                                 <span class="placeholder"  data-placeholder="No KTP"></span>
                             </div>
                             <div class="col-md-6 form-group">
                                 <label for="">Nama Lengkap</label> <span style="color: red;">*</span>
-                                <input type="text" class="form-control" required id="asda" name="full_name">
+                                <input type="text" class="form-control" value="<?= $data_customer['full_name']?>" required id="asda" name="full_name">
                                 <span class="placeholder"  data-placeholder="Nama Lengkap"></span>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="">Email</label> <span style="color: red;">*</span>
-                                <input type="text" class="form-control" required id="secoadand" name="email">
+                                <input type="text" class="form-control" value="<?= $data_customer['email']?>" required id="secoadand" name="email">
                                 <span class="placeholder"  data-placeholder="Email"></span>
                             </div>
                             <div class="col-sm-6 form-group">
                                 <label for="">No Telepon</label> <span style="color: red;">*</span>
-                                <input type="text" class="form-control" required id="second" name="phone">
+                                <input type="text" class="form-control" value="<?= $data_customer['phone']?>" required id="second" name="phone">
                                 <span class="placeholder"  data-placeholder="No Telepon"></span>
                             </div>
                         </div>
@@ -68,6 +69,7 @@
                             <div class="table-responsive">
                                     <table class="table">
                                         <thead>
+                                        <?php foreach($data_checkout as $row){ ?>
                                             <tr>
                                                 <th scope="col">Product</th>
                                                 <th scope="col">Price</th>
@@ -82,20 +84,20 @@
                                                 <td>
                                                     <div class="media">
                                                         <div class="d-flex">
-                                                            <img style="width: 152px; height:102px;" src="" alt="">
+                                                            <img style="width: 152px; height:102px;" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
                                                         </div>
                                                         <div class="media-body">
-                                                            <p></p>
+                                                            <p><?= $row['product_name']?></p>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <h5></h5>
+                                                    <h5><?= $row['price']?></h5>
                                                 </td>
                                                 <td>
                                                     <div class="product_count">
                                                         <input type="hidden" name="id_cart[]" value="">
-                                                        <input type="text" readonly value="" title="Quantity:" class="input-text qty">
+                                                        <input type="text" readonly value="<?= $row['qty']?>" title="Quantity:" class="input-text qty">
 
                                                     </div>
                                                 </td>
@@ -104,7 +106,7 @@
                                                 </td>
 
                                             </tr>
-
+                                            <?php }?>
                                         </tbody>
                                     </table>
                             </div>
@@ -119,7 +121,7 @@
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="detail">
-                                    <p>Jl. Bona No.123, RT.5/RW.3, Penggilingan, Kec. Cakung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13940, Indonesia Kota Jakarta Timur </p>
+                                    <p><?= $data_customer['address']?></p>
                                 </div>
                             </div>
                             <div class="col-md-2">
