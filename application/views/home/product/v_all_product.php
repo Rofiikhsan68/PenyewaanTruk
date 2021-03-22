@@ -51,7 +51,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="single-product">
                             <!-- <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $row['foto'] ?>" alt=""> -->
-                            <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/fuso.png" alt="">
+                            <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $product['photo'] ?>" alt="">
                             <div class="product-details">
                                 <h6><?= $product['product_name']?></h6>
                                 <div class="price">
@@ -60,12 +60,12 @@
                                 </div>
                                 <div class="prd-bottom">
 
-                                    <a href="<?= base_url() ?>cart/addCart/" class="social-info">
+                                    <a href="<?= base_url() ?>cart/add_cart/<?= $product['id_product']?>" class="social-info">
                                         <span class="ti-bag"></span>
                                         <p class="hover-text">add to bag</p>
                                     </a>
 
-                                    <a href="<?= base_url() ?>home/detail_product/" class="social-info">
+                                    <a href="<?= base_url() ?>home/detail_product/<?= $product['id_product']?>" class="social-info">
                                         <span class="lnr lnr-move"></span>
                                         <p class="hover-text">view Detail</p>
                                     </a>

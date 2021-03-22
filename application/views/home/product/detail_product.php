@@ -23,7 +23,7 @@
 					<!-- <div class="s_Product_carousel"> -->
                         <div>
 						<div class="single-prd-item">
-							<img class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $data_product['foto'] ?>" alt="">
+							<img class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $data_product['photo'] ?>" alt="">
 						</div>
 						<!-- <div class="single-prd-item">
 							<img class="img-fluid" src="<?= base_url() ?>assets/img/category/s-p1.jpg" alt="">
@@ -33,15 +33,16 @@
 						</div> -->
 					</div>
 				</div>
+				
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
-						<h3><?= $data_product['nama_produk'] ?></h3>
-						<h2 class="color-primary" >Rp <?= number_format($data_product['harga'],0,".",".") ?></h2>
+						<h3><?= $data_product['product_name'] ?></h3>
+						<h2 class="color-primary" >Rp <?= number_format(10000,0,".",".") ?></h2>
 						<ul class="list">
-							<li><a class="active color-primary" href="#"><span>Category</span> : <?= $data_product['nama_kategori'] ?></a></li>
+							<li><a class="active color-primary" href="#"><span>Category</span> : <?= $data_product['type_name'] ?></a></li>
 							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
 						</ul>
-						<p><?= $data_product['deskripsi'] ?>.</p>
+						<p><?= $data_product['description'] ?>.</p>
 						<div class="product_count">
 							<label for="qty">Quantity:</label>
 							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
@@ -51,7 +52,7 @@
 							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 						</div>
 						<div class="card_area d-flex align-items-center">
-							<a class="primary-btn" href="#">Add to Cart</a>
+							<a class="primary-btn" href="<?= base_url() ?>cart/add_cart/<?= $data_product['id_product']?>">Add to Cart</a>
 							<!-- <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a> -->
 						</div>
@@ -84,7 +85,7 @@
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<p><?= $data_product['deskripsi'] ?></p>
+					<p><?= $data_product['description'] ?></p>
 				</div>
 				<div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
 					<div class="table-responsive">

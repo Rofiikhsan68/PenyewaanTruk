@@ -32,4 +32,30 @@
                 redirect(base_url('home/profile'));
             }
         }
+        public function update_profile(){
+
+            $id_user = $this->session->userdata('id_user');
+            $email = $this->input->post('email');
+            $full_name = $this->input->post('full_name');
+            $nik = $this->input->post('nik');
+            $alamat = $this->input->post('alamat');
+            $phone = $this->input->post('phone');
+
+            $data = array(
+              
+                'full_name' => $full_name,
+                'nik'       => $nik,
+                'address'    => $alamat,
+                'phone'     => $phone,
+            );
+            $this->ModelUsers->updateDetailProfileByIdUser($data,$id_user);
+            $data_email = array(
+                'email'    => $email,
+            );
+            $this->ModelUsers->updateEmailByIdUsers($data_email,$id_user);
+            $this->session->set_flashdata('type', 'success');
+            $this->session->set_flashdata('pesan', 'Profil Berhasil diperbarui');
+            $this->session->set_flashdata('title', 'Sukses');
+            redirect(base_url('home/profile'));
+        }
     }
