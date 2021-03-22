@@ -18,23 +18,65 @@
 <section class="checkout_area section_gap">
     <div class="container">
         <div class="billing_details">
+
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Your Order</h3>
-                    <div class="cart_inner">
-                        <div class="table-responsive">
-                            <form action="" method="post">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Product</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Quantity</th>
-                                            <th scope="col">Total</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                     
+                    <h3>Detail Penyewa</h3>
+                    <form action="<?= base_url('checkout/processCheckout') ?>" method="post">
+                        <div class="form-group row">
+                            <div class="col-md-6 form-group">
+                                <label for="">No KTP</label> <span style="color: red;">*</span>
+                                <input type="text" class="form-control" required id="first" name="number_identity">
+                                <span class="placeholder"  data-placeholder="No KTP"></span>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="">Nama Lengkap</label> <span style="color: red;">*</span>
+                                <input type="text" class="form-control" required id="asda" name="full_name">
+                                <span class="placeholder"  data-placeholder="Nama Lengkap"></span>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="">Email</label> <span style="color: red;">*</span>
+                                <input type="text" class="form-control" required id="secoadand" name="email">
+                                <span class="placeholder"  data-placeholder="Email"></span>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="">No Telepon</label> <span style="color: red;">*</span>
+                                <input type="text" class="form-control" required id="second" name="phone">
+                                <span class="placeholder"  data-placeholder="No Telepon"></span>
+                            </div>
+                        </div>
+                        <h3>Detail Barang</h3>
+                        <div class="form-group row" id="group">
+                            <div class="col-md-8 form-group">
+                                <label for="">Nama Barang</label>
+                                <span style="color: red;">*</span>
+                                <input type="text" required class="form-control" id="first" name="goods_name[]">
+                                <span class="placeholder"  data-placeholder="Nama Barang"></span>
+                            </div>
+                            <div class="col-md-4 form-group"> 
+                                <label for="">Berat Barang</label>
+                                <span style="color: red;">*</span>
+                                <input type="number" required class="form-control" id="first" name="weight[]">
+                                <span class="placeholder"  data-placeholder="Berat Barang"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <span class="ml-4" id="btn_add" onClick="addForm()" style="cursor: pointer;">Klik untuk tambah detail barang <i class="fa fa-plus"></i></span>
+                        </div>
+                        <h3>Pesanan Anda</h3>
+                        <div class="cart_inner">
+                            <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
 
                                             <tr>
                                                 <td>
@@ -62,18 +104,18 @@
                                                 </td>
 
                                             </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </form>
+
+                                        </tbody>
+                                    </table>
+                            </div>
                         </div>
-                    </div>
-                    
+
                 </div>
                 <div class="col-lg-4">
                     <div class="order_box">
+
                         <h2>Detail Shipping</h2>
-                     
+
                         <div class="row">
                             <div class="col-md-10">
                                 <div class="detail">
@@ -112,10 +154,13 @@
                                 <label for="f-option4">I’ve read and accept the </label>
                                 <a href="#">terms & conditions*</a>
                             </div> -->
-                        <a class="primary-btn" href="">Proses Transaksi</a>
+                        <button class="primary-btn" style="width: 100%;border:none;" type="submit">Proses Transaksi</button>
+                        </form>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 </section>
@@ -147,3 +192,47 @@
         </div>
     </div>
 </div>
+
+<script>
+    function addForm() {
+        // NAMA BARANG
+        var colFirst = document.createElement('div');
+        colFirst.setAttribute('class', 'col-md-8 form-group p_star');
+        var inputName = document.createElement('input');
+        inputName.setAttribute('class', 'form-control');
+        inputName.setAttribute('type', 'text');
+        inputName.setAttribute('name', 'goods_name[]');
+        inputName.required = true;
+      
+        var label = document.createElement('label');
+        label.innerHTML = "Nama Barang";
+        var span = document.createElement('span');
+        span.innerHTML = " *";
+        span.setAttribute('style','color:red');
+
+        // BERAT BARANG
+        var colSecond = document.createElement('div');
+        colSecond.setAttribute('class', 'col-md-4 form-group p_star');
+        var inputWeight = document.createElement('input');
+        inputWeight.setAttribute('class', 'form-control');
+        inputWeight.setAttribute('type', 'number');
+        inputWeight.setAttribute('name', 'weight[]');
+        inputWeight.required = true;
+        var placeholderWeight = document.createElement('span');
+         
+        var labelWeight = document.createElement('label');
+        labelWeight.innerHTML = "Berat Barang";
+        var spanWeight = document.createElement('span');
+        spanWeight.innerHTML = " *";
+        spanWeight.setAttribute('style','color:red');
+        
+        colFirst.appendChild(label);
+        colFirst.appendChild(span);
+        colFirst.appendChild(inputName);
+        colSecond.appendChild(labelWeight);
+        colSecond.appendChild(spanWeight);
+        colSecond.appendChild(inputWeight);
+        $("#group").append(colFirst);
+        $("#group").append(colSecond);
+    }
+</script>

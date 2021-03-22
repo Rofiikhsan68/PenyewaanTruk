@@ -141,19 +141,19 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Password Lama</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="old_password" class="form-control">
+                                        <input type="password" name="old_password" placeholder="Masukan Password Lama ..." class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Password Baru</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="new_password" class="form-control">
+                                        <input type="password" name="new_password" placeholder="Masukan Password Baru ..." class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Konfirmasi Password</label>
                                     <div class="col-sm-10">
-                                        <input type="password" name="confirm_password" class="form-control">
+                                        <input type="password" name="confirm_password" placeholder="Masukan Konfirmasi Password ..." class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
