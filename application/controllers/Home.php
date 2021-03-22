@@ -8,6 +8,7 @@
             $this->load->model('ModelProduct');
             $this->load->model('ModelUsers');
             $this->load->model('ModelCart');
+            $this->load->model('ModelCheckout');
         }
 
         public function index(){
@@ -85,5 +86,27 @@
             $this->load->view('home/layout/navbar');
             $this->load->view('home/product/v_cart');
             $this->load->view('home/layout/footer');
+        }
+
+        public function checkout(){
+           $data = array(
+            "active_checkout"       => "active",
+            "title"                 => "Checkout",
+            "data_checkout"         => $this->ModelCheckout->getDataCheckout()
+           ); 
+           $this->load->view('home/layout/header',$data);
+           $this->load->view('home/layout/navbar');
+           $this->load->view('home/checkout/checkout');
+           $this->load->view('home/layout/footer');
+        }
+        public function confirmation(){
+            $data = array(
+                "active_confirmation"       => "active",
+                "title"                 => "Konfirmasi",
+               ); 
+               $this->load->view('home/layout/header',$data);
+               $this->load->view('home/layout/navbar');
+               $this->load->view('home/confirmation/confirmation');
+               $this->load->view('home/layout/footer');
         }
     }

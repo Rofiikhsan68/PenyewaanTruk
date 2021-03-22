@@ -8,6 +8,9 @@ Class Dashboard extends CI_Controller{
         $this->load->model('ModelType');
         $this->load->model('ModelProduct');
         $this->load->model('ModelUsers');
+        if($this->session->userdata('username') == null || $this->session->userdata('admin') != true){
+            redirect(base_url());
+        }
 
     }
     public function index(){
