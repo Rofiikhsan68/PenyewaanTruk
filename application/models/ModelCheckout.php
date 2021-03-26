@@ -18,4 +18,8 @@ class ModelCheckout extends CI_Model
             tbl_user.id_user = ?";
             return $this->db->query($sql,$id_user)->row_array();
     }
+    public function inserDataTransaction($dataTransaction){
+        return $this->db->insert_batch('tbl_transaksi', $dataTransaction);
+    }
+
 }
