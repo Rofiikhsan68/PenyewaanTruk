@@ -8,6 +8,7 @@ class Checkout extends CI_Controller
         $this->load->model('ModelCheckout');
         $this->load->model('ModelCart');
         $this->load->model('ModelTransaction');
+        $this->load->model('ModelUsers');
     }
     public function processCheckout()
     {
@@ -34,7 +35,7 @@ class Checkout extends CI_Controller
             'phone'     => $phone,
             'nik'       => $numberIdentity
         );
-        $this->ModelUsers->updateDataUsers($updateDataUsers,'tbl_users',$id_user);
+        $this->ModelUsers->updateDataUsers($updateDataUsers,'tbl_user',$id_user);
         $this->ModelUsers->updateDataUsers($updateDetailUsers,'tbl_detailuser',$id_user);
        
         for($i = 0; $i <count($id_cart);$i++){
