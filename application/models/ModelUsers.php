@@ -41,4 +41,7 @@
         public function updateEmailByIdUsers($data_email,$id_user){
             return $this->db->update('tbl_user',$data_email,array('id_user' => $id_user));
         }
+        public function updatePasswordById($data, $id){
+            return $this->db->update('tbl_user', $data,array('id_user' => $id));
+        }
     }
