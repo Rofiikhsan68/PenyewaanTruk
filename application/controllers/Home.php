@@ -103,6 +103,33 @@
            $this->load->view('home/checkout/checkout');
            $this->load->view('home/layout/footer');
         }
+        public function list_transaction()
+        {
+            $data = array(
+                "active_transaction"    => "active",
+                "title"                 => "Riwayat Transaksi",
+                "waiting_process"       => $this->ModelTransaction->getDataTransactionByStatus(0),
+                "process_transaction"   => $this->ModelTransaction->getDataTransactionByStatus(1),
+                "waiting_payment"       => $this->ModelTransaction->getDataTransactionBy2Status(2,3),
+                "done_transaction"      => $this->ModelTransaction->getDataTransactionByStatus(4),
+            );
+            $this->load->view('home/layout/header', $data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/transaction/v_transaction');
+            $this->load->view('home/layout/footer');
+        }
+    
+        public function recommendation(){
+            $data = array(
+                "active_recommendation" => "active",
+                "title"                 => "Rekomendasi"
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/rekomendasi_product');
+            $this->load->view('home/layout/footer');
+        }
+    
         public function confirmation(){
             $id_transaction = $this->uri->segment(3);
             $data = array(
