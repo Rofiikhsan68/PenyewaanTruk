@@ -136,4 +136,15 @@ class Home extends CI_Controller
         $this->load->view('home/transaction/v_transaction');
         $this->load->view('home/layout/footer');
     }
+
+    public function recommendation(){
+        $data = array(
+            "active_recommendation" => "active",
+            "title"                 => "Rekomendasi"
+        );
+        $this->load->view('home/layout/header',$data);
+        $this->load->view('home/layout/navbar');
+        $this->load->view('home/product/rekomendasi_product');
+        $this->load->view('home/layout/footer');
+    }
 }
