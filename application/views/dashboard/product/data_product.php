@@ -47,6 +47,9 @@
                                             <center>Nama Produk</center>
                                         </th>
                                         <th>
+                                            <center>Harga</center>
+                                        </th>
+                                        <th>
                                             <center>Merk</center>
                                         </th>
                                         <th>
@@ -80,6 +83,9 @@
                                                 <center><?= $row['product_name'] ?></center>
                                             </td>
                                             <td>
+                                                <center><?= $row['price'] ?></center>
+                                            </td>
+                                            <td>
                                                 <center><?= $row['merk_name'] ?></center>
                                             </td>
                                             <td>
@@ -100,12 +106,12 @@
                                             <td>
                                                 <center>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Edit Data">
-                                                        <button onClick="update_product('<?= base_url() ?>product/update_product','<?= $row['product_name'] ?>','<?= $row['id_merk'] ?>','<?= $row['id_type'] ?>','<?= $row['description'] ?>','<?= $row['capacity'] ?>','<?= $row['radius'] ?>','<?= $row['photo'] ?>','<?= $row['id_product'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
+                                                        <button onClick="update_product('<?= base_url() ?>product/update_product','<?= $row['product_name'] ?>','<?= $row['price']?>','<?= $row['id_merk'] ?>','<?= $row['id_type'] ?>','<?= $row['description'] ?>','<?= $row['capacity'] ?>','<?= $row['radius'] ?>','<?= $row['photo'] ?>','<?= $row['id_product'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
                                                             <i class="fa fa-edit"></i></button>
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
 
-                                                        <button onClick="delete_product('')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
+                                                        <button onClick="delete_product('<?= base_url() ?>product/delete_product/<?= $row['id_product'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>
@@ -120,6 +126,9 @@
                                         </th>
                                         <th>
                                             <center>Nama Produk</center>
+                                        </th>
+                                        <th>
+                                            <center>Harga</center>
                                         </th>
                                         <th>
                                             <center>Merk</center>
@@ -181,6 +190,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-2" for="">Harga</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" placeholder="Masukkan Harga" id="price" name="price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-2" for="">Merk</label>
                             <div class="col-sm-10">
                                 <select class="form-control" name="merk_name" id="merk_name">
@@ -201,8 +216,9 @@
                                     <?php } ?>
                                 </select>
                             </div>
-
+                            
                         </div>
+                       
                         <div class="form-group row">
                             <label class="col-sm-2" for="">Deskripsi</label>
                             <div class="col-sm-10">

@@ -45,6 +45,15 @@
                                 <input type="text" class="form-control" value="<?= $data_customer['phone']?>" required id="second" name="phone">
                                 <span class="placeholder"  data-placeholder="No Telepon"></span>
                             </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="">Destinasi</label> <span style="color: red;">*</span>
+                                <input type="text" class="form-control" required id="second" name="destination">
+                                <span class="placeholder"  data-placeholder="No Telepon"></span>
+                            </div>
+                            <div class="col-sm-6 form-group">
+                                <label for="">Catatan</label>
+                                <input type="text" class="form-control"  id="second" name="note">
+                            </div>
                         </div>
                         <h3>Detail Barang</h3>
                         <div class="form-group row" id="group">
