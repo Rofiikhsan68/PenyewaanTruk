@@ -59,9 +59,9 @@
           </a>
           <ul class="nav nav-treeview" style="display: none;">
             <li class="nav-item">
-              <a href="http://localhost/fikfish_web/dashboard/list_pemesanan/" class="nav-link ">
+              <a href="<?= base_url()?>dashboard/data_penyewaan" class="nav-link ">
                 <i class="fas fa-angle-right nav-icon"></i>
-                <p>Data Pemesanan</p>
+                <p>Data Penyewaan</p>
                 <span class="badge bg-color-primary right">0</span>
               </a>
             </li>
