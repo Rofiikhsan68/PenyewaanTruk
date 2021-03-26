@@ -10,13 +10,14 @@ class Product extends CI_Controller
     public function add_product()
     {
         $product_name = $this->input->post('product_name');
+        $price = $this->input->post('price');
         $merk_name = $this->input->post('merk_name');
         $type_name = $this->input->post('type_name');
         $description = $this->input->post('description');
         $capacity = $this->input->post('capacity');
         $radius = $this->input->post('radius');
 
-        if ($product_name != null && $merk_name != null && $type_name != null && $capacity != null && $description != null && $radius != null) {
+        if ($product_name != null && $price != null & $merk_name != null && $type_name != null && $capacity != null && $description != null && $radius != null) {
             $config['upload_path']      = './assets/home/foto_produk/';
             $config['allowed_types']    = 'gif|jpg|png';
             $this->upload->initialize($config);
@@ -27,6 +28,7 @@ class Product extends CI_Controller
 
                 $data = array(
                     'product_name'  => $product_name,
+                    'price'         => $price,
                     'id_merk'       => $merk_name,
                     'id_type'       => $type_name,
                     'description'   => $description,
@@ -55,6 +57,7 @@ class Product extends CI_Controller
     }
     public function update_product(){
         $product_name = $this->input->post('product_name');
+        $price = $this->input->post('price');
         $id_product = $this->input->post('id_product');
         $merk_name = $this->input->post('merk_name');
         $type_name = $this->input->post('type_name');
@@ -62,7 +65,7 @@ class Product extends CI_Controller
         $capacity = $this->input->post('capacity');
         $radius = $this->input->post('radius');
 
-        if ($product_name != null && $merk_name != null && $type_name != null && $capacity != null && $description != null && $radius != null) {
+        if ($product_name != null && $price != null & $merk_name != null && $type_name != null && $capacity != null && $description != null && $radius != null) {
             $config['upload_path']      = './assets/home/foto_produk/';
             $config['allowed_types']    = 'gif|jpg|png';
             $this->upload->initialize($config);
@@ -78,6 +81,7 @@ class Product extends CI_Controller
             }
             $data = array(
                 'product_name'  => $product_name,
+                'price'         => $price,
                 'id_merk'       => $merk_name,
                 'id_type'       => $type_name,
                 'description'   => $description,

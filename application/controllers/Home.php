@@ -112,4 +112,14 @@
                $this->load->view('home/confirmation/confirmation');
                $this->load->view('home/layout/footer');
         }
+        public function recommendation(){
+            $data = array(
+                "active_recommendation" => "active",
+                "title"                 => "Rekomendasi"
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/rekomendasi_product');
+            $this->load->view('home/layout/footer');
+        }
     }
