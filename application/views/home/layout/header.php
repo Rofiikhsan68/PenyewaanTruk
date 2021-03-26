@@ -36,4 +36,24 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/admin/plugins/fontawesome-free/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+	<style>
+		.table-transaksi thead {
+			border-bottom: 2px solid #EEE;
+		}
+
+		.table-transaksi tbody tr td {
+			text-align: left;
+		}
+
+		.product_description_area .tab-content .table tbody tr td {
+			padding-left: 15px;
+			padding-right: 0px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.btn-primary{
+			background-color: #00bcd4!important;
+			border : 1px solid #00bcd4!important;
+		}
+	</style>
 </head>

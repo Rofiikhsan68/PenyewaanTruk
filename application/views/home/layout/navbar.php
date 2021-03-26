@@ -48,7 +48,7 @@
                                 <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
                             <?php } ?>
                             <?php if ($this->session->userdata('username')) { ?>
-                                <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/transaction">Transaction</a></li>
+                                <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/list_transaction">Transaction</a></li>
                             <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/profile">Profile</a></li>
                             <?php } ?>
                             <?php if ($this->session->userdata('username') == null) { ?>
