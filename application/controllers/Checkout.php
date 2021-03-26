@@ -7,14 +7,35 @@ class Checkout extends CI_Controller
         parent::__construct();
         $this->load->model('ModelCheckout');
         $this->load->model('ModelCart');
+        $this->load->model('ModelTransaction');
     }
     public function processCheckout()
     {
         $id_user = $this->session->userdata('id_user');
+        $numberIdentity = $this->input->post('number_identity');
+        $fullName = $this->input->post('full_name');
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
 
         $id_cart = $this->input->post('id_cart');
         $total_price = $this->input->post('total_price');
+        $destination = $this->input->post('destination');
+        $note = $this->input->post('note');
+        $goods_name = $this->input->post('goods_name');
+        $weight = $this->input->post('weight');
         $id_transaction = "TRN" . date('ymd') . rand(1111, 9999);
+
+        //update data users
+        $updateDataUsers = array(
+            'email' => $email
+        );
+        $updateDetailUsers = array(
+            'full_name' => $fullName,
+            'phone'     => $phone,
+            'nik'       => $numberIdentity
+        );
+        $this->ModelUsers->updateDataUsers($updateDataUsers,'tbl_users',$id_user);
+        $this->ModelUsers->updateDataUsers($updateDetailUsers,'tbl_detailuser',$id_user);
        
         for($i = 0; $i <count($id_cart);$i++){
             $dataTransaction = array([
@@ -23,8 +44,20 @@ class Checkout extends CI_Controller
                 'transaction_date' => date('y-m-d'),
                 'transaction_time' => date('H:i:s'),
                 'total_price' => $total_price,
+                'destination' => $destination,
+                'note' => $note,
             ]);
             $this->ModelCheckout->inserDataTransaction($dataTransaction);
+        }
+        $getDataTransaction = $this->ModelTransaction->getDataTransactionRow($id_transaction);
+        $numberTransaction = $getDataTransaction['number'];
+        for($x = 0;$x < count($goods_name);$x++){
+            $dataGoods = array([
+                'goods_name'    => $goods_name[$x],
+                'weight'        => $weight[$x],
+                'number_transaction'    => $numberTransaction
+            ]);
+            $this->ModelTransaction->insertGoodsBatch($dataGoods);
         }
         $dataStatus = array(
             'status' => 1,
