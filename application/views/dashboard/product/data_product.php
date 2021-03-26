@@ -111,7 +111,7 @@
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
 
-                                                        <button onClick="delete_product('')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
+                                                        <button onClick="delete_product('<?= base_url() ?>product/delete_product/<?= $row['id_product'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>
