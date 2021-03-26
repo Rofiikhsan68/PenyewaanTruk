@@ -69,7 +69,8 @@
                             <div class="table-responsive">
                                     <table class="table">
                                         <thead>
-                                        <?php foreach($data_checkout as $row){ ?>
+                                        <?php $total=0; foreach($data_checkout as $row){ ?>
+                                       
                                             <tr>
                                                 <th scope="col">Product</th>
                                                 <th scope="col">Price</th>
@@ -92,19 +93,20 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <h5><?= $row['price']?></h5>
+                                                    <h5>RP. <?= number_format($row['price'], 0, ",", ".") ?></h5>
                                                 </td>
                                                 <td>
                                                     <div class="product_count">
-                                                        <input type="hidden" name="id_cart[]" value="">
+                                                        <input type="hidden" value="<?= $row['id_cart']?>" name="id_cart[]">
                                                         <input type="text" readonly value="<?= $row['qty']?>" title="Quantity:" class="input-text qty">
 
                                                     </div>
                                                 </td>
                                                 <td style="width: 100px;">
-                                                    <h5></h5>
+                                                    <h5>RP. <?= number_format($row['price'] * $row['qty'], 0, ",", ".") ?></h5>
                                                 </td>
-
+                                           <?php $total += $row['price'] * $row['qty'] ?>
+                                           
                                             </tr>
                                             <?php }?>
                                         </tbody>
@@ -130,9 +132,10 @@
                         </div>
                         <hr>
                         <ul class="list list_2">
-                            <li><a href="#">Subtotal <span></span></a></li>
+                            <li><a href="#">Subtotal <span>RP. <?= number_format($total, 0, ",", ".") ?></span></a></li>
+                            <input type="hidden" name="total_price" value="<?= $total?>">
                             <li><a href="#">Shipping <span>Flat rate: Rp 15.000</span></a></li>
-                            <li><a href="#">Total <span></span></a></li>
+                            <li><a href="#">Total <span>RP. <?= number_format($total + 15000, 0, ",", ".") ?></span></a></li>
                         </ul>
                         <div class="payment_item">
                             <div class="radion_btn">

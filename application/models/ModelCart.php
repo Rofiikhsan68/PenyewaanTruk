@@ -22,4 +22,7 @@
         public function DeleteDataCart($id_cart){
             return $this->db->delete('tbl_cart',array('id_cart' => $id_cart));
         }
+        public function updateDataCart($dataStatus,$id_user){
+            return $this->db->update('tbl_cart', $dataStatus,array('id_user' => $id_user));
+        }
     }
