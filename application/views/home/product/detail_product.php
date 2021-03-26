@@ -93,34 +93,34 @@
 							<tbody>
 								<tr>
 									<td>
-										<h5>Ukuran</h5>
+										<h5>Merk</h5>
 									</td>
 									<td>
-										<h5><?= $data_product['ukuran'] ?></h5>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h5>Warna</h5>
-									</td>
-									<td>
-										<h5><?= $data_product['warna'] ?></h5>
+										<h5><?= $data_product['merk_name'] ?></h5>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h5>Brand</h5>
+										<h5>Kapasitas</h5>
 									</td>
 									<td>
-										<h5><?= $data_product['brand'] ?></h5>
+										<h5><?= $data_product['capacity'] ?></h5>
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<h5>Kategori Produk</h5>
+										<h5>Radius Tempuh</h5>
 									</td>
 									<td>
-										<h5><?= $data_product['nama_kategori'] ?></h5>
+										<h5><?= $data_product['radius'] ?></h5>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h5>Type Truk</h5>
+									</td>
+									<td>
+										<h5><?= $data_product['type_name'] ?></h5>
 									</td>
 								</tr>
 								<!-- <tr>

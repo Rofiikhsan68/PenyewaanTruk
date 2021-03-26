@@ -102,6 +102,7 @@ class Home extends CI_Controller
             "title"                 => "Checkout",
             "data_checkout"         => $this->ModelCheckout->getDataCheckout($id_user),
             "data_customer"         => $this->ModelCheckout->getDataCustomer($id_user)
+<<<<<<< HEAD
         );
 
         $this->load->view('home/layout/header', $data);
@@ -137,3 +138,33 @@ class Home extends CI_Controller
         $this->load->view('home/layout/footer');
     }
 }
+=======
+           ); 
+          
+           $this->load->view('home/layout/header',$data);
+           $this->load->view('home/layout/navbar');
+           $this->load->view('home/checkout/checkout');
+           $this->load->view('home/layout/footer');
+        }
+        public function confirmation(){
+            $data = array(
+                "active_confirmation"       => "active",
+                "title"                 => "Konfirmasi",
+               ); 
+               $this->load->view('home/layout/header',$data);
+               $this->load->view('home/layout/navbar');
+               $this->load->view('home/confirmation/confirmation');
+               $this->load->view('home/layout/footer');
+        }
+        public function recommendation(){
+            $data = array(
+                "active_recommendation" => "active",
+                "title"                 => "Rekomendasi"
+            );
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/rekomendasi_product');
+            $this->load->view('home/layout/footer');
+        }
+    }
+>>>>>>> 1be55f5a89d02b99ce2444f5048ba75f85a8c0b5

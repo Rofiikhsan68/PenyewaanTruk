@@ -20,9 +20,9 @@
                             <div class="col search-boxxx" style="float:right;">
                                 <form method="post" action="<?= base_url() ?>product/search_product/">
                                     <?php if ($this->session->userdata('username')) { ?>
-                                        <input class="search-input" name="search" style="width: 300px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" name="search" style="width: 200px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } else { ?>
-                                        <input class="search-input" style="width: 430px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" style="width: 400px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } ?>
                                     <input type="hidden" name="uri_first" value="<?= $this->uri->segment(1); ?>">
                                     <input type="hidden" name="uri_second" value="<?= $this->uri->segment(2); ?>">
@@ -41,6 +41,11 @@
                                 <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/all_product/">All Product</a></li>
                             <?php } else { ?>
                                 <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/all_product/">All Product</a></li>
+                            <?php } ?>
+                            <?php if (isset($active_recommendation)) { ?>
+                            <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
+                            <?php }else{ ?>
+                                <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
                             <?php } ?>
                             <?php if ($this->session->userdata('username')) { ?>
                                 <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/list_transaction">Transaction</a></li>

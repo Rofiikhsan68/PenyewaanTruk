@@ -25,6 +25,6 @@ function update_product(base_url,product,price,merk,type,description,capacity,ra
     document.getElementById("id_product").value = id;
     document.getElementById("form").action = base_url
 }
-function delete_produk(base_url){
+function delete_product(base_url){
     document.getElementById("buttondelete").href = base_url;
 }
