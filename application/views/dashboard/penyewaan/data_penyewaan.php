@@ -102,6 +102,10 @@
                                                         <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
+                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
+                                                        <button onClick="update_penyewaan('<?= base_url() ?>penyewaan/process_confirmation/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon">
+                                                            <i class="fa fa-check"></i></button>
+                                                    </span>
                                                 </center>
                                             </td>
                                         </tr>
@@ -208,6 +212,25 @@
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <a id="buttondelete" class="btn btn-primary">Hapus Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_konfirmasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_titel">Form Konfirmasi</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah anda yakin memproses penyewaan tersebut ?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a type="button" id="button" class="btn btn-primary">Submit</a>
                 </div>
             </div>
         </div>
