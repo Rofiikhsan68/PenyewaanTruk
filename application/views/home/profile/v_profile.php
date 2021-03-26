@@ -138,6 +138,7 @@
                         </form>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                             <div class="container mt-3">
+                            <form action="<?= base_url()?>profile/change_password" method="post">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2">Password Lama</label>
                                     <div class="col-sm-10">
@@ -161,6 +162,7 @@
                                     <div class="col-sm-10">
                                         <button class="btn btn-outline-primary">Simpan</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
