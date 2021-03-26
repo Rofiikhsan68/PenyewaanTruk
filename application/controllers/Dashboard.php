@@ -8,6 +8,8 @@ Class Dashboard extends CI_Controller{
         $this->load->model('ModelType');
         $this->load->model('ModelProduct');
         $this->load->model('ModelUsers');
+        $this->load->model('ModelTransaction');
+       
         if($this->session->userdata('username') == null || $this->session->userdata('admin') != true){
             redirect(base_url());
         }
@@ -83,6 +85,19 @@ Class Dashboard extends CI_Controller{
         $this->load->view('dashboard/layout/navbar');
         $this->load->view('dashboard/layout/sidebar');
         $this->load->view('dashboard/users/v_users');
+        $this->load->view('dashboard/layout/footer');
+    }
+    public function data_penyewaan(){
+        $data = array(
+            "active_penyewaan" => "active",
+            "title" => "Data Penyewaan",
+            "data_penyewaan" => $this->ModelTransaction->getDataTransactionByStatus(0)
+        );
+      
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/penyewaan/data_penyewaan');
         $this->load->view('dashboard/layout/footer');
     }
 }
