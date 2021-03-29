@@ -23,16 +23,16 @@
                 <div class="details_item">
                     <h4>Info Pesanan</h4>
                     <ul class="list">
-                        <li><a href="#"><span>Order number</span> : ORD-2021090100203</a></li>
-                        <li><a href="#"><span>Date</span> : 12 Januari 2021</a></li>
-                        <li><a href="#"><span>Total</span> : Rp 174.997</a></li>
+                        <li><a href="#"><span>Order number</span> : <?= $data_transaction_group['id_transaction']?></a></li>
+                        <li><a href="#"><span>Date</span> : <?= date("d F Y", strtotime($data_transaction_group['transaction_date']))?></a></li>
+                        <li><a href="#"><span>Total</span> : Rp <?= $data_transaction_group['price'],",","."?></a></li>
                         <li><a href="#"><span>Payment method</span> : Transfer ATM</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="details_item">
-                    <h4>Alamat Pengiriman</h4>
+                    <h4>List Barang</h4>
                     <!-- <ul class="list">
 							<li><a href="#"><span>Street</span> : 56/8</a></li>
 							<li><a href="#"><span>City</span> : Los Angeles</a></li>
@@ -40,9 +40,9 @@
 							<li><a href="#"><span>Postcode </span> : 36952</a></li>
                         </ul> -->
                     <div class="row">
-                        <div class="col-md-3">Alamat :</div>
-                        <div class="col-md-9">
-                            <p>Jl. Bona No.123, RT.5/RW.3, Penggilingan, Kec. Cakung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13940, Indonesia Kota Jakarta Timur</p>
+                        <div class="col-md-4">List Barang :</div>
+                        <div class="col-md-8">
+                            <p></p>
                         </div>
                     </div>
 
@@ -63,7 +63,7 @@
 
                     <p>
                         Silahkan lakukan Pembayaran melalui Transfer ATM. <br> Transfer Ke Rekening BNI 00931442124 a/n Estu Transindo.
-                        dengan jumlah <span style="font-weight:bold;"> Rp </span>
+                        dengan jumlah <span style="font-weight:bold;"> Rp <?= $data_transaction_group['price'],",","."?></span>
                     </p>
                 </div>
             </div>
@@ -80,19 +80,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+                    <?php $total =0; foreach($data_transaction as $row){?>
                             <tr>
                                 <td>
-                                    <p></p>
+                                    <p><?= $row['product_name'] ?></p>
                                 </td>
                                 <td>
-                                    <h5>x </h5>
+                                    <h5><?= $row['qty'] ?></h5>
                                 </td>
                                 <td>
-                                    <p>Rp </p>
+                                    <p>Rp <?= number_format($row['price']),",","." ?></p>
                                 </td>
                             </tr>
-                          
+                            <?php $total += $row['price']*$row['qty']?>
+							<?php }?>  
 
                         <tr>
                             <td>
@@ -102,18 +103,7 @@
                                 <h5></h5>
                             </td>
                             <td>
-                                <p>Rp </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Shipping</h4>
-                            </td>
-                            <td>
-                                <h5></h5>
-                            </td>
-                            <td>
-                                <p>Flat rate: Rp 15.000</p>
+                                <p>Rp <?=number_format($total), ",", "." ?></p>
                             </td>
                         </tr>
                         <tr>
@@ -124,7 +114,7 @@
                                 <h5></h5>
                             </td>
                             <td>
-                                <p>Rp </p>
+                                <p>Rp <?=number_format($total), ",", "." ?></p>
                             </td>
                         </tr>
                     </tbody>
