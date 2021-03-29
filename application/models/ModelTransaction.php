@@ -52,4 +52,7 @@ class ModelTransaction extends CI_Model
                     WHERE TR.status = ? OR TR.status = ? GROUP BY TR.id_transaction ";
         return $this->db->query($sql,array($status1,$status2))->result_array();
     }
+    public function cancelTransactionById($data,$id_transaction){
+        return $this->db->update('tbl_transaksi', $data, array('id_transaction' => $id_transaction));
+    }
 }
