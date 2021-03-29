@@ -99,7 +99,7 @@
                                                             <i class="fa fa-user"></i></button>
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
+                                                        <button onClick="cancel_penyewa('<?= base_url()?>') data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>
@@ -164,11 +164,11 @@
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <tr>
-                            <th>NIK</th>
-                            <th>Nama Lengkap</th>
-                            <th>Email</th>
-                            <th>Alamat</th>
-                            <th>No Handphone</th>
+                            <th><center>NIK</center></th>
+                            <th><center>Nama Lengkap</center></th>
+                            <th><center>Email</center></th>
+                            <th><center>Alamat</center></th>
+                            <th><center>No Handphone</center></th>
 
 
                         </tr>
