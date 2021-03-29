@@ -21,7 +21,7 @@ class ModelTransaction extends CI_Model
                         tbl_transaksi.id_transaction = ?
                         ";
 
-        return $this->db->query($sql, $id_transaction)->result_array();
+        return $this->db->query($sql,$id_transaction)->result_array();
     }
     public function getDataTransactionGroup($id_transaction)
     {
@@ -29,10 +29,10 @@ class ModelTransaction extends CI_Model
             tbl_transaksi.id_cart = tbl_cart.id_cart AND
             tbl_cart.id_user = tbl_user.id_user AND
             tbl_cart.id_product = tbl_product.id_product AND
-            tbl_detailuser.id_user = tbl_user.id_user AND
+            tbl_detailuser.id_user = tbl_user.id_user AND 
             tbl_transaksi.id_transaction = ? GROUP BY id_transaction";
 
-        return $this->db->query($sql, $id_transaction)->row_array();
+        return $this->db->query($sql,$id_transaction)->row_array();
     }
     public function getDataTransactionByStatus($status){
         $sql = "SELECT *,TR.status as status_transaksi FROM tbl_transaksi TR
