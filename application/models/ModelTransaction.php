@@ -55,4 +55,7 @@ class ModelTransaction extends CI_Model
     public function cancelTransactionById($data,$id_transaction){
         return $this->db->update('tbl_transaksi', $data, array('id_transaction' => $id_transaction));
     }
+    public function UpdateStatusPenyewaan($data,$id_transaction){
+        return $this->db->update('tbl_transaksi',$data,array('id_transaction' => $id_transaction));
+    }
 }

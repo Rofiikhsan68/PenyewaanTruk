@@ -70,7 +70,7 @@
                                             <td>
                                                 <center>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Edit Data">
-                                                        <button onClick="update_merk('<?= base_url() ?>merk/update_merk','<?= $row['id_merk'] ?>','<?= $row['merk_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-outline-success btn-circle btn-icon">
+                                                        <button onClick="update_merk('<?= base_url() ?>merk/update_merk','<?= $row['id_merk'] ?>','<?= $row['merk_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
                                                             <i class="fa fa-edit"></i></button>
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
