@@ -48,18 +48,30 @@
             </p>
           </a>
         </li>
-        <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-
+        <?php if(isset($active_leasing)){ ?>
+        <li class="nav-item has-treeview menu-open">
+          <a href="#" class="nav-link active">
+          <?php }else{ ?>
+            <li class="nav-item has-treeview ">
+          <a href="#" class="nav-link ">
+          <?php } ?>
             <i class="nav-icon fas fa-list"></i>
             <p>
               Data Transaksi
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
+          <?php if(isset($active_leasing)){ ?>
+          <ul class="nav nav-treeview" style="display: block;">
+          <?php }else{ ?>
           <ul class="nav nav-treeview" style="display: none;">
+          <?php } ?>
             <li class="nav-item">
-              <a href="<?= base_url()?>dashboard/data_penyewaan" class="nav-link ">
+            <?php if(isset($active_leasing)){ ?>
+              <a href="<?= base_url()?>dashboard/data_penyewaan" class="nav-link active">
+              <?php }else{ ?>
+              <a href="<?= base_url()?>dashboard/data_penyewaan" class="nav-link">
+              <?php } ?>
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Penyewaan</p>
                 <span class="badge bg-color-primary right">0</span>
@@ -73,20 +85,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://localhost/fikfish_web/dashboard/list_pengemasan/" class="nav-link">
+              <a href="http://localhost/fikfish_web/dashboard/list_pembayaran/" class="nav-link">
                 <i class="fas fa-angle-right nav-icon"></i>
-                <p>Data Pengemasan</p>
+                <p>Data Transaksi</p>
                 <span class="badge bg-color-primary right">0</span>
               </a>
             </li>
-
-
-            <li class="nav-item">
-              <a href="http://localhost/fikfish_web/dashboard/list_pengiriman/" class="nav-link">
-                <i class="fas fa-angle-right nav-icon"></i>
-                <p>Data Pengiriman</p>
-              </a>
-            </li>
+           
           </ul>
         </li>
         <li class="nav-item">
@@ -98,6 +103,18 @@
             <i class="nav-icon fas fa-users"></i>
             <p>
               Data Pelanggan
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+        <?php if(isset($active_report)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link active">
+          <?php }else{ ?>
+          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link">
+          <?php } ?>
+            <i class="nav-icon fas fa-file"></i>
+            <p>
+              Laporan
             </p>
           </a>
         </li>

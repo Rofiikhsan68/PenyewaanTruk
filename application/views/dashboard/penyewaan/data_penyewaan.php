@@ -90,21 +90,29 @@
                                                 <center><?= $row['note'] ?></center>
                                             </td>
                                             <td>
-                                                <center><?= $row['status_transaksi'] ?></center>
+                                                <center>
+                                                <?php if($row['status_transaksi'] == 0){ ?>
+                                                   <span class="badge badge-warning">Belum Diproses</span> 
+                                                <?php } ?>
+                                                </center>
                                             </td>
                                             <td>
                                                 <center>
+                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
+                                                        <button onClick="update_penyewaan('<?= base_url() ?>penyewaan/process_confirmation/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <i class="fa fa-check"></i></button>
+                                                    </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
-                                                        <button onClick="data_penyewa('<?= base_url() ?>','<?= $row['nik']?>','<?= $row['full_name']?>','<?= $row['email']?>','<?= $row['address']?>','<?= $row['phone']?>')" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon">
+                                                        <button onClick="data_penyewa('<?= base_url() ?>','<?= $row['nik']?>','<?= $row['full_name']?>','<?= $row['email']?>','<?= $row['address']?>','<?= $row['phone']?>')" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
                                                             <i class="fa fa-user"></i></button>
                                                     </span>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="cancel_penyewa('<?= base_url() ?>penyewaan/cancel_penyewaan/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
-                                                            <i class="fa fa-trash"></i></button>
+                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
+                                                        <button onClick="update_penyewaan('<?= base_url() ?>penyewaan/process_confirmation/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
+                                                            <i class="fa fa-info"></i></button>
                                                     </span>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                        <button onClick="update_penyewaan('<?= base_url() ?>penyewaan/process_confirmation/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon">
-                                                            <i class="fa fa-check"></i></button>
+                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
+                                                        <button onClick="cancel_penyewa('<?= base_url() ?>penyewaan/cancel_penyewaan/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-outline-danger btn-circle btn-icon btn-sm">
+                                                            <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>
                                             </td>
@@ -200,14 +208,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modal_title">Form Hapus Data</h5>
+        <h5 class="modal-title" id="modal_title">Form Pembatalan Penyewaan</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
       
-      Anda yakin ingin menghapus data?
+      Anda yakin ingin membatalkan penyewaan?
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
