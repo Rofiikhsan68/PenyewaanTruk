@@ -89,9 +89,9 @@ Class Dashboard extends CI_Controller{
     }
     public function data_penyewaan(){
         $data = array(
-            "active_penyewaan" => "active",
+            "active_leasing" => "active",
             "title" => "Data Penyewaan",
-            "data_penyewaan" => $this->ModelTransaction->getDataTransactionByStatus(0)
+            "data_penyewaan" => $this->ModelTransaction->getDataTransactionByStatus(0),
         );
       
         $this->load->view('dashboard/layout/header',$data);
