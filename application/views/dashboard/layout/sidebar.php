@@ -78,7 +78,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://localhost/fikfish_web/dashboard/list_pembayaran/" class="nav-link">
+              <a href="<?= base_url() ?>dashboard/data_pembayaran" class="nav-link">
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Pembayaran</p>
                 <span class="badge bg-color-primary right">0</span>

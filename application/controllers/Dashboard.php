@@ -100,4 +100,16 @@ Class Dashboard extends CI_Controller{
         $this->load->view('dashboard/penyewaan/data_penyewaan');
         $this->load->view('dashboard/layout/footer');
     }
+    public function data_pembayaran(){
+
+        $data = array(
+            "active_payment" => "active",
+            "title" => "Data Pembayaran"
+        );
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/pembayaran/data_pembayaran');
+        $this->load->view('dashboard/layout/footer');
+    }
 }
