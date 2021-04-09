@@ -8,7 +8,7 @@
 					<div class="row single-slide align-items-center d-flex mt-5">
 						<div class="col-lg-7">
 							<div class="banner-img">
-								<img  class="img-fluid mt-5" src="<?= base_url() ?>assets/home/img/logo.png" alt="">
+								<img style="width: 450px;height: 200px;" class="img-fluid mt-5" src="<?= base_url() ?>assets/home/img/logo.png" alt="">
 							</div>
 						</div>
 						<div class="col-lg-5 col-md-6">
