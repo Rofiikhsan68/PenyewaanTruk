@@ -66,7 +66,7 @@
                 </div>
             </nav>
         </div>
-        <div class="search_input bg_search" id="search_input_box">
+        <!-- <div class="search_input bg_search" id="search_input_box">
             <div class="container">
                 <form class="d-flex justify-content-between" method="post" action="<?= base_url() ?>home/search_product/">
                     <input type="text" class="form-control" name="input_search" id="search_input" placeholder="Search Here">
@@ -74,7 +74,7 @@
                     <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
                 </form>
             </div>
-        </div>
+        </div> -->
     </header>
     <!-- End Header Area -->
     <?php if ($this->session->flashdata('pesan')) { ?>

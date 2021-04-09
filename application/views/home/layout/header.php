@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/themify-icons.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/bootstrap.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/owl.carousel.css">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/nice-select.css">
+	<!-- <link rel="stylesheet" href="<?= base_url() ?>assets/home/css/nice-select.css"> -->
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/nouislider.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/ion.rangeSlider.css" />
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/ion.rangeSlider.skinFlat.css" />
