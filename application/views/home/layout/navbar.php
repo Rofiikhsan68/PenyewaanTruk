@@ -6,8 +6,8 @@
             <nav class="navbar navbar-expand-lg navbar-light main_box">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand logo_h" href="index.html"><img style="height: 120px; width:120px;" src="<?= base_url() ?>assets/home/img/logo.png" alt=""></a>
-                    <h4>ESTU TRANSINDO</h4>
+                    <a class="navbar-brand logo_h" href="index.html"><img style="height: 80px; width:190px;" src="<?= base_url() ?>assets/home/img/logo.png" alt=""></a>
+                    <!-- <h4>ESTU TRANSINDO</h4> -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>

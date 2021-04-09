@@ -43,4 +43,12 @@
                             product_name LIKE '%$productSearch%'";
             return $this->db->query($sql,$productSearch)->result_array();
         }
+
+        public function getDataProductTrain(){
+            $sql = "SELECT id_product,nama_product,photo,capacity,radius,price,id_merk as n_m, id_type as n_t
+                        FROM tbl_product PR
+                            JOIN tbl_merk MR on PR.id_merk = MR.id_merk 
+                            JOIN tbl_type TP on PR.id_type = TP.id_type";
+            return $this->db->query($sql)->result_array();
+        }
     }

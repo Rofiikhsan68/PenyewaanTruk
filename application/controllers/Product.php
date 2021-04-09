@@ -1,4 +1,13 @@
 <?php
+require_once FCPATH.'vendor/autoload.php';
+use Phpml\Math\Distance\Euclidean;
+use Phpml\Classification\KNearestNeighfbors;
+use Phpml\Metric\ClassificationReport;
+use Phpml\Metric\Accuracy;
+use Phpml\Metric\ConfusionMatrix;
+use Phpml\Dataset\CsvDataset;
+use Phpml\Dataset\ArrayDataset;
+use Phpml\Classification\KNearestNeighbors;
 
 class Product extends CI_Controller
 {
@@ -138,5 +147,17 @@ class Product extends CI_Controller
                 redirect(base_url($uriFirst.'/'.$uriSecond));
             }
         }
+    }
+
+    public function search_recomendation(){
+        $labels = array();
+        $trainData = $this->ModelProduct->getDataProductTrain();
+        for($i = 0; $i < count($trainData); $i++){
+            $labels[$i] = $trainData[$i]['nama_product'];
+        }
+        $dataSet = new ArrayDataset($trainData,$labels);
+        $dataSet->removeColumns([null]);
+        $dataSet->removeColumns([0,1,2]);
+        var_dump($dataSet);die;
     }
 }
