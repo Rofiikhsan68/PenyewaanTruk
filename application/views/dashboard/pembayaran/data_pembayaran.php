@@ -30,7 +30,10 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            
                     <div class="card-body">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -52,19 +55,16 @@
                                                 <center>No</center>
                                             </th>
                                             <th>
-                                                <center>ID Transaksi</center>
-                                            </th>
-                                            <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
+                                            </th>
+                                            <th>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Pembayaran DP</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
@@ -77,9 +77,6 @@
                                     <tbody>
 
                                         <tr>
-                                            <td>
-                                                <center></center>
-                                            </td>
                                             <td>
                                                 <center></center>
                                             </td>
@@ -126,24 +123,21 @@
 
                                     </tbody>
                                     <tfoot>
-                                        <tr>
+                                    <tr>
                                             <th>
                                                 <center>No</center>
-                                            </th>
-                                            <th>
-                                                <center>ID Transaksi</center>
                                             </th>
                                             <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
+                                            </th>
+                                            <th>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Pembayaran DP</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
@@ -158,24 +152,21 @@
                             <div class="tab-pane fade" style="border: 1px solid #eee;padding:20px;" id="profile" role="tabpanel" aria-labelledby="profile-tab" >
                             <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>
+                                    <tr>
                                             <th>
                                                 <center>No</center>
-                                            </th>
-                                            <th>
-                                                <center>ID Transaksi</center>
                                             </th>
                                             <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
+                                            </th>
+                                            <th>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Pembayaran Akhir</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
@@ -188,9 +179,6 @@
                                     <tbody>
 
                                         <tr>
-                                            <td>
-                                                <center></center>
-                                            </td>
                                             <td>
                                                 <center></center>
                                             </td>
@@ -237,24 +225,21 @@
 
                                     </tbody>
                                     <tfoot>
-                                        <tr>
+                                    <tr>
                                             <th>
                                                 <center>No</center>
-                                            </th>
-                                            <th>
-                                                <center>ID Transaksi</center>
                                             </th>
                                             <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
+                                            </th>
+                                            <th>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Pembayaran Akhir</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
@@ -269,42 +254,28 @@
                             <div class="tab-pane fade" style="border: 1px solid #eee;padding:20px" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                             <table id="example1" class="table table-bordered table-striped">
                                     <thead>
-                                        <tr>
+                                    <tr>
                                             <th>
                                                 <center>No</center>
-                                            </th>
-                                            <th>
-                                                <center>ID Transaksi</center>
                                             </th>
                                             <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
                                             </th>
                                             <th>
-                                                <center>Total Harga</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
                                             </th>
-                                            <th>
-                                                <center>Action</center>
-                                            </th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         <tr>
-                                            <td>
-                                                <center></center>
-                                            </td>
-                                            <td>
-                                                <center></center>
-                                            </td>
                                             <td>
                                                 <center></center>
                                             </td>
@@ -324,55 +295,27 @@
 
                                                 </center>
                                             </td>
-                                            <td>
-                                                <center>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
-                                                            <i class="fa fa-check"></i></button>
-                                                    </span>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
-                                                        <button onClick="" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
-                                                            <i class="fa fa-user"></i></button>
-                                                    </span>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
-                                                            <i class="fa fa-info"></i></button>
-                                                    </span>
-                                                    <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-outline-danger btn-circle btn-icon btn-sm">
-                                                            <i class="fa fa-trash"></i></button>
-                                                    </span>
-                                                </center>
-                                            </td>
                                         </tr>
 
                                     </tbody>
                                     <tfoot>
-                                        <tr>
+                                    <tr>
                                             <th>
                                                 <center>No</center>
-                                            </th>
-                                            <th>
-                                                <center>ID Transaksi</center>
                                             </th>
                                             <th>
                                                 <center>Nama Penyewa</center>
                                             </th>
                                             <th>
-                                                <center>Tanggal Pemesanan</center>
+                                                <center>ID Order</center>
                                             </th>
                                             <th>
-                                                <center>Total Harga</center>
-                                            </th>
-                                            <th>
-                                                <center>Foto Bukti</center>
+                                                <center>Tanggal</center>
                                             </th>
                                             <th>
                                                 <center>Status</center>
                                             </th>
-                                            <th>
-                                                <center>Action</center>
-                                            </th>
+                                           
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -380,6 +323,7 @@
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
+                    </div>
                     </div>
                     <!-- /.col -->
                 </div>
