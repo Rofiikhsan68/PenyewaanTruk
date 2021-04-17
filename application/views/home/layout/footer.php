@@ -96,8 +96,9 @@
 <script src="<?= base_url() ?>assets/home/js/alert.js"></script>
 <script src="<?= base_url() ?>assets/home/js/cart.js"></script>
 <script src="<?= base_url() ?>assets/home/js/toastr.js"></script>
-<script src="<?= base_url() ?>assets/alert.js"></script>
 <script src="<?= base_url() ?>assets/home/cart.js"></script>
+<script src="<?= base_url() ?>assets/alert.js"></script>
+<script src="<?= base_url() ?>assets/home/transaksi.js"></script>
 <script src="<?= base_url(); ?>assets/admin/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
