@@ -54,5 +54,8 @@
 			background-color: #00bcd4!important;
 			border : 1px solid #00bcd4!important;
 		}
+		.swal-text{
+			text-align: center;
+		}
 	</style>
 </head>
