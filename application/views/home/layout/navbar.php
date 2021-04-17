@@ -20,7 +20,7 @@
                             <div class="col search-boxxx" style="float:right;">
                                 <form method="post" action="<?= base_url() ?>product/search_product/">
                                     <?php if ($this->session->userdata('username')) { ?>
-                                        <input class="search-input" name="search" style="width: 200px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" name="search" style="width: 280px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } else { ?>
                                         <input class="search-input" style="width: 400px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } ?>

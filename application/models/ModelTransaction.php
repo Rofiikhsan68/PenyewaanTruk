@@ -58,4 +58,8 @@ class ModelTransaction extends CI_Model
     public function UpdateStatusPenyewaan($data,$id_transaction){
         return $this->db->update('tbl_transaksi',$data,array('id_transaction' => $id_transaction));
     }
+
+    public function uploadDp($data,$id_transaction){
+        return $this->db->update('tbl_transaksi',$data,['id_transaction' => $id_transaction]);
+    }
 }

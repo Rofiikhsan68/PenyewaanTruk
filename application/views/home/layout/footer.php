@@ -79,6 +79,7 @@
 <!-- End footer Area -->
 
 <script src="<?= base_url() ?>assets/home/js/vendor/jquery-2.2.4.min.js"></script>
+<script src="<?= base_url()?>assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
 <script src="<?= base_url() ?>assets/home/js/vendor/bootstrap.min.js"></script>
 <script src="<?= base_url() ?>assets/home/js/jquery.ajaxchimp.min.js"></script>
@@ -97,6 +98,12 @@
 <script src="<?= base_url() ?>assets/home/js/toastr.js"></script>
 <script src="<?= base_url() ?>assets/alert.js"></script>
 <script src="<?= base_url() ?>assets/home/cart.js"></script>
+<script src="<?= base_url(); ?>assets/admin/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    bsCustomFileInput.init();
+  });
+</script>
 
 <script>
 	pesan = document.getElementById('pesan');

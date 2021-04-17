@@ -110,9 +110,8 @@
                 "active_transaction"    => "active",
                 "title"                 => "Riwayat Transaksi",
                 "waiting_process"       => $this->ModelTransaction->getDataTransactionByStatus(0),
-                "process_transaction"   => $this->ModelTransaction->getDataTransactionByStatus(1),
-                "waiting_payment"       => $this->ModelTransaction->getDataTransactionBy2Status(2,3),
-                "done_transaction"      => $this->ModelTransaction->getDataTransactionByStatus(4),
+                "waiting_payment"   => $this->ModelTransaction->getDataTransactionBy2Status(1,2),
+                "done_transaction"      => $this->ModelTransaction->getDataTransactionByStatus(3),
             );
             $this->load->view('home/layout/header', $data);
             $this->load->view('home/layout/navbar');
