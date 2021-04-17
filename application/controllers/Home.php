@@ -5,6 +5,7 @@
         {
             parent::__construct();
             $this->load->model('ModelMerk');
+            $this->load->model('ModelType');
             $this->load->model('ModelProduct');
             $this->load->model('ModelUsers');
             $this->load->model('ModelCart');
@@ -122,7 +123,9 @@
         public function recommendation(){
             $data = array(
                 "active_recommendation" => "active",
-                "title"                 => "Rekomendasi"
+                "title"                 => "Rekomendasi",
+                'data_merk'             => $this->ModelMerk->getDataMerk(),
+                'data_type'             => $this->ModelType->getDataType()
             );
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
