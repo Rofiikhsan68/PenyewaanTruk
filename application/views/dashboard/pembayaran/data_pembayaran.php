@@ -70,7 +70,7 @@
                                                 </td>
                                                 <td>
                                                     <center>
-                                                        <?php if($row['payment_status'] == 1){ ?>
+                                                        <?php if($row['payment_status'] == 0){ ?>
                                                         <span class="badge badge-warning">Menunggu <br> Pembayaran</span>
                                                         <?php }else{ ?>
                                                         <span class="badge badge-warning">Belum Diproses</span>
@@ -147,7 +147,7 @@
                                                 </td>
                                                 <td>
                                                     <center>
-                                                        <?php if($row['payment_status'] == 3){ ?>
+                                                        <?php if($row['payment_status'] == 1){ ?>
                                                         <span class="badge badge-warning">Menunggu <br> Pembayaran</span>
                                                         <?php }else{ ?>
                                                         <span class="badge badge-warning">Belum Diproses</span>
