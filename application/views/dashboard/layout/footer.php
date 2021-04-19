@@ -16,6 +16,16 @@
 
 <!-- jQuery -->
 <script src="<?= base_url()?>assets/admin/plugins/jquery/jquery.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/jquery.dataTables.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+<script src="<?= base_url() ?>assets/admin/js/tables/jquery-datatable.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?= base_url()?>assets/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -27,10 +37,10 @@
 <!-- ChartJS -->
 <script src="<?= base_url()?>assets/admin/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
-<script src="<?= base_url()?>assets/admin/plugins/sparklines/sparkline.js"></script>
+<!-- <script src="<?= base_url()?>assets/admin/plugins/sparklines/sparkline.js"></script> -->
 <!-- JQVMap -->
-<script src="<?= base_url()?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="<?= base_url()?>assets/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- <script src="<?= base_url()?>assets/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="<?= base_url()?>assets/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script> -->
 <!-- jQuery Knob Chart -->
 <script src="<?= base_url()?>assets/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
@@ -62,6 +72,8 @@
 <script src="<?= base_url()?>assets/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= base_url()?>assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <script src="<?= base_url(); ?>assets/admin/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+
+
 <script type="text/javascript">
   $(document).ready(function() {
     bsCustomFileInput.init();
@@ -70,21 +82,25 @@
 
 <!-- Page specific script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+  // $(function () {
+  //   $("#example1").DataTable({
+  //     "responsive": true, "lengthChange": false, "autoWidth": false,
+  //     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+  //   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  //   $("#data2").DataTable({
+  //     "responsive": true, "lengthChange": false, "autoWidth": false,
+  //     "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+  //   }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  //   $('#example2').DataTable({
+  //     "paging": true,
+  //     "lengthChange": false,
+  //     "searching": false,
+  //     "ordering": true,
+  //     "info": true,
+  //     "autoWidth": false,
+  //     "responsive": true,
+  //   });
+  // });
 </script>
 <script src="<?= base_url()?>assets/admin/merk.js"></script>
 <script src="<?= base_url()?>assets/admin/type.js"></script>
@@ -102,5 +118,10 @@
      });
    }
  </script>
+ <script>
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
 </body>
 </html>

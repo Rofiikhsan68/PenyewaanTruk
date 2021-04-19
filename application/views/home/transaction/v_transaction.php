@@ -56,7 +56,7 @@
                                             <td><?= $waiting['destination'] ?></td>
                                             <td><?= $waiting['note'] ?></td>
                                             <td>
-                                                <button onClick="detailpesanan('<?= $waiting['product_name'] ?>','<?= $waiting['price'] ?>','<?= $waiting['total_price'] ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
+                                                <button onClick="detailpesanan('<?= $waiting['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -102,7 +102,7 @@
                                                 <?php } ?>
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
+                                                <button onClick="detailpesanan('<?= $payment['id_transaction'] ?>','<?= base_url() ?>')"  data-toggle="modal" data-target="#modal_pesanan" type="button"  type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
                                             </td>
                                             <td>
                                             <?php if($payment['payment_status'] < 1){ ?>
@@ -218,6 +218,52 @@
     </div>
 </div>
 
+<div class="modal fade" id="modal_pesanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_title">Detail Data Pesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table-data" class="table table-bordered">
+                    <thead class="bg-info">
+                        <tr class="text-light">
+                            <td>No</td>
+                            <td>Nama Produk</td>
+                            <td>Harga</td>
+                            <td>Jumlah</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                    </tbody>
+                    <tfoot>
+                       <tr>
+                            <th colspan="4">Sub Total</th>
+                            <td id="sub_total">Rp 0</td>
+                       </tr>
+                       <tr>
+                            <th colspan="4">Uang Muka</th>
+                            <td id="down_payment">Rp 0</td>
+                       </tr>
+                       <tr>
+                            <th colspan="4">Sisa Pembayaran</th>
+                            <td id="remaining_payment">Rp 0</td>
+                       </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
     function getPrice(idTransaction, totalPrice) {
         document.getElementById('id_transaction').value = idTransaction;
@@ -249,41 +295,3 @@
         document.getElementById('notif').hidden = false;
     }
 </script>
-
-<div class="modal fade" id="modal_pesanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modal_title">Detail Data Pesanan</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <table class="table table-bordered">
-                    <thead class="bg-info">
-                        <tr class="text-light">
-                            <td>No</td>
-                            <td>Nama Produk</td>
-                            <td>Harga</td>
-                            <td>Jumlah</td>
-                            <td>Total</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td></td>
-                            <td id="product_name"></td>
-                            <td id="price" ></td>
-                            <td></td>
-                            <td id="total_price"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>

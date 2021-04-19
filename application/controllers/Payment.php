@@ -40,5 +40,6 @@
                 $this->session->set_flashdata("type","warning");
                 redirect(base_url('home/list_transaction'));
             }
+            
         }
     }
