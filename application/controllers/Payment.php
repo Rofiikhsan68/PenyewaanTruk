@@ -18,10 +18,14 @@
                 $config['allowed_types']    = 'gif|jpg|png|jpeg';
                 $this->upload->initialize($config);
                 if($this->upload->do_upload('photo')){
+                    $data_file = array('upload_data' => $this->upload->data());
+                    $nama_file = $data_file['upload_data']['file_name'];
+
                     $data = [
                         'payment_status'    => 2,
                         'down_payment'      => $amountPaid,
-                        'remaining_payment' => $totalPrice-$amountPaid
+                        'remaining_payment' => $totalPrice-$amountPaid,
+                        'bukti_dp'          => $nama_file
                     ];
                     $this->ModelTransaction->uploadDp($data,$idTransaction);
                     $this->session->set_flashdata("pesan","Bukti Pembayaran berhasil diupload,silahkan tunggu konfirmasi selanjutnya");

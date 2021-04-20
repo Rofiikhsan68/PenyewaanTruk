@@ -107,6 +107,7 @@
 <script src="<?= base_url()?>assets/admin/product.js"></script>
 <script src="<?= base_url()?>assets/alert.js"></script>
 <script src="<?= base_url()?>assets/admin/penyewa.js"></script>
+<script src="<?= base_url()?>assets/home/transaksi.js"></script>
 
 <script>
    pesan = document.getElementById('pesan');

@@ -88,7 +88,7 @@
                                                                 <i class="fa fa-user"></i></button>
                                                         </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
-                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
+                                                            <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
                                                         </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
@@ -297,4 +297,49 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modal_pesanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modal_title">Detail Pesanan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table id="table-data" class="table table-bordered">
+                    <thead class="bg-info">
+                        <tr class="text-light">
+                            <td>No</td>
+                            <td>Nama Produk</td>
+                            <td>Harga</td>
+                            <td>Jumlah</td>
+                            <td>Total</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                    </tbody>
+                    <tfoot>
+                       <tr>
+                            <th colspan="4">Sub Total</th>
+                            <td id="sub_total">Rp 0</td>
+                       </tr>
+                       <tr>
+                            <th colspan="4">Uang Muka</th>
+                            <td id="down_payment">Rp 0</td>
+                       </tr>
+                       <tr>
+                            <th colspan="4">Sisa Pembayaran</th>
+                            <td id="remaining_payment">Rp 0</td>
+                       </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
     </div>
