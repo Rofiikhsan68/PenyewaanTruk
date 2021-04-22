@@ -45,7 +45,7 @@
         }
 
         public function getDataProductTrain(){
-            $sql = "SELECT id_product,nama_product,photo,capacity,radius,price,id_merk as n_m, id_type as n_t
+            $sql = "SELECT id_product,product_name,photo,capacity,radius,price,PR.id_merk as n_m, PR.id_type as n_t
                         FROM tbl_product PR
                             JOIN tbl_merk MR on PR.id_merk = MR.id_merk 
                             JOIN tbl_type TP on PR.id_type = TP.id_type";

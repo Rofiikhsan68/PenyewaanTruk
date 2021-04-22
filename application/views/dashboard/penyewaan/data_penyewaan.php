@@ -38,7 +38,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped dataTable js-exportable max-width100">
                                 <thead>
                                     <tr>
                                         <th>
@@ -108,7 +108,7 @@
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
                                                         <button onClick="update_penyewaan('<?= base_url() ?>penyewaan/process_confirmation/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
-                                                            <i class="fa fa-info"></i></button>
+                                                            <i class="fa fa-book"></i></button>
                                                     </span>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
                                                         <button onClick="cancel_penyewa('<?= base_url() ?>penyewaan/cancel_penyewaan/<?= $row['id_transaction'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-outline-danger btn-circle btn-icon btn-sm">

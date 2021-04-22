@@ -153,11 +153,44 @@ class Product extends CI_Controller
         $labels = array();
         $trainData = $this->ModelProduct->getDataProductTrain();
         for($i = 0; $i < count($trainData); $i++){
-            $labels[$i] = $trainData[$i]['nama_product'];
+            $labels[$i] = $trainData[$i]['product_name'];
         }
         $dataSet = new ArrayDataset($trainData,$labels);
         $dataSet->removeColumns([null]);
         $dataSet->removeColumns([0,1,2]);
-        var_dump($dataSet);die;
+        $samples = $dataSet->getSamples();
+        $labels = $dataSet->getTargets();
+        $merk = $this->input->post('merk');
+        $type = $this->input->post('type');
+        $capacity = $this->input->post('capacity');
+        $price = $this->input->post('price');
+        $radius = $this->input->post('price');
+        $k = 5;
+
+        $predictLabels;
+        for($i = 0; $i < count($samples);$i++){
+            $classifier = new KNearestNeighbors($k);
+            $classifier->train($samples,$labels);
+            $predict = $classifier->predict([$samples[$i]]);
+            $predictLabels[$i] = $predict[0];
+        }
+
+        $report = new ClassificationReport($labels,$predictLabels);
+        $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
+        $data['average']  = $report->getAverage();
+        $input = [$merk,$type,$capacity,$price,$radius];
+        $newData = [];
+        $euclidean = new Euclidean();
+        for($i = 0; $i<= count($samples)-1; $i++){
+            $distance = $euclidean->distance($samples[$i], $input);
+            $newData [$i]["distance"] = round($distance,2);
+            $newData [$i]["data"] = $trainData[$i]; 
+        }
+        $data = [
+            'recomended' => sort($newData)
+        ];
+
+        var_dump($newData);
+
     }
 }

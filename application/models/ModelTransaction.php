@@ -11,6 +11,7 @@ class ModelTransaction extends CI_Model
     {
         return $this->db->insert_batch('tbl_barang', $dataGoods);
     }
+    
     public function getDataTransaction($id_transaction)
     {
         $sql = "SELECT * FROM tbl_transaksi,tbl_cart,tbl_user,tbl_product,tbl_detailuser WHERE
@@ -49,6 +50,7 @@ class ModelTransaction extends CI_Model
                     JOIN tbl_cart C ON TR.id_cart = C.id_cart 
                     JOIN tbl_product PR ON C.id_product = PR.id_product 
                     JOIN tbl_user US ON C.id_user = US.id_user 
+                    JOIN tbl_detailuser DS ON US.id_user = DS.id_user
                     WHERE TR.status = ? OR TR.status = ? GROUP BY TR.id_transaction ";
         return $this->db->query($sql,array($status1,$status2))->result_array();
     }
@@ -57,5 +59,9 @@ class ModelTransaction extends CI_Model
     }
     public function UpdateStatusPenyewaan($data,$id_transaction){
         return $this->db->update('tbl_transaksi',$data,array('id_transaction' => $id_transaction));
+    }
+
+    public function uploadDp($data,$id_transaction){
+        return $this->db->update('tbl_transaksi',$data,['id_transaction' => $id_transaction]);
     }
 }

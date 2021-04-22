@@ -48,7 +48,7 @@
             </p>
           </a>
         </li>
-        <?php if(isset($active_leasing)){ ?>
+        <?php if(isset($active_leasing) || isset($active_payment)){ ?>
         <li class="nav-item has-treeview menu-open">
           <a href="#" class="nav-link active">
           <?php }else{ ?>
@@ -61,7 +61,7 @@
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <?php if(isset($active_leasing)){ ?>
+          <?php if(isset($active_leasing) || isset($active_payment)){ ?>
           <ul class="nav nav-treeview" style="display: block;">
           <?php }else{ ?>
           <ul class="nav nav-treeview" style="display: none;">
@@ -78,7 +78,11 @@
               </a>
             </li>
             <li class="nav-item">
+            <?php if(isset($active_payment)){ ?>
+              <a href="<?= base_url() ?>dashboard/data_pembayaran" class="nav-link active">
+              <?php }else{ ?>
               <a href="<?= base_url() ?>dashboard/data_pembayaran" class="nav-link">
+              <?php } ?>
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Pembayaran</p>
                 <span class="badge bg-color-primary right">0</span>

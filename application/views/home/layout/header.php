@@ -33,7 +33,6 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/style.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/style.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/home/css/toastr.css">
-	<link rel="stylesheet" href="<?= base_url() ?>assets/home/admin/plugins/fontawesome-free/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 	<style>
@@ -54,6 +53,9 @@
 		.btn-primary{
 			background-color: #00bcd4!important;
 			border : 1px solid #00bcd4!important;
+		}
+		.swal-text{
+			text-align: center;
 		}
 	</style>
 </head>
