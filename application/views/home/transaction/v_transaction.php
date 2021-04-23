@@ -105,8 +105,13 @@
                                                 <button onClick="detailpesanan('<?= $payment['id_transaction'] ?>','<?= base_url() ?>')"  data-toggle="modal" data-target="#modal_pesanan" type="button"  type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
                                             </td>
                                             <td>
-                                            <?php if($payment['payment_status'] < 1){ ?>
-                                                <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-money"></i> Bayar</button>
+                                                <?php if ($payment['payment_status'] < 1) { ?>
+                                                    <?php if ($payment['status'] == 1) ?>
+                                                        <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-money"></i> Bayar</button>       
+                                                    <?php }else if ($payment['payment_status'] > 1) { ?>
+                                                    <?php if ($payment['status'] == 2)  ?>
+                                                        <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-money"></i> Bayar Lunas</button>       
+                                                    <?php } ?>    
                                             </td>
                                             <?php } ?>
                                         </tr>
