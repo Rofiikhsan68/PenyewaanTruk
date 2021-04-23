@@ -79,10 +79,12 @@
                                                 </td>
                                                 <td>
                                                     <center>
+                                                        <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
                                                             <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
+                                                        <?php } ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
                                                             <button onClick="" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-user"></i></button>
@@ -137,13 +139,11 @@
                                                 <td><center><?= date('d F Y',strtotime($row['transaction_date'])) ?></center></td>
                                                 <td><center>Rp <?= number_format($row['down_payment']) ?></center></td>
                                                 <td>
-                                                    <?php if($row['payment_status'] == 4){ ?>
-                                                        <?php if($row['bukti_dp'] != null){ ?>
-                                                        <a href="<?= base_url() ?>assets/foto_bukti/<?= $row['bukti_dp'] ?>" target="_blank" class="badge badge-info">Klik untuk lihat</a>
-                                                        <?php }else{ ?>
-                                                        <span href="" class="badge badge-danger">Belum Bayar</span>
-                                                        <?php  } ?>
-                                                    <?php } ?>
+                                                    <?php if($row['bukti_lunas'] != null){ ?>
+                                                    <a href="<?= base_url() ?>assets/foto_bukti/<?= $row['bukti_lunas'] ?>" target="_blank" class="badge badge-info">Klik untuk lihat</a>
+                                                    <?php }else{ ?>
+                                                    <span href="" class="badge badge-danger">Belum Bayar</span>
+                                                    <?php  } ?> 
                                                 </td>
                                                 <td>
                                                     <center>
@@ -156,10 +156,12 @@
                                                 </td>
                                                 <td>
                                                     <center>
+                                                        <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
                                                             <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
+                                                        <?php } ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
                                                             <button onClick="" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-user"></i></button>
