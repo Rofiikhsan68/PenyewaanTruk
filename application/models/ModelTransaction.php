@@ -74,4 +74,7 @@ class ModelTransaction extends CI_Model
     public function getNumberByIdTransaksi($id_transaction){
         return $this->db->get_where('tbl_transaksi', array('id_transaction' => $id_transaction))->row_array();
     }
+    public function updateStatusByNumber($data,$number){
+        return $this->db->update('tbl_transaksi', $data, array('number' => $number));
+    }
 }
