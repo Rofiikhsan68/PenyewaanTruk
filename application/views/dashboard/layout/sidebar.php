@@ -111,10 +111,10 @@
           </a>
         </li>
         <li class="nav-item">
-        <?php if(isset($active_report)){ ?>
-          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link active">
+        <?php if(isset($active_laporan)){ ?>
+          <a href="<?= base_url() ?>dashboard/data_laporan" class="nav-link active">
           <?php }else{ ?>
-          <a href="<?= base_url() ?>dashboard/data_customers" class="nav-link">
+          <a href="<?= base_url() ?>dashboard/data_laporan" class="nav-link">
           <?php } ?>
             <i class="nav-icon fas fa-file"></i>
             <p>

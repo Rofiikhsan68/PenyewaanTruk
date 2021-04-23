@@ -127,4 +127,16 @@ Class Dashboard extends CI_Controller{
         $this->load->view('dashboard/transaction/data_transaction');
         $this->load->view('dashboard/layout/footer');
     }
+    public function data_laporan(){
+        $data = array(
+            "active_laporan" => "active",
+            "title"              => "Data Laporan",
+            
+        );
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/laporan/laporan');
+        $this->load->view('dashboard/layout/footer');
+    }
 }

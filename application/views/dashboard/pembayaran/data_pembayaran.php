@@ -158,7 +158,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="konfirmasi_pembayaranakhir('<?= base_url()?>payment/confirm_lastpayment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -170,10 +170,7 @@
                                                             <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
                                                         </span>
-                                                        <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                            <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-outline-danger btn-circle btn-icon btn-sm">
-                                                                <i class="fa fa-trash"></i></button>
-                                                        </span>
+                                                       
                                                     </center>
                                                 </td>
                                             </tr>
@@ -351,5 +348,8 @@
     document.getElementById('button').href = base_url;
 
   }  
+  function konfirmasi_pembayaranakhir(base_url){
+      document.getElementById('button').href = base_url
+  }
     
     </script>
