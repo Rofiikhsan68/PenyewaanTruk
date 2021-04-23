@@ -113,7 +113,7 @@
                                                         <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-money"></i> Bayar Lunas</button>       
                                                     <?php } ?>    
                                             </td>
-                                            <?php } ?>
+                                        
                                         </tr>
                                     <?php } ?>
                                 </tbody>

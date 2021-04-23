@@ -81,7 +81,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -158,7 +158,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -345,3 +345,11 @@
     </div>
 </div>
     </div>
+
+    <script>
+  function konfirmasi_pembayaran(base_url){
+    document.getElementById('button').href = base_url;
+
+  }  
+    
+    </script>
