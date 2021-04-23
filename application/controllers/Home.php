@@ -134,12 +134,17 @@
     
         public function confirmation(){
             $id_transaction = $this->uri->segment(3);
+            $get_datatransaction = $this->ModelTransaction->getNumberByIdTransaksi($id_transaction);
+            $number = $get_datatransaction['number'];
+
             $data = array(
                 "active_confirmation"       => "active",
                 "title"                 => "Konfirmasi",
                 "data_transaction"      => $this->ModelTransaction->getDataTransaction($id_transaction),
-                "data_transaction_group" => $this->ModelTransaction->getDataTransactionGroup($id_transaction)
+                "data_transaction_group" => $this->ModelTransaction->getDataTransactionGroup($id_transaction),
+                "data_barang"           => $this->ModelTransaction->getDataBarangByNumber($number)
                ); 
+            
                $this->load->view('home/layout/header',$data);
                $this->load->view('home/layout/navbar');
                $this->load->view('home/confirmation/confirmation');

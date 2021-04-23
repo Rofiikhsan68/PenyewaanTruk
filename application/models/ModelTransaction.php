@@ -30,7 +30,7 @@ class ModelTransaction extends CI_Model
             tbl_transaksi.id_cart = tbl_cart.id_cart AND
             tbl_cart.id_user = tbl_user.id_user AND
             tbl_cart.id_product = tbl_product.id_product AND
-            tbl_detailuser.id_user = tbl_user.id_user AND 
+            tbl_detailuser.id_user = tbl_user.id_user AND
             tbl_transaksi.id_transaction = ? GROUP BY id_transaction";
 
         return $this->db->query($sql,$id_transaction)->row_array();
@@ -63,5 +63,15 @@ class ModelTransaction extends CI_Model
 
     public function uploadDp($data,$id_transaction){
         return $this->db->update('tbl_transaksi',$data,['id_transaction' => $id_transaction]);
+    }
+    public function getDataBarangByNumber($number){
+        $sql ="SELECT * FROM tbl_transaksi,tbl_barang
+                WHERE
+                tbl_barang.number_transaction = tbl_transaksi.number AND
+                tbl_barang.number_transaction = ? ";
+                return $this->db->query($sql,$number)->result_array();
+    }
+    public function getNumberByIdTransaksi($id_transaction){
+        return $this->db->get_where('tbl_transaksi', array('id_transaction' => $id_transaction))->row_array();
     }
 }
