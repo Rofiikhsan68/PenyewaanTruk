@@ -89,7 +89,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="http://localhost/fikfish_web/dashboard/list_pembayaran/" class="nav-link">
+              <a href="<?= base_url()?>dashboard/data_transaction" class="nav-link">
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Transaksi</p>
                 <span class="badge bg-color-primary right">0</span>
