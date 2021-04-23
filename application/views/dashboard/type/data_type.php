@@ -69,11 +69,11 @@
                                             <td>
                                                 <center>
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Edit Data">
-                                                        <button onClick="update_type('<?= base_url() ?>type/update_type','<?= $row['id_type'] ?>','<?= $row['type_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-primary btn-circle btn-icon">
+                                                        <button onClick="update_type('<?= base_url() ?>type/update_type','<?= $row['id_type'] ?>','<?= $row['type_name'] ?>','<?= $row['score'] ?>')" data-toggle="modal" data-target="#modaltambah" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                             <i class="fa fa-edit"></i></button>
                                                     </span> 
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon">
+                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon btn-sm">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>
