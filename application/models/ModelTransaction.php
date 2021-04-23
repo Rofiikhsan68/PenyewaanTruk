@@ -96,4 +96,7 @@ class ModelTransaction extends CI_Model
     public function updateStatusByNumber($data,$number){
         return $this->db->update('tbl_transaksi', $data, array('number' => $number));
     }
+    public function updateStatusLastPayment($data,$number){
+        return $this->db->update('tbl_transaksi', $data, array('number' => $number));
+    }
 }

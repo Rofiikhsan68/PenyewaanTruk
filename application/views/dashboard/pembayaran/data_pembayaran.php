@@ -158,7 +158,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="konfirmasi_pembayaranakhir('<?= base_url()?>payment/confirm_lastpayment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -351,5 +351,8 @@
     document.getElementById('button').href = base_url;
 
   }  
+  function konfirmasi_pembayaranakhir(base_url){
+      document.getElementById('button').href = base_url
+  }
     
     </script>
