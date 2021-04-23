@@ -119,7 +119,7 @@ Class Dashboard extends CI_Controller{
         $data = array(
             "active_transaction" => "active",
             "title"              => "Data Transaksi",
-            "data_transaction"   => $this->ModelTransaction->getAllDataTransaction()
+            "data_transaction"   => $this->ModelTransaction->getDataTransactionByStatus(3)
         );
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');

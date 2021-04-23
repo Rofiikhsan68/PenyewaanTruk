@@ -28,14 +28,7 @@
                             <h5>Data Transaksi</h5>
                         </div>
                         <div class="card-body">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Data Pembayaran Uang Muka</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Data Pembayaran Akhir</a>
-                                </li>
-                            </ul>
+                            
                             <div class="tab-content" id="myTabContent">
                                 <div style="border: 1px solid #eee;padding:20px" class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     <table id="example1" class="table table-bordered table-striped dataTable js-exportable max-width100">
@@ -45,29 +38,21 @@
                                                 <th><center>ID Order</center></th>
                                                 <th><center>Nama Penyewa</center></th>
                                                 <th><center>Tanggal</center></th>
-                                                <th><center>Nominal</center></th>
-                                                <th><center>Bukti</center></th>
+                                                <th><center>Uang Muka</center></th>
+                                                <th><center>Pelunasan</center></th>
                                                 <th><center>Status</center></th>
                                                 <th><center>Action</center></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $i=1; foreach($data_dp as $row){ ?>
+                                            <?php $i=1; foreach($data_transaction as $row){ ?>
                                             <tr>
                                                 <td><center><?= $i++ ?></center></td>
                                                 <td><center><?= $row['id_transaction'] ?></center></td>
                                                 <td><center><?= $row['full_name'] ?></center></td>
                                                 <td><center><?= date('d F Y',strtotime($row['transaction_date'])) ?></center></td>
                                                 <td><center>Rp <?= number_format($row['down_payment']) ?></center></td>
-                                                <td>
-                                                    <?php if($row['payment_status'] == 2){ ?>
-                                                        <?php if($row['bukti_dp'] != null){ ?>
-                                                        <a href="<?= base_url() ?>assets/foto_bukti/<?= $row['bukti_dp'] ?>" target="_blank" class="badge badge-info">Klik untuk lihat</a>
-                                                        <?php }else{ ?>
-                                                        <span href="" class="badge badge-danger">Belum Bayar</span>
-                                                        <?php  } ?>
-                                                    <?php } ?>
-                                                </td>
+                                                <td><center>Rp <?= number_format($row['remaining_payment']) ?></center></td>
                                                 <td>
                                                     <center>
                                                         <?php if($row['payment_status'] == 0){ ?>
@@ -108,8 +93,8 @@
                                                 <th><center>Nama Penyewa</center></th>
                                                 <th><center>ID Order</center> </th>
                                                 <th> <center>Tanggal</center> </th>
-                                                <th><center>Nominal</center> </th>
-                                                <th><center>Bukti</center></th>
+                                                <th><center>Uang Muka</center> </th>
+                                                <th><center>Pelunasan</center></th>
                                                 <th><center>Status</center></th>
                                                 <th><center>Action</center></th>
                                             </tr>
