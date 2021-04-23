@@ -33,14 +33,15 @@
             <div class="col-lg-4">
                 <div class="details_item">
                     <h4>List Barang</h4>
-                    <!-- <ul class="list">
-							<li><a href="#"><span>Street</span> : 56/8</a></li>
-							<li><a href="#"><span>City</span> : Los Angeles</a></li>
-							<li><a href="#"><span>Country</span> : United States</a></li>
-							<li><a href="#"><span>Postcode </span> : 36952</a></li>
-                        </ul> -->
+                    <ul class="list">
+                    <?php $i=1; foreach($data_barang as $row) {?>
+							<li><a href="#"><span>Barang <?= $i++;?></span> : <?= $row['goods_name']?></a></li>
+							<li><a href="#"><span>Bobot</span> : <?= $row['weight']?> Kg</a></li>
+							<?php }?>
+                        </ul> 
+                        
                     <div class="row">
-                        <div class="col-md-4">List Barang :</div>
+                      
                         <div class="col-md-8">
                             <p></p>
                         </div>
