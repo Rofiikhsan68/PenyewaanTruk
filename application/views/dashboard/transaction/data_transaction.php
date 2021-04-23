@@ -5,13 +5,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Data Pembayaran</h1>
+                    <h1>Data Transaksi</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">Data Transaksi</li>
-                        <li class="breadcrumb-item active">Data Pembayaran</li>
+                        <li class="breadcrumb-item active">Data Transaksi</li>
                     </ol>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Data Pembayaran</h5>
+                            <h5>Data Transaksi</h5>
                         </div>
                         <div class="card-body">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -81,7 +81,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -158,7 +158,7 @@
                                                     <center>
                                                         <?php if($row['payment_status'] == 2){ ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Konfirmasi Penyewaan">
-                                                            <button onClick="konfirmasi_pembayaran('<?= base_url()?>payment/confirm_payment/<?= $row['number']?>')" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-check"></i></button>
                                                         </span>
                                                         <?php } ?>
@@ -167,7 +167,7 @@
                                                                 <i class="fa fa-user"></i></button>
                                                         </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
-                                                            <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
+                                                            <button onClick="" data-toggle="modal" data-target="#modal_konfirmasi" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
                                                         </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
@@ -345,11 +345,3 @@
     </div>
 </div>
     </div>
-
-    <script>
-  function konfirmasi_pembayaran(base_url){
-    document.getElementById('button').href = base_url;
-
-  }  
-    
-    </script>

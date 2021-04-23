@@ -95,25 +95,31 @@
                                             <td>
                                                 <?php if ($payment['payment_status'] == 0) { ?>
                                                     <span class="btn btn-outline-warning btn-sm">Menunggu DP</span>
-                                                <?php } else if($payment['payment_status'] == 1){ ?>
+                                                <?php } else if ($payment['payment_status'] == 1) { ?>
                                                     <span class="btn btn-outline-warning btn-sm">Menunggu Pelunasan</span>
-                                                <?php }else{ ?>
+                                                <?php } else { ?>
                                                     <span class="btn btn-outline-success btn-sm">Menunggu Diproses</span>
                                                 <?php } ?>
                                             </td>
                                             <td>
-                                                <button onClick="detailpesanan('<?= $payment['id_transaction'] ?>','<?= base_url() ?>')"  data-toggle="modal" data-target="#modal_pesanan" type="button"  type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
+                                                <button onClick="detailpesanan('<?= $payment['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
                                             </td>
                                             <td>
-                                                <?php if ($payment['payment_status'] < 1) { ?>
-                                                    <?php if ($payment['status'] == 1) ?>
-                                                        <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-money"></i> Bayar</button>       
-                                                    <?php }else if ($payment['payment_status'] > 1) { ?>
-                                                    <?php if ($payment['status'] == 2)  ?>
-                                                        <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-money"></i> Bayar Lunas</button>       
-                                                    <?php } ?>    
+                                                <?php if ($payment['status_transaksi'] == 1) { ?>
+                                                    <?php if ($payment['payment_status'] == 1) { ?>
+                                                        <button onClick="getPrice('<?= $payment['id_transaction'] ?>','<?= $payment['total_price'] ?>')" data-toggle="modal" data-target="#modal-bayar" type="button" class="btn btn-outline-success btn-sm"><i class="fa fa-money"></i> Bayar Uang Muka</button>
+                                                    <?php } ?>
+                                                <?php } else { ?>
+                                                    <?php if ($payment['payment_status'] == 1) { ?>
+                                                        <button onClick="getLunas('<?= $payment['id_transaction'] ?>','<?= $payment['remaining_payment'] ?>')" data-toggle="modal" data-target="#modal-lunas" type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-money"></i> Bayar Lunas</button>
+                                                    <?php } ?>
+                                                <?php } ?>
+
                                             </td>
+<<<<<<< HEAD
+=======
                                         
+>>>>>>> 97bb5afa239e8385cc7772f62ae018500fda55ac
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -210,13 +216,53 @@
                         <input type="hidden" name="id_transaction" id="id_transaction">
                         <input type="hidden" name="total_price" id="total_price">
                         <input type="hidden" name="amount_paid_input" id="amount_paid_input">
-                    
+
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button hidden="true" type="submit" id="btn_proccess" class="btn btn-primary">Save changes</button>
                 <button type="button" id="btn_notif" onClick="showNotif()" class="btn btn-primary">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-lunas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Form Pembayaran Lunas</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container mt-3" style="padding-right: 50px; padding-left:50px;">
+                    <form action="<?= base_url() ?>payment/payment_last/" method="post" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2">Sisa Pembayaran</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="" id="remaining_payment" readonly class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-2">Bukti Bayar</label>
+                            <div class="col-sm-10">
+                                <div class="custom-file">
+                                    <input type="file" name="photo" class="custom-file-input" id="exampleInputFile">
+                                    <label id="photo" class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id_transaction" id="id_transaction2">
+                        <input type="hidden" name="remaining_paid_input" id="remaining_paid_input">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" id="btn_proccess" class="btn btn-primary">Save changes</button>
                 </form>
             </div>
         </div>
@@ -244,21 +290,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+
                     </tbody>
                     <tfoot>
-                       <tr>
+                        <tr>
                             <th colspan="4">Sub Total</th>
                             <td id="sub_total">Rp 0</td>
-                       </tr>
-                       <tr>
+                        </tr>
+                        <tr>
                             <th colspan="4">Uang Muka</th>
                             <td id="down_payment">Rp 0</td>
-                       </tr>
-                       <tr>
+                        </tr>
+                        <tr>
                             <th colspan="4">Sisa Pembayaran</th>
                             <td id="remaining_payment">Rp 0</td>
-                       </tr>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
@@ -294,6 +340,12 @@
         document.getElementById('btn_proccess').hidden = false;
         document.getElementById('btn_notif').hidden = true;
         document.getElementById('notif').hidden = true;
+    }
+
+    function getLunas(idTransaction, remainingPayment) {
+        document.getElementById('id_transaction2').value = idTransaction;
+        document.getElementById('remaining_paid_input').value = remainingPayment;
+        document.getElementById('remaining_payment').value = "Rp " + remainingPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
     function showNotif() {

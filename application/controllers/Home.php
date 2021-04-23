@@ -106,13 +106,15 @@
         }
         public function list_transaction()
         {
+            $idUser = $this->session->userdata('id_user');
             $data = array(
                 "active_transaction"    => "active",
                 "title"                 => "Riwayat Transaksi",
-                "waiting_process"       => $this->ModelTransaction->getDataTransactionByStatus(0),
-                "waiting_payment"   => $this->ModelTransaction->getDataTransactionBy2Status(1,2),
-                "done_transaction"      => $this->ModelTransaction->getDataTransactionByStatus(3),
+                "waiting_process"       => $this->ModelTransaction->getDataTransactionByStatusUser(0,$idUser),
+                "waiting_payment"   => $this->ModelTransaction->getDataTransactionBy2StatusUser(1,2,$idUser),
+                "done_transaction"      => $this->ModelTransaction->getDataTransactionByStatusUser(3,$idUser),
             );
+            // var_dump($data['waiting_payment']);die;
             $this->load->view('home/layout/header', $data);
             $this->load->view('home/layout/navbar');
             $this->load->view('home/transaction/v_transaction');

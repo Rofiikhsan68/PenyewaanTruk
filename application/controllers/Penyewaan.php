@@ -13,6 +13,7 @@
 
             $data = array(
                 "status" => 1,
+                'payment_status' => 1
             );
             $this->ModelTransaction->UpdateStatusPenyewaan($data,$id_transaction);
             $this->session->set_flashdata("pesan", "Pesanan berhasil dikonfirmasi !");
