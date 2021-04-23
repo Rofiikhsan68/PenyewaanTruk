@@ -170,10 +170,7 @@
                                                             <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
                                                         </span>
-                                                        <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                            <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-outline-danger btn-circle btn-icon btn-sm">
-                                                                <i class="fa fa-trash"></i></button>
-                                                        </span>
+                                                       
                                                     </center>
                                                 </td>
                                             </tr>
