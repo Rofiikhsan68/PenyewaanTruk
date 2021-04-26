@@ -109,7 +109,7 @@ class ModelTransaction extends CI_Model
                 tbl_product.id_product = tbl_product.id_product and
                 tbl_transaksi.id_cart  = tbl_cart.id_cart and
                 tbl_barang.number_transaction = tbl_transaksi.number and
-                tbl_transaksi.payment_status = ? ";
+                payment_status = ? GROUP BY id_transaction ORDER BY number DESC";
                 return $this->db->query($sql,$status)->result_array();
     }
 }
