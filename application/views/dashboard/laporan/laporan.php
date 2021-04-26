@@ -68,28 +68,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
+                                   <?php $i=1; $y=0; foreach($data_laporan as $row) { ?>
+                                   <?php $y=+ $row['down_payment'] + $row['remaining_payment'] ?>
                                         <tr>
                                             <td>
-                                                <center></center>
+                                                <center><?= $i++ ?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['full_name']?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['id_transaction']?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['transaction_date']?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $y ?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['down_payment']?></center>
                                             </td>
                                             <td>
-                                                <center></center>
+                                                <center><?= $row['remaining_payment']?></center>
                                             </td>
                                             <td>
                                                 <center>
@@ -100,7 +101,7 @@
                                             </td>
                                            
                                         </tr>
-                                    
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                 <tr>

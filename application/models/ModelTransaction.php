@@ -99,4 +99,17 @@ class ModelTransaction extends CI_Model
     public function updateStatusLastPayment($data,$number){
         return $this->db->update('tbl_transaksi', $data, array('number' => $number));
     }
+    public function getDataAllTransaksi($status){
+        $sql = "SELECT * FROM tbl_transaksi,tbl_user,tbl_detailuser,tbl_product,tbl_merk,tbl_type,tbl_barang,tbl_cart
+                WHERE
+                tbl_detailuser.id_user = tbl_user.id_user and
+                tbl_product.id_type    = tbl_type.id_type and
+                tbl_product.id_merk    = tbl_merk.id_merk and
+                tbl_cart.id_user       = tbl_user.id_user and
+                tbl_product.id_product = tbl_product.id_product and
+                tbl_transaksi.id_cart  = tbl_cart.id_cart and
+                tbl_barang.number_transaction = tbl_transaksi.number and
+                tbl_transaksi.payment_status = ? ";
+                return $this->db->query($sql,$status)->result_array();
+    }
 }
