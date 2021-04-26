@@ -95,7 +95,9 @@
                                             <td>
                                                 <center>
                                                 
-                                                   <span class="badge badge-warning">Belum Diproses</span> 
+                                                <?php if($row['payment_status'] == 3){ ?>
+                                                   <span class="badge badge-success">Lunas</span> 
+                                                <?php } ?> 
                                                 
                                                 </center>
                                             </td>
