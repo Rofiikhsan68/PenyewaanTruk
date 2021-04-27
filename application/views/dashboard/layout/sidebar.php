@@ -3,7 +3,7 @@
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
     <img src="<?= base_url() ?>assets/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <span class="brand-text font-weight-light">Estu Transindo</span>
   </a>
 
   <!-- Sidebar -->
@@ -48,7 +48,7 @@
             </p>
           </a>
         </li>
-        <?php if(isset($active_leasing) || isset($active_payment)){ ?>
+        <?php if(isset($active_leasing) || isset($active_payment) || isset($active_transaction)){ ?>
         <li class="nav-item has-treeview menu-open">
           <a href="#" class="nav-link active">
           <?php }else{ ?>
@@ -61,7 +61,7 @@
               <i class="right fas fa-angle-left"></i>
             </p>
           </a>
-          <?php if(isset($active_leasing) || isset($active_payment)){ ?>
+          <?php if(isset($active_leasing) || isset($active_payment) || isset($active_transaction)){ ?>
           <ul class="nav nav-treeview" style="display: block;">
           <?php }else{ ?>
           <ul class="nav nav-treeview" style="display: none;">
@@ -74,7 +74,7 @@
               <?php } ?>
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Penyewaan</p>
-                <span class="badge bg-color-primary right">0</span>
+                <!-- <span class="badge bg-color-primary right">0</span> -->
               </a>
             </li>
             <li class="nav-item">
@@ -85,14 +85,18 @@
               <?php } ?>
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Pembayaran</p>
-                <span class="badge bg-color-primary right">0</span>
+                <!-- <span class="badge bg-color-primary right">0</span> -->
               </a>
             </li>
             <li class="nav-item">
+              <?php if(isset($active_transaction)){ ?>
+              <a href="<?= base_url()?>dashboard/data_transaction" class="nav-link active">
+              <?php }else{ ?>
               <a href="<?= base_url()?>dashboard/data_transaction" class="nav-link">
+              <?php } ?>
                 <i class="fas fa-angle-right nav-icon"></i>
                 <p>Data Transaksi</p>
-                <span class="badge bg-color-primary right">0</span>
+                <!-- <span class="badge bg-color-primary right">0</span> -->
               </a>
             </li>
            

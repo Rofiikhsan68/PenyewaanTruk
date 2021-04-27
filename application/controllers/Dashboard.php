@@ -16,13 +16,21 @@ Class Dashboard extends CI_Controller{
 
     }
     public function index(){
+        $totalProfit = 0;
+        $dataTransaction = $this->ModelTransaction->getProfit(3);
+        for($i = 0; $i < count($dataTransaction); $i++){
+            $profit = $dataTransaction[$i]['total_price'];
+            $totalProfit+=$profit;
+        }
         $data = [
             'title' => "Dashboard",
             'active_home'   => "active",
             "data_type"     => $this->ModelType->getDataType(),
             "data_merk"     => $this->ModelMerk->getDataMerk(),
             "data_product"  => $this->ModelProduct->getDataProduct(),
-            "data_customer" => $this->ModelUsers->getAllDataUsers(0)
+            "data_customer" => $this->ModelUsers->getAllDataUsers(0),
+            "data_profit"   => $totalProfit,
+            "data_transaction"  => count($dataTransaction)
         ];
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');

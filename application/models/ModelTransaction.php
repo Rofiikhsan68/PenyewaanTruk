@@ -112,4 +112,10 @@ class ModelTransaction extends CI_Model
                 payment_status = ? GROUP BY id_transaction ORDER BY number DESC";
                 return $this->db->query($sql,$status)->result_array();
     }
+
+    public function getProfit($status){
+        $sql = "SELECT total_price  FROM tbl_transaksi
+                    WHERE status = ? GROUP BY id_transaction ";
+        return $this->db->query($sql,$status)->result_array();
+    }
 }
