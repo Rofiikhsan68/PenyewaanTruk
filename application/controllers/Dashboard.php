@@ -16,13 +16,21 @@ Class Dashboard extends CI_Controller{
 
     }
     public function index(){
+        $totalProfit = 0;
+        $dataTransaction = $this->ModelTransaction->getProfit(3);
+        for($i = 0; $i < count($dataTransaction); $i++){
+            $profit = $dataTransaction[$i]['total_price'];
+            $totalProfit+=$profit;
+        }
         $data = [
             'title' => "Dashboard",
             'active_home'   => "active",
             "data_type"     => $this->ModelType->getDataType(),
             "data_merk"     => $this->ModelMerk->getDataMerk(),
             "data_product"  => $this->ModelProduct->getDataProduct(),
-            "data_customer" => $this->ModelUsers->getAllDataUsers(0)
+            "data_customer" => $this->ModelUsers->getAllDataUsers(0),
+            "data_profit"   => $totalProfit,
+            "data_transaction"  => count($dataTransaction)
         ];
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
@@ -119,12 +127,25 @@ Class Dashboard extends CI_Controller{
         $data = array(
             "active_transaction" => "active",
             "title"              => "Data Transaksi",
-            "data_transaction"   => $this->ModelTransaction->getAllDataTransaction()
+            "data_transaction"   => $this->ModelTransaction->getDataTransactionByStatus(3)
         );
         $this->load->view('dashboard/layout/header',$data);
         $this->load->view('dashboard/layout/navbar');
         $this->load->view('dashboard/layout/sidebar');
         $this->load->view('dashboard/transaction/data_transaction');
+        $this->load->view('dashboard/layout/footer');
+    }
+    public function data_laporan(){
+        $data = array(
+            "active_laporan" => "active",
+            "title"              => "Data Laporan",
+            "data_laporan"      => $this->ModelTransaction->getDataAllTransaksi(3)
+        );
+       
+        $this->load->view('dashboard/layout/header',$data);
+        $this->load->view('dashboard/layout/navbar');
+        $this->load->view('dashboard/layout/sidebar');
+        $this->load->view('dashboard/laporan/laporan');
         $this->load->view('dashboard/layout/footer');
     }
 }

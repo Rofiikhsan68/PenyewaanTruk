@@ -106,7 +106,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Pendapatan (perbulan)</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number">Rp <?= number_format($data_profit) ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
@@ -123,7 +123,7 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Transaksi (perbulan)</span>
-                <span class="info-box-number">41,410</span>
+                <span class="info-box-number"><?= $data_transaction ?></span>
 
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>

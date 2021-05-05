@@ -165,7 +165,8 @@ class Product extends CI_Controller
         $capacity = $this->input->post('capacity');
         $price = $this->input->post('price');
         $radius = $this->input->post('price');
-        $k = 5;
+        $k = $this->input->post('k');
+        // $k = 5;  
 
         $predictLabels;
         for($i = 0; $i < count($samples);$i++){
@@ -187,10 +188,14 @@ class Product extends CI_Controller
             $newData [$i]["data"] = $trainData[$i]; 
         }
         $data = [
-            'recomended' => sort($newData)
+            "recomended" => $newData,
+            "title"             => "Semua Produk"
         ];
-
-        var_dump($newData);
+        // var_dump($newData);die;
+        $this->load->view('home/layout/header',$data);
+        $this->load->view('home/layout/navbar');
+        $this->load->view('home/product/search_recomendation');
+        $this->load->view('home/layout/footer');
 
     }
 }
