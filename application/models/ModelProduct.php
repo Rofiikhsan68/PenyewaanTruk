@@ -14,7 +14,7 @@
             $sql = "SELECT * from tbl_product,tbl_merk,tbl_type
                 WHERE
                 tbl_product.id_merk = tbl_merk.id_merk and
-                tbl_product.id_type = tbl_type.id_type order by id_product DESC LIMIT 4 ";
+                tbl_product.id_type = tbl_type.id_type order by id_product DESC LIMIT 8 ";
                 return $this->db->query($sql)->result_array();
                     
         }

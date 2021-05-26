@@ -41,7 +41,7 @@ class ModelTransaction extends CI_Model
         JOIN tbl_product PR ON C.id_product = PR.id_product 
         JOIN tbl_user US ON C.id_user = US.id_user 
         JOIN tbl_detailuser DU ON US.id_user = DU.id_user
-        WHERE TR.status = ? GROUP BY TR.id_transaction";
+        WHERE TR.status = ?  GROUP BY TR.id_transaction order by number desc";
         return $this->db->query($sql,$status)->result_array();
     }
     public function getDataTransactionByStatusUser($status,$idUser){
@@ -50,8 +50,8 @@ class ModelTransaction extends CI_Model
         JOIN tbl_product PR ON C.id_product = PR.id_product 
         JOIN tbl_user US ON C.id_user = US.id_user 
         JOIN tbl_detailuser DU ON US.id_user = DU.id_user
-        WHERE TR.status = ? GROUP BY TR.id_transaction AND
-                C.id_user = ?";
+        WHERE TR.status = ? AND
+                C.id_user = ? GROUP BY TR.id_transaction ";
         return $this->db->query($sql,array($status,$idUser))->result_array();
     }
 
@@ -70,7 +70,7 @@ class ModelTransaction extends CI_Model
                     JOIN tbl_product PR ON C.id_product = PR.id_product 
                     JOIN tbl_user US ON C.id_user = US.id_user 
                     JOIN tbl_detailuser DS ON US.id_user = DS.id_user
-                    WHERE TR.status = ? OR TR.status = ? AND C.id_user = ? GROUP BY TR.id_transaction ";
+                    WHERE C.id_user = ? AND TR.status = ? OR TR.status = ?  GROUP BY TR.id_transaction ";
         return $this->db->query($sql,array($status1,$status2,$idUser))->result_array();
     }
     public function cancelTransactionById($data,$id_transaction){

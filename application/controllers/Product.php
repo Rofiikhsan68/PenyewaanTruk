@@ -38,7 +38,7 @@ class Product extends CI_Controller
                 $data = array(
                     'product_name'  => $product_name,
                     'price'         => $price,
-                    'id_merk'       => $merk_name,
+                    'id_merk'       => $merk_name,  
                     'id_type'       => $type_name,
                     'description'   => $description,
                     'capacity'      => $capacity,
