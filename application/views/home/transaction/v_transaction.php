@@ -116,10 +116,7 @@
                                                 <?php } ?>
 
                                             </td>
-<<<<<<< HEAD
-=======
                                         
->>>>>>> 97bb5afa239e8385cc7772f62ae018500fda55ac
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -152,7 +149,7 @@
                                             <td><?= $done['destination'] ?></td>
                                             <td><?= $done['note'] ?></td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
+                                                <button onClick="detailpesanan('<?= $done['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
                                             </td>
                                         </tr>
                                     <?php } ?>
