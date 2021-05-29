@@ -150,6 +150,7 @@
                                             <td><?= $done['note'] ?></td>
                                             <td>
                                                 <button onClick="detailpesanan('<?= $done['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
+                                                
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -240,7 +241,7 @@
                         <div class="form-group row">
                             <label for="" class="col-sm-2">Sisa Pembayaran</label>
                             <div class="col-sm-10">
-                                <input type="text" name="" id="remaining_payment" readonly class="form-control">
+                                <input type="text" name="" id="remaining_payment2" readonly class="form-control">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -342,7 +343,7 @@
     function getLunas(idTransaction, remainingPayment) {
         document.getElementById('id_transaction2').value = idTransaction;
         document.getElementById('remaining_paid_input').value = remainingPayment;
-        document.getElementById('remaining_payment').value = "Rp " + remainingPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        document.getElementById('remaining_payment2').value = "Rp " + remainingPayment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     }
 
     function showNotif() {

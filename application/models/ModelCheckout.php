@@ -21,5 +21,7 @@ class ModelCheckout extends CI_Model
     public function inserDataTransaction($dataTransaction){
         return $this->db->insert_batch('tbl_transaksi', $dataTransaction);
     }
-
+public function update_alamat($data,$id_user){
+    return $this->db->update('tbl_detailuser', $data ,array('id_user' => $id_user));
+}
 }
