@@ -86,9 +86,9 @@
                                                         </span>
                                                         <?php } ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
-                                                            <button onClick="" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
-                                                                <i class="fa fa-user"></i></button>
-                                                        </span>
+                                                        <button onClick="data_penyewa('<?= base_url() ?>','<?= $row['nik']?>','<?= $row['full_name']?>','<?= $row['email']?>','<?= $row['address']?>','<?= $row['phone']?>')" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
+                                                            <i class="fa fa-user"></i></button>
+                                                    </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
                                                             <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
@@ -163,9 +163,9 @@
                                                         </span>
                                                         <?php } ?>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
-                                                            <button onClick="" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
-                                                                <i class="fa fa-user"></i></button>
-                                                        </span>
+                                                        <button onClick="data_penyewa('<?= base_url() ?>','<?= $row['nik']?>','<?= $row['full_name']?>','<?= $row['email']?>','<?= $row['address']?>','<?= $row['phone']?>')" data-toggle="modal" data-target="#modalUsersDetail" type="button" class="btn btn-primary btn-circle btn-icon btn-sm">
+                                                            <i class="fa fa-user"></i></button>
+                                                    </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
                                                             <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>

@@ -55,7 +55,7 @@
                             <div class="product-details">
                                 <h6><?= $product['product_name']?></h6>
                                 <div class="price">
-                                    <h6>Rp <?= number_format(100000, 0, ".", ".") ?></h6>
+                                    <h6>Rp <?= number_format($product['price'], 0, ".", ".") ?></h6>
                                     <!-- <h6 class="l-through">$210.00</h6> -->
                                 </div>
                                 <div class="prd-bottom">

@@ -10,6 +10,7 @@ function detailpesanan(id_transaction,base_url){
             var total = 0;
             var downPayment = data[0].down_payment;
             var remainingPayment = data[0].remaining_payment;
+            console.log(remainingPayment);
             for(var i = 0;i< data.length; i++){
                 var tr = $('<tr>');
                 tr.append('<td>' + plus++ + '</td>');

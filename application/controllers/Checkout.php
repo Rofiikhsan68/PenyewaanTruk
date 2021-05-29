@@ -66,4 +66,26 @@ class Checkout extends CI_Controller
         $this->ModelCart->updateDataCart($dataStatus, $id_user);
         redirect(base_url('home/confirmation/' . $id_transaction));
     }
+    public function update_alamat(){
+       $id_user = $this->session->userdata('id_user');
+        $address = $this->input->post('address');
+
+        if($address != null){
+        $data = array(
+            'address' => $address,
+        );
+        $this->ModelCheckout->update_alamat($data,$id_user);
+        $this->session->set_flashdata("pesan","Berhasil Memperbarui Alamat");
+        $this->session->set_flashdata("title","Berhasil !!");
+        $this->session->set_flashdata("type","success");
+        redirect(base_url('home/checkout'));
+    }else{
+      
+        $this->session->set_flashdata("pesan","Gagal Memperbarui Alamat");
+        $this->session->set_flashdata("title","Gagal!!");
+        $this->session->set_flashdata("type","warning");
+        redirect(base_url('home/checkout'));
+    }
+
+}
 }

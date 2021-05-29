@@ -71,7 +71,7 @@ class ModelTransaction extends CI_Model
                     JOIN tbl_user US ON C.id_user = US.id_user 
                     JOIN tbl_detailuser DS ON US.id_user = DS.id_user
                     WHERE C.id_user = ? AND TR.status = ? OR TR.status = ?  GROUP BY TR.id_transaction ";
-        return $this->db->query($sql,array($status1,$status2,$idUser))->result_array();
+        return $this->db->query($sql,array($idUser,$status1,$status2))->result_array();
     }
     public function cancelTransactionById($data,$id_transaction){
         return $this->db->update('tbl_transaksi', $data, array('id_transaction' => $id_transaction));

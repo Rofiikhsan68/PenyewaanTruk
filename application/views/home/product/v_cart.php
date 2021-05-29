@@ -99,25 +99,7 @@
                              </td>
                              <td></td>
                          </tr>
-                         <tr class="shipping_area">
-                             <td>
-
-                             </td>
-                             <td>
-
-                             </td>
-                             <td>
-                                 <h5>Shipping</h5>
-                             </td>
-                             <td>
-                                 <div class="shipping_box">
-                                     <ul class="list">
-                                         <li class="active"><a href="#">Ongkos Kirim: Rp 15.000</a></li>
-                                     </ul>
-                                 </div>
-                             </td>
-                             <td></td>
-                         </tr>
+                         
                          <tr class="out_button_area">
                              <td>
 

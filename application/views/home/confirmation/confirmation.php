@@ -25,7 +25,7 @@
                     <ul class="list">
                         <li><a href="#"><span>Order number</span> : <?= $data_transaction_group['id_transaction']?></a></li>
                         <li><a href="#"><span>Date</span> : <?= date("d F Y", strtotime($data_transaction_group['transaction_date']))?></a></li>
-                        <li><a href="#"><span>Total</span> : Rp <?= $data_transaction_group['price'],",","."?></a></li>
+                        <li><a href="#"><span>Total</span> : Rp <?= number_format($data_transaction_group['total_price']), 0, ",", "."?></a></li>
                         <li><a href="#"><span>Payment method</span> : Transfer ATM</a></li>
                     </ul>
                 </div>
@@ -34,10 +34,12 @@
                 <div class="details_item">
                     <h4>List Barang</h4>
                     <ul class="list">
-                    <?php $i=1; foreach($data_barang as $row) {?>
+                    <?php $i=1; $total=0; foreach($data_barang as $row) {?>
 							<li><a href="#"><span>Barang <?= $i++;?></span> : <?= $row['goods_name']?></a></li>
 							<li><a href="#"><span>Bobot</span> : <?= $row['weight']?> Kg</a></li>
 							<?php }?>
+                           
+						
                         </ul> 
                         
                     <div class="row">
@@ -64,7 +66,7 @@
 
                     <p>
                         Silahkan lakukan Pembayaran melalui Transfer ATM. <br> Transfer Ke Rekening BNI 00931442124 a/n Estu Transindo.
-                        dengan jumlah <span style="font-weight:bold;"> Rp <?= $data_transaction_group['price'],",","."?></span>
+                        dengan jumlah <span style="font-weight:bold;"> Rp <?= number_format($data_transaction_group['total_price']),",","."?></span>
                     </p>
                 </div>
             </div>
@@ -104,7 +106,7 @@
                                 <h5></h5>
                             </td>
                             <td>
-                                <p>Rp <?=number_format($total), ",", "." ?></p>
+                                <p>Rp <?=number_format($total), ",","." ?></p>
                             </td>
                         </tr>
                         <tr>
@@ -115,7 +117,7 @@
                                 <h5></h5>
                             </td>
                             <td>
-                                <p>Rp <?=number_format($total), ",", "." ?></p>
+                                <p>Rp <?=number_format($total), ",","." ?></p>
                             </td>
                         </tr>
                     </tbody>
