@@ -25,4 +25,7 @@
         public function updateDataCart($dataStatus,$id_user){
             return $this->db->update('tbl_cart', $dataStatus,array('id_user' => $id_user));
         }
+        public function getDataByIdUsers($id_user){
+            return $this->db->get_where('tbl_cart',array('id_user' => $id_user, 'status' => 0))-> result_array();
+        }
     }

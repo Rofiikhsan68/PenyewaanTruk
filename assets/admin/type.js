@@ -13,3 +13,6 @@ function update_type(base_url, id, name, score) {
 	document.getElementById("button").innerHTML = "Ubah Data";
 	document.getElementById("form").action = base_url;
 }
+function delete_type(base_url) {
+	document.getElementById("buttondelete").href = base_url;
+}

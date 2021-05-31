@@ -58,8 +58,18 @@
                             <?php } ?>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <?php if ($this->session->userdata('username') != null) { ?>
-                                <li class="nav-item ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"></span></a></li>
+                            <?php if(isset($active_cart)) { ?>
+                            
+                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"><?= $count_cart ?></span></a></li>
+                            <?php }else{ ?>
+                                <?php if ($this->session->userdata('username') != null) { ?>
+                                <li class="nav-item  ml-item">
+                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"></span></a>
+                                <?php }else{ ?>
+                                    <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag">0</span></a>
+                                    <?php } ?>
+                                </li>
+                            
                             <?php } ?>
                         </ul>
                     </div>

@@ -50,5 +50,14 @@
                 redirect(base_url('dashboard/data_type')); 
             }
         }
+        public function delete_type(){
+            $id_type = $this->uri->segment(3);
+    
+            $this->ModelType->deleteData($id_type);
+            $this->session->set_flashdata('type','success');
+            $this->session->set_flashdata('pesan',' Data Berhasil Dihapus');
+            $this->session->set_flashdata('title','Berhasil!');
+            redirect(base_url('dashboard/data_type'));
+        }
 
     }
