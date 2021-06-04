@@ -73,7 +73,7 @@
                                                             <i class="fa fa-edit"></i></button>
                                                     </span> 
                                                     <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Data">
-                                                        <button onClick="" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon btn-sm">
+                                                        <button onClick="delete_merk('<?= base_url() ?>type/delete_type/<?= $row['id_type'] ?>')" data-toggle="modal" data-target="#modal_delete" type="button" class="btn btn-danger btn-circle btn-icon btn-sm">
                                                             <i class="fa fa-trash"></i></button>
                                                     </span>
                                                 </center>

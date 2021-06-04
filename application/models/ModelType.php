@@ -11,4 +11,7 @@
         public function UpdateDataType($data,$id_type){
             return $this->db->update('tbl_type',$data,array('id_type' => $id_type));
         }
+        public function deleteData($id_type){
+            return $this->db->delete('tbl_type',array('id_type' => $id_type));
+        }
     }

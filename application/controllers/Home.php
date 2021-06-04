@@ -74,6 +74,7 @@
 
         public function cart(){
             $id_user = $this->session->userdata('id_user');
+            $dataCart = $this->ModelCart->getDataByIdUsers($id_user);
 
             if($id_user == null){
                 redirect(base_url('home'));
@@ -82,7 +83,8 @@
             $data = array(
                 "active_cart"           => "active",
                 "title"                 => "Daftar Keranjang",
-                "data_cart"             => $this->ModelCart->getDataCart($id_user)
+                "data_cart"             => $this->ModelCart->getDataCart($id_user),
+                "count_cart"            => count($dataCart)
             );
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
