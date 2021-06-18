@@ -20,7 +20,7 @@
                             <div class="col search-boxxx" style="float:right;">
                                 <form method="post" action="<?= base_url() ?>product/search_product/">
                                     <?php if ($this->session->userdata('username')) { ?>
-                                        <input class="search-input" name="search" style="width: 280px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" name="search" style="width: 260px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } else { ?>
                                         <input class="search-input" style="width: 400px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } ?>
@@ -60,14 +60,14 @@
                         <ul class="nav navbar-nav navbar-right">
                             <?php if(isset($active_cart)) { ?>
                             
-                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"><?= $count_cart ?></span></a></li>
+                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"><span class="pl-1" > <?= $count_cart ?></span></span></a></li>
                             <?php }else{ ?>
                                 <?php if ($this->session->userdata('username') != null) { ?>
                                 <li class="nav-item  ml-item">
-                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"></span></a>
+                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a>
                                 <?php }else{ ?>
-                                    <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag">0</span></a>
-                                    <?php } ?>
+                                    <!-- <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a> -->
+                                <?php } ?>
                                 </li>
                             
                             <?php } ?>

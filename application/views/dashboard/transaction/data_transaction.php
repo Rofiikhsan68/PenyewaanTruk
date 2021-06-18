@@ -85,14 +85,19 @@
                                                     <td>
                                                         <center>
                                                             <?php if ($row['payment_status'] == 3) { ?>
-                                                                <span class="badge badge-success">Selesai</span>
+                                                                <span class="badge badge-success pt-1">Selesai</span>
                                                             <?php } ?>
                                                         </center>
                                                     </td>
                                                     <td>
+                                                        <center>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Bukti Pembayaran">
-                                                            <button onClick="" data-toggle="modal" data-target="#modalBukti" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
-                                                                <i class="fa fa-file"></i></button>
+                                                            <button onClick="showDp('<?= base_url() ?>','<?= $row['bukti_dp'] ?>','<?= $row['bukti_lunas'] ?>')" data-toggle="modal" data-target="#modalBukti" type="button" class="btn btn-success btn-circle btn-icon btn-sm">
+                                                                <i class="fa fa-credit-card"></i></button>
+                                                        </span>
+                                                        <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Surat Jalan">
+                                                            <a target="_blank" href="<?= base_url() ?>penyewaan/surat_jalan/<?= $row['number'] ?>" class="btn btn-info btn-circle btn-icon btn-sm">
+                                                                <i class="fa fa-file"></i></a>
                                                         </span>
 
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Penyewa">
@@ -100,7 +105,7 @@
                                                                 <i class="fa fa-user"></i></button>
                                                         </span>
                                                         <span data-toggle="tooltip" data-toggle="tooltip" data-placement="top" title="Detail Pesanan">
-                                                            <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-outline-info btn-circle btn-icon btn-sm">
+                                                            <button onClick="detailpesanan('<?= $row['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" class="btn btn-danger btn-circle btn-icon btn-sm">
                                                                 <i class="fa fa-book"></i></button>
                                                         </span>
                                                         </center>
@@ -164,19 +169,19 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>
-                                <center>Bukti Pembayaran</center>
-                            </th>
-                        
-                        </tr>
-                        <tr>
-                            <td id="bukti_lunas"></td>
-                          
-                        </tr>
-                    </table>
+                <div class="row">
+                    <div class="col-6">
+                        <h4 class="text-center">Bukti Pembayaran Uang Muka</h4>
+                        <center>
+                        <img class="mt-2" src="" style="width: 200px; height:200px;" id="img_dp" alt="">
+                        </center>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-center">Bukti Pembayaran Akhir</h4>
+                        <center>
+                        <img src="" id="img_lunas" class="mt-2" alt="" style="width: 200px; height:200px;">
+                        </center>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -284,3 +289,9 @@
         </div>
     </div>
     </div>
+    <script>
+        function showDp(baseUrl,buktiDp,buktiLunas){
+            document.getElementById("img_dp").src = baseUrl+'assets/foto_bukti/' + buktiDp;
+            document.getElementById("img_lunas").src = baseUrl+'assets/foto_bukti/' + buktiLunas;
+        }
+    </script>
