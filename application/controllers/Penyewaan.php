@@ -41,4 +41,16 @@
             echo json_encode($dataTransaction);
 
         }
+
+        public function surat_jalan(){
+            
+            $numberTransaction = $this->uri->segment(3);
+            $getDataBarang = $this->ModelTransaction->readDataBarang($numberTransaction);
+            $getDetail = $this->ModelTransaction->readDetailCustomer($numberTransaction);
+            $data = [
+                "data_barang" => $getDataBarang,
+                "detail_customer" => $getDetail
+            ];
+            $this->load->view('home/transaction/v_surat_jalan',$data);
+        }
     }

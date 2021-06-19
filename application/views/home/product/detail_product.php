@@ -37,13 +37,21 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<h3><?= $data_product['product_name'] ?></h3>
-						<h2 class="color-primary" >Rp <?= number_format(10000,0,".",".") ?></h2>
+						<h2 class="color-primary" >Rp <?= number_format(10000,0,".",".") ?>/hari</h2>
 						<ul class="list">
 							<li><a class="active color-primary" href="#"><span>Category</span> : <?= $data_product['type_name'] ?></a></li>
 							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
 						</ul>
 						<p><?= $data_product['description'] ?>.</p>
-						<div class="product_count">
+						<div class="product_count ">
+							<label for="qty">Quantity:</label>
+							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+						</div>
+						<div class="product_count ">
 							<label for="qty">Quantity:</label>
 							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"

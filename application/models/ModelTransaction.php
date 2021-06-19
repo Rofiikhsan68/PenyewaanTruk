@@ -118,4 +118,18 @@ class ModelTransaction extends CI_Model
                     WHERE status = ? GROUP BY id_transaction ";
         return $this->db->query($sql,$status)->result_array();
     }
+
+    public function readDataBarang($numberTransaction){
+        return $this->db->get_where('tbl_barang',array('number_transaction' => $numberTransaction))->result_array();
+    }
+
+    public function readDetailCustomer($numberTransaction){
+        $sql = "SELECT * FROM tbl_barang 
+                    JOIN tbl_transaksi ON tbl_barang.number_transaction = tbl_transaksi.number
+                    JOIN tbl_cart ON tbl_transaksi.id_cart = tbl_cart.id_cart
+                    JOIN tbl_user ON tbl_cart.id_user = tbl_user.id_user 
+                    JOIN tbl_detailuser ON tbl_user.id_user = tbl_detailuser.id_user
+                    WHERE tbl_barang.number_transaction = ?";
+        return $this->db->query($sql,$numberTransaction)->row_array();
+    }
 }

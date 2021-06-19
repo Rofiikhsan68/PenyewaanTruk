@@ -166,7 +166,7 @@ class Product extends CI_Controller
         $price = $this->input->post('price');
         $radius = $this->input->post('radius');
         // $k = $this->input->post('k');
-        $k = 7;
+        $k = 3;
           
 
         $predictLabels;
