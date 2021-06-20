@@ -164,9 +164,10 @@ class Product extends CI_Controller
         $type = $this->input->post('type');
         $capacity = $this->input->post('capacity');
         $price = $this->input->post('price');
-        $radius = $this->input->post('price');
-        $k = $this->input->post('k');
-        // $k = 5;  
+        $radius = $this->input->post('radius');
+        // $k = $this->input->post('k');
+        $k = 7;
+          
 
         $predictLabels;
         for($i = 0; $i < count($samples);$i++){
@@ -179,7 +180,8 @@ class Product extends CI_Controller
         $report = new ClassificationReport($labels,$predictLabels);
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
         $data['average']  = $report->getAverage();
-        $input = [$merk,$type,$capacity,$price,$radius];
+        
+        $input = [$capacity,$radius,$price,$merk,$type];
         $newData = [];
         $euclidean = new Euclidean();
         for($i = 0; $i<= count($samples)-1; $i++){
@@ -188,10 +190,12 @@ class Product extends CI_Controller
             $newData [$i]["data"] = $trainData[$i]; 
         }
         $data = [
-            "recomended" => $newData,
+            // "recomended" => $newData,
+            "jumlah_data" => 4 ,
             "title"             => "Semua Produk"
         ];
-        // var_dump($newData);die;
+        $data['recomended'] = $newData;
+        sort($data['recomended']);
         $this->load->view('home/layout/header',$data);
         $this->load->view('home/layout/navbar');
         $this->load->view('home/product/search_recomendation');
