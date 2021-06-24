@@ -83,6 +83,8 @@
                                             <tr>
                                                 <th scope="col">Product</th>
                                                 <th scope="col">Price</th>
+                                                <th scope="col">Hari Sewa</th>
+                                                <th scope="col">Hari Selesai</th>
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Total</th>
                                             </tr>
@@ -94,7 +96,7 @@
                                                 <td>
                                                     <div class="media">
                                                         <div class="d-flex">
-                                                            <img style="width: 152px; height:102px;" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
+                                                            <img style="width: 140px; height:80px;" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
                                                         </div>
                                                         <div class="media-body">
                                                             <p><?= $row['product_name']?></p>
@@ -103,6 +105,12 @@
                                                 </td>
                                                 <td>
                                                     <h5>RP. <?= number_format($row['price'], 0, ",", ".") ?></h5>
+                                                </td>
+                                                <td>
+                                                <?= date("d F Y", strtotime($row['hari_sewa'])) ?>
+                                                </td>
+                                                <td>
+                                                <?= date("d F Y", strtotime($row['hari_selesai'])) ?>
                                                 </td>
                                                 <td>
                                                     <div class="product_count">

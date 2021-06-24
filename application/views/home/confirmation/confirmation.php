@@ -97,7 +97,31 @@
                             </tr>
                             <?php $total += $row['price']*$row['qty']?>
 							<?php }?>  
-
+                        <tr>
+                        <td>
+                        <h4>Hari Sewa</h4>
+                        </td>
+                            <h5></h5>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        <?= date("d F Y", strtotime($row['hari_sewa'])) ?>
+                        </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                        <td>
+                        <h4>Hari Selesai</h4>
+                        </td>
+                            <h5></h5>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                        <?= date("d F Y", strtotime($row['hari_selesai'])) ?>
+                        </td>
+                        </tr>
                         <tr>
                             <td>
                                 <h4>Subtotal</h4>
@@ -109,6 +133,7 @@
                                 <p>Rp <?=number_format($total), ",","." ?></p>
                             </td>
                         </tr>
+                        
                         <tr>
                             <td>
                                 <h4>Total</h4>

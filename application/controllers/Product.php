@@ -167,7 +167,9 @@ class Product extends CI_Controller
         $radius = $this->input->post('radius');
         // $k = $this->input->post('k');
         $k = 3;
-          
+
+        if($merk != null && $type != null && $capacity != null && $price != null && $radius != null){ 
+        
 
         $predictLabels;
         for($i = 0; $i < count($samples);$i++){
@@ -179,7 +181,7 @@ class Product extends CI_Controller
 
         $report = new ClassificationReport($labels,$predictLabels);
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
-        $data['average']  = $report->getAverage();
+        $data['average']  = $report->getAverage();  
         
         $input = [$capacity,$radius,$price,$merk,$type];
         $newData = [];
@@ -200,6 +202,13 @@ class Product extends CI_Controller
         $this->load->view('home/layout/navbar');
         $this->load->view('home/product/search_recomendation');
         $this->load->view('home/layout/footer');
+
+    }else{
+        $this->session->set_flashdata('type', 'warning');
+        $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+        $this->session->set_flashdata('title', 'Gagal!');;
+        redirect(base_url('home/recommendation'));
+        }
 
     }
 }

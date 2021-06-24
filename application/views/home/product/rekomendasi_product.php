@@ -80,12 +80,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Parameter K</label>
                         <div class="col-sm-10">
                             <input type="number" name="k" class="form-control" placeholder="Jumlah Parameter K ...">
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
