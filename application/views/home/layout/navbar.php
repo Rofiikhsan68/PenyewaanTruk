@@ -60,11 +60,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <?php if(isset($active_cart)) { ?>
                             
-                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"><span class="pl-1" > <?= $count_cart ?></span></span></a></li>
+                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"></span></a></li>
                             <?php }else{ ?>
                                 <?php if ($this->session->userdata('username') != null) { ?>
                                 <li class="nav-item  ml-item">
-                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a>
+                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"></span></a>
                                 <?php }else{ ?>
                                     <!-- <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a> -->
                                 <?php } ?>

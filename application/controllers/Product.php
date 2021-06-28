@@ -157,7 +157,7 @@ class Product extends CI_Controller
         }
         $dataSet = new ArrayDataset($trainData,$labels);
         $dataSet->removeColumns([null]);
-        $dataSet->removeColumns([0,1,2]);
+        $dataSet->removeColumns([0,1,2,5]);
         $samples = $dataSet->getSamples();
         $labels = $dataSet->getTargets();
         $merk = $this->input->post('merk');
@@ -183,7 +183,7 @@ class Product extends CI_Controller
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
         $data['average']  = $report->getAverage();
         
-        $input = [$capacity,$radius,$price,$merk,$type];
+        $input = [$capacity,$radius,$merk,$type];
         $newData = [];
         $euclidean = new Euclidean();
         for($i = 0; $i<= count($samples)-1; $i++){

@@ -79,6 +79,7 @@
                 <div class="col-lg-4">
                 <?php $total=0; foreach($data_checkout as $row){ ?>
                     <?php $total += $row['price'] * $row['qty'] ?>
+                    <input type="hidden"  value="<?= $row['id_cart']?>" name="id_cart[]">
                 <?php } ?>
                     <div class="order_box">
 
@@ -166,7 +167,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="product_count">
-                                                        <input type="hidden" value="<?= $row['id_cart']?>" name="id_cart[]">
+                                                        
                                                         <input type="text" readonly value="<?= $row['qty']?>" title="Quantity:" class="input-text qty">
 
                                                     </div>

@@ -51,4 +51,11 @@
                             JOIN tbl_type TP on PR.id_type = TP.id_type";
             return $this->db->query($sql)->result_array();
         }
+        public function getDataProductByIdMerk($id_merk){
+            $sql = "SELECT * from tbl_product,tbl_merk WHERE
+                    tbl_product.id_merk = tbl_merk.id_merk AND
+                    tbl_product.id_merk = ?
+                    ORDER BY id_product DESC ";
+        return $this->db->query($sql, $id_merk)->result_array();
+        }
     }
