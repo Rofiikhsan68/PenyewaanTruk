@@ -51,16 +51,9 @@
 							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
 							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
 						</div>
-						<div class="product_count ">
-							<label for="qty">Quantity:</label>
-							<input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-							 class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
-						</div>
+						<a  data-target="#modal_hari" data-toggle="modal" class="social-info"> 
 						<div class="card_area d-flex align-items-center">
-							<a class="primary-btn" href="<?= base_url() ?>cart/add_cart/<?= $data_product['id_product']?>">Add to Cart</a>
+							<a class="primary-btn" onClick="tambah_cart('<?= base_url() ?>cart/add_cart/<?= $data_product['id_product']?>')" data-target="#modal_hari" data-toggle="modal" >Add to Cart</a>
 							<!-- <a class="icon_btn" href="#"><i class="lnr lnr lnr-diamond"></i></a>
 							<a class="icon_btn" href="#"><i class="lnr lnr lnr-heart"></i></a> -->
 						</div>
@@ -371,5 +364,55 @@
 				</div> -->
 			</div>
 		</div>
+		<!-- end product Area -->
+	<div class="modal fade" id="modal_hari" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Form Input hari
+					 </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container mt-3" style="padding-right: 50px; padding-left:50px;">
+						<form action="" id="form" method="post" enctype="multipart/form-data">
+							<div class="form-group row">
+								<div class="col-sm-10">
+									<div class="form-group row">
+										<label for="" class="col-sm-3 col-form-label">Input Hari Sewa</label>
+										<div class="col-sm-9">
+											<input type="date" value="" id="hari_sewa" required name="hari_sewa" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="" class="col-sm-3 col-form-label">Input Hari Selesai</label>
+										<div class="col-sm-9">
+											<input type="date" value="" id="hari_selesai" required name="hari_selesai" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="id_transaction" id="id_transaction2">
+							<input type="hidden" name="remaining_paid_input" id="remaining_paid_input">
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" id="btn_proccess" class="btn btn-primary">Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	function tambah_cart(base_url){
+		document.getElementById('form').action = base_url; 
+	}
+	</script>
 	</section>
 	<!--================End Product Description Area =================-->
+	

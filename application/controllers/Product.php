@@ -167,6 +167,8 @@ class Product extends CI_Controller
         $radius = $this->input->post('radius');
         // $k = $this->input->post('k');
         $k = 3;
+
+        if($merk != null && $type != null && $capacity != null && $price != null && $radius != null){
           
 
         $predictLabels;
@@ -200,6 +202,13 @@ class Product extends CI_Controller
         $this->load->view('home/layout/navbar');
         $this->load->view('home/product/search_recomendation');
         $this->load->view('home/layout/footer');
+
+    }else{
+        $this->session->set_flashdata('type', 'warning');
+        $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+        $this->session->set_flashdata('title', 'Gagal!');;
+        redirect(base_url('home/recommendation'));
+    }
 
     }
 }

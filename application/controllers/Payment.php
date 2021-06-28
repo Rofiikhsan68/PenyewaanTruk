@@ -85,7 +85,8 @@ class Payment extends CI_Controller
             'payment_status' => 1,
             'status'         => 2,
         );
-        $this->ModelTransaction->updateStatusByNumber($data, $number);
+        // $this->ModelTransaction->updateStatusByNumber($data, $number);
+        $this->ModelTransaction->UpdateStatusPenyewaan($data, $number);
         $this->session->set_flashdata("pesan", "Pesanan berhasil dikonfirmasi !");
         $this->session->set_flashdata("title", "Pesanan dikonfirmasi");
         $this->session->set_flashdata("type", "success");
@@ -99,7 +100,7 @@ class Payment extends CI_Controller
             'payment_status' => 3,
             'status'         => 3,
         );
-        $this->ModelTransaction->updateStatusLastPayment($data,$number);
+        $this->ModelTransaction->UpdateStatusPenyewaan($data, $number);
         $this->session->set_flashdata("pesan", "Pesanan berhasil dikonfirmasi !");
         $this->session->set_flashdata("title", "Pesanan dikonfirmasi");
         $this->session->set_flashdata("type", "success");

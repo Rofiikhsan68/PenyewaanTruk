@@ -78,6 +78,8 @@
                     <thead>
                         <tr>
                             <th scope="col">Product</th>
+                            <th scope="col">Hari Sewa</th>
+                            <th scope="col">Hari Selesai</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Total</th>
                         </tr>
@@ -89,6 +91,12 @@
                                     <p><?= $row['product_name'] ?></p>
                                 </td>
                                 <td>
+                                <p> <?= date("d F Y", strtotime($row['hari_sewa'])) ?></p>
+                                </td>
+                                <td>
+                                <p> <?= date("d F Y", strtotime($row['hari_selesai'])) ?></p>
+                                </td>
+                                <td>
                                     <h5><?= $row['qty'] ?></h5>
                                 </td>
                                 <td>
@@ -97,13 +105,17 @@
                             </tr>
                             <?php $total += $row['price']*$row['qty']?>
 							<?php }?>  
-
+                       
                         <tr>
                             <td>
                                 <h4>Subtotal</h4>
                             </td>
                             <td>
                                 <h5></h5>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
                             </td>
                             <td>
                                 <p>Rp <?=number_format($total), ",","." ?></p>
@@ -115,6 +127,10 @@
                             </td>
                             <td>
                                 <h5></h5>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
                             </td>
                             <td>
                                 <p>Rp <?=number_format($total), ",","." ?></p>

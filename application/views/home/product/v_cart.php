@@ -54,10 +54,10 @@
                                          <h5>Rp <?= number_format($row['price'], 0, ".", ".") ?></h5>
                                      </td>
                                      <td>
-                                     <?= $row['hari_sewa'] ?>
+                                     <?= date("d F Y", strtotime($row['hari_sewa'])) ?>
                                      </td>
                                      <td>
-                                     <?= $row['hari_selesai'] ?>
+                                     <?= date("d F Y", strtotime($row['hari_selesai'])) ?>
                                      </td>
                                      <td>
                                          <div class="product_count">

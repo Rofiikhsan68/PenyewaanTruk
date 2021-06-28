@@ -73,58 +73,13 @@
                         <div class="form-group row">
                             <span class="ml-4" id="btn_add" onClick="addForm()" style="cursor: pointer;">Klik untuk tambah detail barang <i class="fa fa-plus"></i></span>
                         </div>
-                        <h3>Pesanan Anda</h3>
-                        <div class="cart_inner">
-                            <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <?php $total=0; foreach($data_checkout as $row){ ?>
-                                       
-                                            <tr>
-                                                <th scope="col">Product</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Quantity</th>
-                                                <th scope="col">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                            <tr>
-                                                <td>
-                                                    <div class="media">
-                                                        <div class="d-flex">
-                                                            <img style="width: 152px; height:102px;" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <p><?= $row['product_name']?></p>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <h5>RP. <?= number_format($row['price'], 0, ",", ".") ?></h5>
-                                                </td>
-                                                <td>
-                                                    <div class="product_count">
-                                                        <input type="hidden" value="<?= $row['id_cart']?>" name="id_cart[]">
-                                                        <input type="text" readonly value="<?= $row['qty']?>" title="Quantity:" class="input-text qty">
-
-                                                    </div>
-                                                </td>
-                                                <td style="width: 100px;">
-                                                    <h5>RP. <?= number_format($row['price'] * $row['qty'], 0, ",", ".") ?></h5>
-                                                </td>
-                                           <?php $total += $row['price'] * $row['qty'] ?>
-                                           
-                                            </tr>
-                                            <?php }?>
-                                        </tbody>
-                                    </table>
-                            </div>
-                        </div>
+                       
 
                 </div>
                 <div class="col-lg-4">
+                <?php $total=0; foreach($data_checkout as $row){ ?>
+                    <?php $total += $row['price'] * $row['qty'] ?>
+                <?php } ?>
                     <div class="order_box">
 
                         <h2>Detail Shipping</h2>
@@ -168,7 +123,67 @@
                 </div>
 
             </div>
+            <div class="row">
+                <div class="col-lg-12">
+                <h3>Pesanan Anda</h3>
+                        <div class="cart_inner">
+                            <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        
+                                       
+                                            <tr>
+                                                <th scope="col">Product</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Hari Sewa</th>
+                                                <th scope="col">Hari Selesai</th>
+                                                <th scope="col">Quantity</th>
+                                                <th scope="col">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $total=0; foreach($data_checkout as $row){ ?>
 
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="d-flex">
+                                                            <img style="width: 140px; height:80px;" src="<?= base_url() ?>assets/home/foto_produk/<?= $row['photo'] ?>" alt="">
+                                                        </div>
+                                                        <div class="media-body">
+                                                            <p><?= $row['product_name']?></p>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h5>RP. <?= number_format($row['price'], 0, ",", ".") ?></h5>
+                                                </td>
+                                                <td>
+                                                <?= date("d F Y", strtotime($row['hari_sewa'])) ?>
+                                                </td>
+                                                <td>
+                                                <?= date("d F Y", strtotime($row['hari_selesai'])) ?>
+                                                </td>
+                                                <td>
+                                                    <div class="product_count">
+                                                        <input type="hidden" value="<?= $row['id_cart']?>" name="id_cart[]">
+                                                        <input type="text" readonly value="<?= $row['qty']?>" title="Quantity:" class="input-text qty">
+
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100px;">
+                                                    <h5>RP. <?= number_format($row['price'] * $row['qty'], 0, ",", ".") ?></h5>
+                                                </td>
+                                           <?php $total += $row['price'] * $row['qty'] ?>
+                                           
+                                            </tr>
+                                            <?php }?>
+                                        </tbody>
+                                    </table>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
