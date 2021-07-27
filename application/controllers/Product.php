@@ -181,7 +181,7 @@ class Product extends CI_Controller
 
         $report = new ClassificationReport($labels,$predictLabels);
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
-        $data['average']  = $report->getAverage();
+        $data['average']  = $report->getAverage();  
         
         $input = [$capacity,$radius];
         $newData = [];
@@ -208,7 +208,7 @@ class Product extends CI_Controller
         $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
         $this->session->set_flashdata('title', 'Gagal!');;
         redirect(base_url('home/recommendation'));
-    }
+        }
 
     }
 }

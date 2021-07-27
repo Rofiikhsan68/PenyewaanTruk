@@ -61,7 +61,7 @@
 							<img src="<?= base_url() ?>assets/home/img/features/f-icon3.png" alt="">
 						</div>
 						<h6>Layanan 24/7</h6>
-						<p>Layanan support Customer Service yang responsif.</p>
+						<p>Layanan support Customer Service yang responsif. </p>
 					</div>
 				</div>
 				<!-- single features -->
