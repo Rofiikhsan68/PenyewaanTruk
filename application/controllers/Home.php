@@ -67,7 +67,7 @@
             }
 
             $data = array(
-                "active_allproduct"     => "active",
+                "active_profile"     => "active",
                 "title"                 => "Profile",
                 "data_detail"           => $this->ModelUsers->getDataDetail($id_user)
             );

@@ -183,7 +183,7 @@ class Product extends CI_Controller
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
         $data['average']  = $report->getAverage();
         
-        $input = [$capacity,$radius,$merk,$type];
+        $input = [$capacity,$radius];
         $newData = [];
         $euclidean = new Euclidean();
         for($i = 0; $i<= count($samples)-1; $i++){
