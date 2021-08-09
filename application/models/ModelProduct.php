@@ -44,6 +44,23 @@
             return $this->db->query($sql,$productSearch)->result_array();
         }
 
+        public function getDataProductTrainNew($mulai,$end){
+            $sql = "SELECT id_product,product_name,photo,capacity,radius,price,PR.id_merk as n_m, PR.id_type as n_t
+                        FROM tbl_product PR
+                            JOIN tbl_merk MR on PR.id_merk = MR.id_merk 
+                            JOIN tbl_type TP on PR.id_type = TP.id_type
+                            WHERE price >= ? AND price <= ?";
+            return $this->db->query($sql,[$mulai,$end])->result_array();
+        }
+        public function getDataProductTrainElse($mulai,$end){
+            $sql = "SELECT id_product,product_name,photo,capacity,radius,price,PR.id_merk as n_m, PR.id_type as n_t
+                        FROM tbl_product PR
+                            JOIN tbl_merk MR on PR.id_merk = MR.id_merk 
+                            JOIN tbl_type TP on PR.id_type = TP.id_type
+                            WHERE price >= ";
+            return $this->db->query($sql,$mulai)->result_array();
+        }
+
         public function getDataProductTrain(){
             $sql = "SELECT id_product,product_name,photo,capacity,radius,price,PR.id_merk as n_m, PR.id_type as n_t
                         FROM tbl_product PR

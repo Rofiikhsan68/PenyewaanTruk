@@ -151,64 +151,75 @@ class Product extends CI_Controller
 
     public function search_recomendation(){
         $labels = array();
-        $trainData = $this->ModelProduct->getDataProductTrain();
+        $capacity = $this->input->post('capacity');
+        $price = $this->input->post('price');
+        $radius = $this->input->post('radius');
+
+        if($price == 'lainnya'){
+            $trainData = $this->ModelProduct->getDataProductTrainElse(4000000);
+        }else{
+
+            $splitPrice = explode('-',$price);
+            $trainData = $this->ModelProduct->getDataProductTrainNew($splitPrice[0],$splitPrice[1]);
+        }
+
+        // $trainData = $this->ModelProduct->getDataProductTrain();
         for($i = 0; $i < count($trainData); $i++){
             $labels[$i] = $trainData[$i]['product_name'];
         }
         $dataSet = new ArrayDataset($trainData,$labels);
         $dataSet->removeColumns([null]);
-        $dataSet->removeColumns([0,1,2,5]);
+        $dataSet->removeColumns([0,1,2,5,6,7]);
         $samples = $dataSet->getSamples();
         $labels = $dataSet->getTargets();
         $merk = $this->input->post('merk');
         $type = $this->input->post('type');
-        $capacity = $this->input->post('capacity');
-        $price = $this->input->post('price');
-        $radius = $this->input->post('radius');
+        
         // $k = $this->input->post('k');
         $k = 3;
 
-        if($merk != null && $type != null && $capacity != null && $price != null && $radius != null){
+        // if($merk != null && $type != null && $capacity != null && $price != null && $radius != null){
+        if($capacity != null && $price != null && $radius != null){
           
 
-        $predictLabels;
-        for($i = 0; $i < count($samples);$i++){
-            $classifier = new KNearestNeighbors($k);
-            $classifier->train($samples,$labels);
-            $predict = $classifier->predict([$samples[$i]]);
-            $predictLabels[$i] = $predict[0];
-        }
+            $predictLabels;
+            for($i = 0; $i < count($samples);$i++){
+                $classifier = new KNearestNeighbors($k);
+                $classifier->train($samples,$labels);
+                $predict = $classifier->predict([$samples[$i]]);
+                $predictLabels[$i] = $predict[0];
+            }
 
-        $report = new ClassificationReport($labels,$predictLabels);
-        $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
-        $data['average']  = $report->getAverage();  
-        
-        $input = [$capacity,$radius];
-        $newData = [];
-        $euclidean = new Euclidean();
-        for($i = 0; $i<= count($samples)-1; $i++){
-            $distance = $euclidean->distance($samples[$i], $input);
-            $newData [$i]["distance"] = round($distance,2);
-            $newData [$i]["data"] = $trainData[$i]; 
-        }
-        $data = [
-            // "recomended" => $newData,
-            "jumlah_data" => 4 ,
-            "title"             => "Semua Produk"
-        ];
-        $data['recomended'] = $newData;
-        sort($data['recomended']);
-        $this->load->view('home/layout/header',$data);
-        $this->load->view('home/layout/navbar');
-        $this->load->view('home/product/search_recomendation');
-        $this->load->view('home/layout/footer');
+            $report = new ClassificationReport($labels,$predictLabels);
+            $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
+            $data['average']  = $report->getAverage();  
+            
+            $input = [$capacity,$radius];
+            $newData = [];
+            $euclidean = new Euclidean();
+            for($i = 0; $i<= count($samples)-1; $i++){
+                $distance = $euclidean->distance($samples[$i], $input);
+                $newData [$i]["distance"] = round($distance,2);
+                $newData [$i]["data"] = $trainData[$i]; 
+            }
+            $data = [
+                // "recomended" => $newData,
+                "jumlah_data" => 4 ,
+                "title"             => "Semua Produk"
+            ];
+            $data['recomended'] = $newData;
+            sort($data['recomended']);
+            $this->load->view('home/layout/header',$data);
+            $this->load->view('home/layout/navbar');
+            $this->load->view('home/product/search_recomendation');
+            $this->load->view('home/layout/footer');
 
-    }else{
-        $this->session->set_flashdata('type', 'warning');
-        $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
-        $this->session->set_flashdata('title', 'Gagal!');;
-        redirect(base_url('home/recommendation'));
-        }
+        }else{
+            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+            $this->session->set_flashdata('title', 'Gagal!');;
+            redirect(base_url('home/recommendation'));
+            }
 
-    }
+        }
 }
