@@ -38,7 +38,7 @@
                     <a href="#">2</a>
                     <a href="#">3</a>
                     <a href="#" class="dot-dot"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
-                    <a href="#">6</a>
+                    <a href="#">6</a>k
                     <a href="#" class="next-arrow"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
