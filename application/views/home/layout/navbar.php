@@ -66,6 +66,7 @@
                             <?php } ?>
                             <?php } ?>
                             <?php if ($this->session->userdata('username') == null) { ?>
+                            
                                 <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>login/">Login</a></li>
                             <?php } else { ?>
                                 <li class="nav-item "><a class="nav-link " href="<?= base_url() ?>login/logout_process">Logout</a></li>

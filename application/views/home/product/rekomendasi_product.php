@@ -22,7 +22,7 @@
             </center>
             <form action="<?= base_url() ?>product/search_recomendation" method="post">
                 <div class="col-md-12 mt-5">
-                    <div class="form-group row">
+                    <!-- <div class="form-group row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Merk Truk</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="merk">
@@ -43,7 +43,7 @@
                                 <?php } ?>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Kapasitas</label>
                         <div class="col-sm-10">
@@ -73,10 +73,17 @@
                         <div class="col-sm-10">
                             <!-- <input type="password" class="form-control" id="inputPassword"> -->
                             <div class="input-group">
-                                <div class="input-group-prepend">
+                                <!-- <div class="input-group-prepend">
                                     <div class="input-group-text">Rp</div>
-                                </div>
-                                <input type="number" name="price" class="form-control" placeholder="Harga ...">
+                                </div> -->
+                                <!-- <input type="number" name="price" class="form-control" placeholder="Harga ..."> -->
+                                <select name="price" class="form-control" id="">
+                                    <option value="">-- Pilih Range Harga --</option>
+                                    <option value="1000000-2000000">Rp 1.000.0000 - Rp 2.000.000</option>
+                                    <option value="2000000-3000000">Rp 2.000.0000 - Rp 3.000.000</option>
+                                    <option value="3000000-4000000">Rp 3.000.0000 - Rp 4.000.000</option>
+                                    <option value="lainnya">Lebih dari Rp 4.000.000</option>
+                                </select>
                             </div>
                         </div>
                     </div>

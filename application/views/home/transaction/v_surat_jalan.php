@@ -33,23 +33,23 @@
                 <table width="100%" class="kop-prodi">
                     <tbody>
                         <tr class="noborder" align="center">
-                            <td rowspan="4" width="140" style="text-align:center"><img src="https://portal.unsada.ac.id/siakad/img/header/logo.png" height="110"></td>
+                            <td rowspan="4" width="140" style="text-align:center"><img style="width: auto;height:65px;" src="http://localhost/penyewaan/assets/home/img/logo.png" height="110"></td>
                             <td>
                                 <h2>PT. ESTU TRANSINDO</h2>
                             </td>
                         </tr>
                         <tr class="noborder" align="center">
                             <td colspan="2">
-                                Jl. Taman Malaka Selatan, Pondok Kelapa-Jakarta Timur 13450
+                                Kp.Gebang RT.010 RW.006, No 13 Tambun Utara, 17510
                             </td>
                         </tr>
                         <tr class="noborder" align="center">
                             <td colspan="2">
-                                Telp. (021)8649051, 8649053, 8649057. Fax (021)8649052
+                                Telp. 0815-3283-9980
                             </td>
                         </tr>
                         <tr class="noborder" align="center">
-                            <td colspan="2">Email : humas@unsada.ac.id Homepage : http//:www.unsada.ac.id</td>
+                            <td colspan="2">Email : estutransindo@gmail.com</td>
                         </tr>
                         <tr class="noborder" align="center">
                             <td colspan="4" align="right">
@@ -147,10 +147,10 @@
                             <td>
                                 Jakarta, <?= date('d F Y') ?><br>
                                 Disahkan Oleh : <br>
-                                Ka. Biro Akademik
+                                Kepala Bagian Keuangan
                                 <br><br><br><br>
-                                <u>Ir. Danny Faturachman, M.T</u><br>
-                                NIP. 0317086711
+                                <u>Rika Wulandari</u><br>
+                                
                             </td>
                         </tr>
                     </tbody>
@@ -171,6 +171,9 @@
        
 
     </div>
+    <script>
+        window.print();
+    </script>
 </body>
 
 </html>

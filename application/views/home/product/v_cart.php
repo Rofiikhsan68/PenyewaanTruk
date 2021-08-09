@@ -67,7 +67,7 @@
                                              <button onclick="var result = document.getElementById('sst<?= $i_min++ ?>'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;" class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                          </div>
                                      </td>
-                                     <td style="width: 100px;">
+                                     <td style="width: 120px;">
                                          <h5>Rp <?= number_format($row['price'] * $row['qty'] * $row['jumlah_hari'], 0, ".", ".") ?></h5>
                                      </td>
                                      <td>
@@ -122,11 +122,11 @@
                                  <td></td>
                                  <td></td>
                                  </td>
-                                 <td>
+                                 <td >
 
                                  </td>
                                  <td>
-                                     <div class="checkout_btn_inner d-flex align-items-center">
+                                     <div class="checkout_btn_inner d-flex align-items-center" style="margin-left: -351px;">
                                          <a class="gray_btn" href="<?= base_url() ?>home/all_product">Continue Shopping</a>
                                          <a href="<?= base_url() ?>home/checkout/" class="primary-btn" href="#">Proceed to checkout</a>
                                      </div>
