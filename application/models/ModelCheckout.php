@@ -18,10 +18,13 @@ class ModelCheckout extends CI_Model
             tbl_user.id_user = ?";
             return $this->db->query($sql,$id_user)->row_array();
     }
-    public function inserDataTransaction($dataTransaction){
+    public function insertDataTransaction($dataTransaction){
         return $this->db->insert_batch('tbl_transaksi', $dataTransaction);
     }
 public function update_alamat($data,$id_user){
     return $this->db->update('tbl_detailuser', $data ,array('id_user' => $id_user));
 }
+// public function getDataCartByIdUser($id_user){
+//     return $this->db->get_where('tbl_cart' ,array('id_user' => $id_user))->row_array();
+// }
 }

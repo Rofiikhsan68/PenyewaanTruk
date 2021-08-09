@@ -157,7 +157,7 @@ class Product extends CI_Controller
         }
         $dataSet = new ArrayDataset($trainData,$labels);
         $dataSet->removeColumns([null]);
-        $dataSet->removeColumns([0,1,2]);
+        $dataSet->removeColumns([0,1,2,5]);
         $samples = $dataSet->getSamples();
         $labels = $dataSet->getTargets();
         $merk = $this->input->post('merk');
@@ -167,6 +167,8 @@ class Product extends CI_Controller
         $radius = $this->input->post('radius');
         // $k = $this->input->post('k');
         $k = 3;
+
+        if($merk != null && $type != null && $capacity != null && $price != null && $radius != null){
           
 
         $predictLabels;
@@ -179,9 +181,9 @@ class Product extends CI_Controller
 
         $report = new ClassificationReport($labels,$predictLabels);
         $data['accuracy'] = Accuracy::score($labels,$predictLabels)*100;
-        $data['average']  = $report->getAverage();
+        $data['average']  = $report->getAverage();  
         
-        $input = [$capacity,$radius,$price,$merk,$type];
+        $input = [$capacity,$radius];
         $newData = [];
         $euclidean = new Euclidean();
         for($i = 0; $i<= count($samples)-1; $i++){
@@ -200,6 +202,13 @@ class Product extends CI_Controller
         $this->load->view('home/layout/navbar');
         $this->load->view('home/product/search_recomendation');
         $this->load->view('home/layout/footer');
+
+    }else{
+        $this->session->set_flashdata('type', 'warning');
+        $this->session->set_flashdata('pesan', 'Mohon lengkapi data untuk pencarian produk anda !');
+        $this->session->set_flashdata('title', 'Gagal!');;
+        redirect(base_url('home/recommendation'));
+        }
 
     }
 }

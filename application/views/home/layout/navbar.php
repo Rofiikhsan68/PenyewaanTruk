@@ -22,7 +22,7 @@
                                     <?php if ($this->session->userdata('username')) { ?>
                                         <input class="search-input" name="search" style="width: 260px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } else { ?>
-                                        <input class="search-input" style="width: 400px;" placeholder="Cari Produk Disini..." type="text" name="search">
+                                        <input class="search-input" style="width: 680px;" placeholder="Cari Produk Disini..." type="text" name="search">
                                     <?php } ?>
                                     <input type="hidden" name="uri_first" value="<?= $this->uri->segment(1); ?>">
                                     <input type="hidden" name="uri_second" value="<?= $this->uri->segment(2); ?>">
@@ -37,19 +37,33 @@
                             <?php } else { ?>
                                 <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
                             <?php } ?>
+                            <?php if ($this->session->userdata('username')) { ?>
                             <?php if (isset($active_allproduct)) { ?>
                                 <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/all_product/">All Product</a></li>
-                            <?php } else { ?>
-                                <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/all_product/">All Product</a></li>
-                            <?php } ?>
-                            <?php if (isset($active_recommendation)) { ?>
-                            <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
                             <?php }else{ ?>
-                                <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
+                                <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/all_product/">All Product</a></li>
+                            <?php } ?>
                             <?php } ?>
                             <?php if ($this->session->userdata('username')) { ?>
-                                <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/list_transaction">Transaction</a></li>
-                            <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/profile">Profile</a></li>
+                            <?php if (isset($active_recommendation)) { ?>
+                            <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
+                            <?php }else{  ?>
+                                <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/recommendation">Rekomendasi</a></li>
+                            <?php } ?>
+                            <?php } ?>
+                            <?php if ($this->session->userdata('username')) { ?>
+                            <?php if (isset($active_transaction)) { ?>
+                                <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/list_transaction">Transaction</a></li>
+                                <?php }else{ ?> 
+                                    <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>home/list_transaction">Transaction</a></li>
+                                <?php } ?>
+                                <?php } ?>
+                                <?php if ($this->session->userdata('username')) { ?>
+                            <?php if (isset($active_profile)) { ?>
+                            <li class="nav-item active mr-item"><a class="nav-link" href="<?= base_url() ?>home/profile">Profile</a></li>
+                            <?php }else{ ?>
+                                <li class="nav-item  mr-item"><a class="nav-link" href="<?= base_url() ?>home/profile">Profile</a></li>
+                            <?php } ?>
                             <?php } ?>
                             <?php if ($this->session->userdata('username') == null) { ?>
                                 <li class="nav-item mr-item"><a class="nav-link" href="<?= base_url() ?>login/">Login</a></li>
@@ -60,11 +74,11 @@
                         <ul class="nav navbar-nav navbar-right">
                             <?php if(isset($active_cart)) { ?>
                             
-                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"><span class="pl-1" > <?= $count_cart ?></span></span></a></li>
+                                <li class="nav-item active ml-item"><a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag" style="color: cadetblue;"></span></a></li>
                             <?php }else{ ?>
                                 <?php if ($this->session->userdata('username') != null) { ?>
                                 <li class="nav-item  ml-item">
-                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a>
+                                <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"></span></a>
                                 <?php }else{ ?>
                                     <!-- <a href="<?= base_url() ?>home/cart/" class="cart"><span class="ti-bag"><span class="pl-2">0</span></span></a> -->
                                 <?php } ?>

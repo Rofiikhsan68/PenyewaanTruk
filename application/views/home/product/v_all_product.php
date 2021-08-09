@@ -21,7 +21,7 @@
                 <ul class="main-categories">
                     <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/">All<span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php foreach ($data_merk as $merk) { ?>
-                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/"><?= $merk['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
+                        <li class="main-nav-list"><a href="<?= base_url() ?>home/all_product/<?= $merk['id_merk']?>"><?= $merk['merk_name'] ?><span class="number">(<?= count($data_merk) ?>)</span></a></li>
                     <?php } ?>
 
             </div>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="prd-bottom">
 
-                                    <a href="<?= base_url() ?>cart/add_cart/<?= $product['id_product']?>" class="social-info">
+                                <a onClick="tambah_cart('<?= base_url() ?>cart/add_cart/<?= $product['id_product']?>')" data-target="#modal_hari" data-toggle="modal" class="social-info">
                                         <span class="ti-bag"></span>
                                         <p class="hover-text">add to bag</p>
                                     </a>
@@ -96,3 +96,53 @@
         </div>
     </div>
 </div>
+
+	<!-- end product Area -->
+	<div class="modal fade" id="modal_hari" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Form Input hari
+					 </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="container mt-3" style="padding-right: 50px; padding-left:50px;">
+						<form action="" id="form" method="post" enctype="multipart/form-data">
+							<div class="form-group row">
+								<div class="col-sm-10">
+									<div class="form-group row">
+										<label for="" class="col-sm-3 col-form-label">Input Hari Sewa</label>
+										<div class="col-sm-9">
+											<input type="date" value="" id="hari_sewa" required name="hari_sewa" class="form-control">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="" class="col-sm-3 col-form-label">Input Hari Selesai</label>
+										<div class="col-sm-9">
+											<input type="date" value="" id="hari_selesai" required name="hari_selesai" class="form-control">
+										</div>
+									</div>
+								</div>
+							</div>
+							<input type="hidden" name="id_transaction" id="id_transaction2">
+							<input type="hidden" name="remaining_paid_input" id="remaining_paid_input">
+
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="submit" id="btn_proccess" class="btn btn-primary">Save changes</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+	function tambah_cart(base_url){
+		document.getElementById('form').action = base_url; 
+	}
+	</script>

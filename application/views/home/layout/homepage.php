@@ -40,8 +40,8 @@
 						<div class="f-icon">
 							<img src="<?= base_url() ?>assets/home/img/features/f-icon1.png" alt="">
 						</div>
-						<h6>Gratis Ongkir</h6>
-						<p>Khusus untuk Pembelanjaan Minimal Rp 150.000</p>
+						<h6>Pengiriman Cepat</h6>
+						<p>Unit milik sendiri menjadikan layanan kami cepat, aman dan amanah untuk sampai tujuan.</p>
 					</div>
 				</div>
 				<!-- single features -->
@@ -50,8 +50,8 @@
 						<div class="f-icon">
 							<img src="<?= base_url() ?>assets/home/img/features/f-icon5.png" alt="">
 						</div>
-						<h6>COD</h6>
-						<p>Dapat Melakukan Pembayaran dengan Cash On Delivery</p>
+						<h6>Handle With Care</h6>
+						<p>Percayakan pengiriman anda pada kami, kami akan handle barang anda dengan sangat hati - hati.</p>
 					</div>
 				</div>
 				<!-- single features -->
@@ -61,7 +61,7 @@
 							<img src="<?= base_url() ?>assets/home/img/features/f-icon3.png" alt="">
 						</div>
 						<h6>Layanan 24/7</h6>
-						<p>Didukung Layanan 24 Jam</p>
+						<p>Layanan support Customer Service yang responsif. </p>
 					</div>
 				</div>
 				<!-- single features -->
@@ -70,8 +70,8 @@
 						<div class="f-icon">
 							<img src="<?= base_url() ?>assets/home/img/features/f-icon4.png" alt="">
 						</div>
-						<h6>100% Original</h6>
-						<p>Produk dijamin original</p>
+						<h6>Harga Terjangkau</h6>
+						<p>Harga Kami boleh dibandingkan dengan yang lain.</p>
 					</div>
 				</div>
 			</div>
