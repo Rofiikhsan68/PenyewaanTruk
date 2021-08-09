@@ -28,13 +28,18 @@
             
         }
         public function all_product(){
+            $id_merk = $this->uri->segment(3);
             $data = array(
                 "active_allproduct"     => "active",
                 "data_merk"         => $this->ModelMerk->getDataMerk(),
                 "data_product"      => $this->ModelProduct->getDataProduct(),
                 "title"             => "Semua Produk"
             );
-            
+                if($id_merk != null){
+                    $data['data_product'] = $this->ModelProduct->getDataProductByIdMerk($id_merk);
+                }else{
+                    $data['data_product'] = $this->ModelProduct->getDataProduct();
+                }
             $this->load->view('home/layout/header',$data);
             $this->load->view('home/layout/navbar');
             $this->load->view('home/product/v_all_product');
@@ -62,7 +67,7 @@
             }
 
             $data = array(
-                "active_allproduct"     => "active",
+                "active_profile"     => "active",
                 "title"                 => "Profile",
                 "data_detail"           => $this->ModelUsers->getDataDetail($id_user)
             );
@@ -93,12 +98,12 @@
         }
 
         public function checkout(){
-            $id_user = $this->session->userdata('id_user');
+           $id_user = $this->session->userdata('id_user');
            $data = array(
             "active_checkout"       => "active",
             "title"                 => "Checkout",
             "data_checkout"         => $this->ModelCheckout->getDataCheckout($id_user),
-            "data_customer"         => $this->ModelCheckout->getDataCustomer($id_user)
+            "data_customer"         => $this->ModelCheckout->getDataCustomer($id_user),
            ); 
           
            $this->load->view('home/layout/header',$data);
