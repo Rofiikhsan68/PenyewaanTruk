@@ -108,9 +108,10 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
-                    <?php for($i = 0; $i < 4; $i++){ ?>
+                    <?php $l=1; for($i = 0; $i < 4; $i++){ ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="single-product">
+                            <p><?= $l++;?></p>
                             <!-- <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $row['foto'] ?>" alt=""> -->
                             <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $recomended[$i]['data']['photo'] ?>" alt="">
                             <div class="product-details">
