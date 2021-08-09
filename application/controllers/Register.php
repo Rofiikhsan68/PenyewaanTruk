@@ -29,49 +29,69 @@ class Register extends CI_Controller
         $password = $this->input->post('password');
         $confirmPassword = $this->input->post('confirm_password');
 
+
+
         if ($username != null && $email != null && $password != null && $confirmPassword != null) {
-            if ($confirmPassword == $password) {
-                $cekUsername = $this->ModelUsers->getRowData($username);
-                if ($cekUsername != null) {
-                    $this->session->set_flashdata('type', 'error');
-                    $this->session->set_flashdata('pesan', 'Mohon Maaf, Username sudah digunakan');
+            $getDataUserByUsername = $this->ModelUsers->getDataUserByUsername($username);
+            $getDataUserByEmail = $this->ModelUsers->getDataUserByEmail($email);
+            $used_username = $getDataUserByUsername['username'];
+            $used_email = $getDataUserByEmail['email'];
+            if($username != $used_username) {
+            if($email != $used_email){
+                if ($confirmPassword == $password) {
+                    $cekUsername = $this->ModelUsers->getRowData($username);
+                    if ($cekUsername != null) {
+                        $this->session->set_flashdata('type', 'error');
+                        $this->session->set_flashdata('pesan', 'Mohon Maaf, Username sudah digunakan');
+                        $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
+                        redirect(base_url('register/'));
+                    }
+                    $cekEmail = $this->ModelUsers->getRowData($email);
+                    if ($cekEmail != null) {
+                        $this->session->set_flashdata('type', 'error');
+                        $this->session->set_flashdata('pesan', 'Mohon Maaf, Email sudah digunakan');
+                        $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
+                        redirect(base_url('register/'));
+                    }
+                    $insertUsers = [
+                        'username'  => $username,
+                        'email'     => $email,
+                        'password'  => password_hash($password, PASSWORD_DEFAULT)
+                    ];
+                    $this->ModelUsers->insertUsers($insertUsers, 'tbl_user');
+                    $getDataDetail = $this->ModelUsers->getDetailLast();
+                    $insertDetail = [
+                        'full_name' => $getDataDetail['username'],
+                        'id_user'   => $getDataDetail['id_user']
+                    ];
+                    $this->ModelUsers->insertUsers($insertDetail, 'tbl_detailuser');
+                    $this->session->set_flashdata('type', 'success');
+                    $this->session->set_flashdata('pesan', 'Pendaftaran akun berhasil, Silahakan login');
+                    $this->session->set_flashdata('title', 'Daftar Akun Sukses!');
+                    redirect(base_url('register/'));
+                } else {
+                    $this->session->set_flashdata('type', 'warning');
+                    $this->session->set_flashdata('pesan', 'Password dengan Konfirmasi password tidak sama');
                     $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
                     redirect(base_url('register/'));
                 }
-                $cekEmail = $this->ModelUsers->getRowData($email);
-                if($cekEmail != null){
-                    $this->session->set_flashdata('type', 'error');
-                    $this->session->set_flashdata('pesan', 'Mohon Maaf, Email sudah digunakan');
-                    $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
-                    redirect(base_url('register/'));
-                }
-                $insertUsers = [
-                    'username'  => $username,
-                    'email'     => $email,
-                    'password'  => password_hash($password,PASSWORD_DEFAULT)
-                ];
-                $this->ModelUsers->insertUsers($insertUsers,'tbl_user');
-                $getDataDetail = $this->ModelUsers->getDetailLast();
-                $insertDetail = [
-                    'full_name' => $getDataDetail['username'],
-                    'id_user'   => $getDataDetail['id_user']
-                ];
-                $this->ModelUsers->insertUsers($insertDetail,'tbl_detailuser');
-                $this->session->set_flashdata('type', 'success');
-                $this->session->set_flashdata('pesan', 'Pendaftaran akun berhasil, Silahakan login');
-                $this->session->set_flashdata('title', 'Daftar Akun Sukses!');
-                redirect(base_url('register/'));
             } else {
-                $this->session->set_flashdata('type', 'warning');
-                $this->session->set_flashdata('pesan', 'Password dengan Konfirmasi password tidak sama');
-                $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
-                redirect(base_url('register/'));
+            $this->session->set_flashdata('type', 'warning');
+            $this->session->set_flashdata('pesan', 'Email Telah Digunakan!');
+            $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
+            redirect(base_url('register/'));
             }
         } else {
             $this->session->set_flashdata('type', 'warning');
-            $this->session->set_flashdata('pesan', 'Mohon lengkapi data terlebih dahulu');
-            $this->session->set_flashdata('title', 'Daftar Akun  Gagal!');
+            $this->session->set_flashdata('pesan', 'Username Telah Digunakan!');
+            $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
             redirect(base_url('register/'));
         }
+    }else{
+        $this->session->set_flashdata('type', 'warning');
+        $this->session->set_flashdata('pesan', 'Mohon lengkapi data terlebih dahulu');
+        $this->session->set_flashdata('title', 'Daftar Akun Gagal!');
+        redirect(base_url('register/'));
     }
+}
 }
