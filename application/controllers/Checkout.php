@@ -26,6 +26,8 @@ class Checkout extends CI_Controller
         $weight = $this->input->post('weight');
         $id_transaction = "TRN" . date('ymd') . rand(1111, 9999);
 
+
+
         //update data users
         $updateDataUsers = array(
             'email' => $email

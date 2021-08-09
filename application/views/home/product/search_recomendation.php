@@ -123,6 +123,7 @@
                                         </div>
                                         <div class="prd-bottom">
 
+
                                             <a onClick="tambah_cart('<?= base_url() ?>cart/add_cart/<?= $recomended[$i]['data']['id_product'] ?>')" data-target="#modal_hari" data-toggle="modal" class="social-info">
                                                 <span class="ti-bag"></span>
                                                 <p class="hover-text">add to bag</p>

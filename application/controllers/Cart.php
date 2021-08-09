@@ -35,51 +35,66 @@ class Cart extends CI_Controller
         $hari_sewa = $this->input->post('hari_sewa');
         $hari_selesai = $this->input->post('hari_selesai');
 
-        $get_date = $this->getDatesFromRange($hari_sewa,$hari_selesai);
+        $get_date = $this->getDatesFromRange($hari_sewa, $hari_selesai);
 
         $lama_hari = count($get_date) - 1;
 
+        $date_now = date("Y-m-d");
+        
+        if ($date_now <= $hari_selesai) {
+            if ($date_now <= $hari_sewa) {
+                $cekproduct = $this->ModelCart->getDataByUsers($id_product, $id_user);
+                if ($id_user != null) {
+                    $statuscart = $cekproduct['status'];
+                    if ($cekproduct != null && $statuscart == 0) {
 
-        $cekproduct = $this->ModelCart->getDataByUsers($id_product, $id_user);
-        if ($id_user != null) {
-            $statuscart = $cekproduct['status'];
-            if ($cekproduct != null && $statuscart == 0) {
+                        $id_cart = $cekproduct['id_cart'];
+                        $beforamount = $cekproduct['qty'];
+                        $afteramount = $beforamount + 1;
 
-                $id_cart = $cekproduct['id_cart'];
-                $beforamount = $cekproduct['qty'];
-                $afteramount = $beforamount + 1;
-
-                $data = array(
-                    'id_product'    => $id_product,
-                    'id_user'      => $id_user,
-                    'hari_sewa'    => $hari_sewa,
-                    'hari_selesai'  => $hari_selesai,
-                    'jumlah_hari'   => $lama_hari,
-                    'qty'           => $afteramount,
-                );
-                $this->ModelCart->updateDataCartByIdUsers($data, $id_cart);
-                $this->session->set_flashdata('type', 'success');
-                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambah Ke Cart');
-                $this->session->set_flashdata('title', 'Berhasil!!!');
-                redirect(base_url());
+                        $data = array(
+                            'id_product'    => $id_product,
+                            'id_user'      => $id_user,
+                            'hari_sewa'    => $hari_sewa,
+                            'hari_selesai'  => $hari_selesai,
+                            'jumlah_hari'   => $lama_hari,
+                            'qty'           => $afteramount,
+                        );
+                        $this->ModelCart->updateDataCartByIdUsers($data, $id_cart);
+                        $this->session->set_flashdata('type', 'success');
+                        $this->session->set_flashdata('pesan', 'Data Berhasil Ditambah Ke Cart');
+                        $this->session->set_flashdata('title', 'Berhasil!!!');
+                        redirect(base_url());
+                    } else {
+                        $data = array(
+                            'id_product'    => $id_product,
+                            'id_user'      => $id_user,
+                            'hari_sewa'    => $hari_sewa,
+                            'hari_selesai'  => $hari_selesai,
+                            'jumlah_hari'   => $lama_hari,
+                            'qty'           => 1,
+                        );
+                        $this->ModelCart->insertDataCartByIdUsers($data);
+                        $this->session->set_flashdata('type', 'success');
+                        $this->session->set_flashdata('pesan', 'Data Berhasil Ditambah Ke Cart');
+                        $this->session->set_flashdata('title', 'Berhasil!!!');
+                        redirect(base_url());
+                    }
+                } else {
+                    $this->session->set_flashdata('type', 'warning');
+                    $this->session->set_flashdata('pesan', 'Login Terlebih Dahulu');
+                    $this->session->set_flashdata('title', 'Gagal!!!');
+                    redirect(base_url());
+                }
             } else {
-                $data = array(
-                    'id_product'    => $id_product,
-                    'id_user'      => $id_user,
-                    'hari_sewa'    => $hari_sewa,
-                    'hari_selesai'  => $hari_selesai,
-                    'jumlah_hari'   => $lama_hari,
-                    'qty'           => 1,
-                );
-                $this->ModelCart->insertDataCartByIdUsers($data);
-                $this->session->set_flashdata('type', 'success');
-                $this->session->set_flashdata('pesan', 'Data Berhasil Ditambah Ke Cart');
-                $this->session->set_flashdata('title', 'Berhasil!!!');
+                $this->session->set_flashdata('type', 'warning');
+                $this->session->set_flashdata('pesan', 'Tanggal Sewa Sudah Terlewat!');
+                $this->session->set_flashdata('title', 'Gagal!!!');
                 redirect(base_url());
             }
         } else {
             $this->session->set_flashdata('type', 'warning');
-            $this->session->set_flashdata('pesan', 'Login Terlebih Dahulu');
+            $this->session->set_flashdata('pesan', 'Tanggal Selesai Sewa Sudah Terlewat!');
             $this->session->set_flashdata('title', 'Gagal!!!');
             redirect(base_url());
         }
