@@ -44,4 +44,10 @@
         public function updatePasswordById($data, $id){
             return $this->db->update('tbl_user', $data,array('id_user' => $id));
         }
+        public function getDataUserByUsername($username){
+            return $this->db->get_where('tbl_user', array('username' => $username))->row_array();
+        }
+        public function getDataUserByEmail($email){
+            return $this->db->get_where('tbl_user', array('email' => $email))->row_array();
+        }
     }
