@@ -87,6 +87,7 @@ class Payment extends CI_Controller
         );
         // $this->ModelTransaction->updateStatusByNumber($data, $number);
         $this->ModelTransaction->UpdateStatusPenyewaan($data, $number);
+        
         $this->session->set_flashdata("pesan", "Pesanan berhasil dikonfirmasi !");
         $this->session->set_flashdata("title", "Pesanan dikonfirmasi");
         $this->session->set_flashdata("type", "success");
