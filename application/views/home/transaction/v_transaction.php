@@ -98,8 +98,14 @@
                                                 <?php } else if ($payment['payment_status'] == 1) { ?>
                                                     <span class="btn btn-outline-warning btn-sm">Menunggu Pelunasan</span>
                                                 <?php } else { ?>
-                                                    <span class="btn btn-outline-success btn-sm">Menunggu Diproses</span>
-                                                <?php } ?>
+                                                    <?php if($payment['bukti_lunas'] == null){ ?>
+                                                        <span class="btn btn-outline-success btn-sm">Kendaraan menuju tempat muat</span>
+                                                    <?php }else{ ?>
+                                                        <span class="btn btn-outline-success btn-sm">Menunggu Diproses</span>
+                                                    <?php } ?>
+                                                <?php }  ?>
+                                                
+                                                   
                                             </td>
                                             <td>
                                                 <button onClick="detailpesanan('<?= $payment['id_transaction'] ?>','<?= base_url() ?>')" data-toggle="modal" data-target="#modal_pesanan" type="button" type="button" class="btn btn-outline-primary btn-sm"> <i class="fa fa-info-circle"></i> Lihat Detail</button>
