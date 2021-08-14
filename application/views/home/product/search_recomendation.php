@@ -108,33 +108,34 @@
             <section class="lattest-product-area pb-40 category-list">
                 <div class="row">
                     <!-- single product -->
-                    <?php $l=1; for ($i = 0; $i < 4; $i++) { ?>
+                    <?php $l = 1;
+                    for ($i = 0; $i < 4; $i++) { ?>
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <p><?= $l++;?></p>
-                                    <!-- <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $row['foto'] ?>" alt=""> -->
-                                    <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $recomended[$i]['data']['photo'] ?>" alt="">
-                                    <div class="product-details">
-                                        <h6><?= $recomended[$i]['data']['product_name'] ?></h6>
-                                        <div class="price">
-                                            <h6>Rp <?= number_format($recomended[$i]['data']['price'], 0, ".", ".") ?></h6>
-                                            <p><?= $recomended[$i]['distance'] ?></p>
-                                            <!-- <h6 class="l-through">$210.00</h6> -->
-                                        </div>
-                                        <div class="prd-bottom">
-
-
-                                            <a onClick="tambah_cart('<?= base_url() ?>cart/add_cart/<?= $recomended[$i]['data']['id_product'] ?>')" data-target="#modal_hari" data-toggle="modal" class="social-info">
-                                                <span class="ti-bag"></span>
-                                                <p class="hover-text">add to bag</p>
-                                            </a>
-
-                                            <a href="<?= base_url() ?>home/detail_product/<?= $recomended[$i]['data']['id_product'] ?>" class="social-info">
-                                                <span class="lnr lnr-move"></span>
-                                                <p class="hover-text">view Detail</p>
-                                            </a>
-                                        </div>
+                                <p class="btn btn-outline-primary">Pilihan <?= $l++; ?></p>
+                                <!-- <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/foto_produk/<?= $row['foto'] ?>" alt=""> -->
+                                <img style="height: 255px; width:255px;" class="img-fluid" src="<?= base_url() ?>assets/home/foto_produk/<?= $recomended[$i]['data']['photo'] ?>" alt="">
+                                <div class="product-details">
+                                    <h6><?= $recomended[$i]['data']['product_name'] ?></h6>
+                                    <div class="price">
+                                        <h6>Rp <?= number_format($recomended[$i]['data']['price'], 0, ".", ".") ?></h6>
+                                        <p><?= $recomended[$i]['distance'] ?></p>
+                                        <!-- <h6 class="l-through">$210.00</h6> -->
                                     </div>
+                                    <div class="prd-bottom">
+
+
+                                        <a onClick="tambah_cart('<?= base_url() ?>cart/add_cart/<?= $recomended[$i]['data']['id_product'] ?>')" data-target="#modal_hari" data-toggle="modal" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">add to bag</p>
+                                        </a>
+
+                                        <a href="<?= base_url() ?>home/detail_product/<?= $recomended[$i]['data']['id_product'] ?>" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">view Detail</p>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <?php } ?>

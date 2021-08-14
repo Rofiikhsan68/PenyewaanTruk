@@ -37,7 +37,7 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="s_product_text">
 						<h3><?= $data_product['product_name'] ?></h3>
-						<h2 class="color-primary" >Rp <?= number_format(10000,0,".",".") ?>/hari</h2>
+						<h2 class="color-primary" >Rp <?= number_format($data_product['price'],0,".",".") ?>/hari</h2>
 						<ul class="list">
 							<li><a class="active color-primary" href="#"><span>Category</span> : <?= $data_product['type_name'] ?></a></li>
 							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
